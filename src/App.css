@@ -430,15 +430,31 @@
     width: 100%;
   }
 
-  .dropdown:hover .dropdown-menu {
+  .dropdown.open .dropdown-menu {
     display: block;
     transform: none;
+  }
+
+  .dropdown-item {
+    color: var(--text-dark);
+    padding: 12px 20px !important;
+    border-bottom: 1px solid #eee;
+  }
+
+  .calc-group {
+    padding: 10px 0;
+  }
+
+  .calc-group h4 {
+    padding: 10px 20px;
+    background: #f0f0ff;
+    font-size: 0.9rem;
   }
 
   .calculator-menu {
     min-width: 100%;
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 0;
   }
 
   .nav-cta {
@@ -446,7 +462,14 @@
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 25px;
   }
 
   .contact-section {

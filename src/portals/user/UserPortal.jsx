@@ -12,6 +12,13 @@ function UserPortal() {
     const [formData, setFormData] = useState({ name: '', mobile: '', type: 'Taxation', message: '' });
     const [submitted, setSubmitted] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(null);
+
+    const toggleDropdown = (name) => {
+        if (window.innerWidth <= 992) {
+            setOpenDropdown(openDropdown === name ? null : name);
+        }
+    };
 
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
@@ -61,11 +68,11 @@ function UserPortal() {
                         <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a></li>
 
                         {/* Services Dropdown */}
-                        <li className="dropdown">
-                            <a href="#services">Services ▾</a>
+                        <li className={`dropdown ${openDropdown === 'services' ? 'open' : ''}`}>
+                            <a href="#services" onClick={(e) => { e.preventDefault(); toggleDropdown('services'); }}>Services {openDropdown === 'services' ? '▴' : '▾'}</a>
                             <div className="dropdown-menu">
                                 {services.map((s, i) => (
-                                    <a key={i} href="#services" className="dropdown-item">
+                                    <a key={i} href="#services" className="dropdown-item" onClick={() => scrollToSection('services')}>
                                         {s.title}
                                     </a>
                                 ))}
@@ -73,8 +80,8 @@ function UserPortal() {
                         </li>
 
                         {/* Calculators Dropdown */}
-                        <li className="dropdown">
-                            <a href="/calculators">Calculators ▾</a>
+                        <li className={`dropdown ${openDropdown === 'calculators' ? 'open' : ''}`}>
+                            <a href="#" onClick={(e) => { e.preventDefault(); toggleDropdown('calculators'); }}>Calculators {openDropdown === 'calculators' ? '▴' : '▾'}</a>
                             <div className="dropdown-menu calculator-menu">
                                 <div className="calc-group">
                                     <h4>Investments</h4>

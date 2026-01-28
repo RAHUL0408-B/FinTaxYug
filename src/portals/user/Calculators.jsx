@@ -46,7 +46,14 @@ const calculatorsList = [
 function Calculators() {
     const [selectedCalc, setSelectedCalc] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(null);
     const navigate = useNavigate();
+
+    const toggleDropdown = (name) => {
+        if (window.innerWidth <= 992) {
+            setOpenDropdown(openDropdown === name ? null : name);
+        }
+    };
 
     const ActiveCalculator = () => {
         switch (selectedCalc) {
@@ -89,7 +96,15 @@ function Calculators() {
 
                     <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
                         <li><a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a></li>
-                        <li><a href="/#services" onClick={(e) => { e.preventDefault(); navigate('/'); setTimeout(() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }), 500); }}>Services</a></li>
+
+                        {/* Services Dropdown */}
+                        <li className={`dropdown ${openDropdown === 'services' ? 'open' : ''}`}>
+                            <a href="#" onClick={(e) => { e.preventDefault(); toggleDropdown('services'); }}>Services {openDropdown === 'services' ? '▴' : '▾'}</a>
+                            <div className="dropdown-menu">
+                                <a href="/#services" className="dropdown-item" onClick={() => navigate('/#services')}>All Services</a>
+                            </div>
+                        </li>
+
                         <li><a href="/#about" onClick={(e) => { e.preventDefault(); navigate('/'); setTimeout(() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }), 500); }}>About</a></li>
                         <li><a href="/#contact" onClick={(e) => { e.preventDefault(); navigate('/'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 500); }}>Contact</a></li>
                     </ul>
