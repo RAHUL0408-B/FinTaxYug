@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import officePhoto from '../../assets/office_photo.jpg';
 import whatsappLogo from '../../assets/whatsapp_logo.png';
-// import logo from '../../assets/finaccx_logo.png';
+// import whatsappLogo from '../../assets/whatsapp_logo.png';
 import qrCode from '../../assets/instagram_qr.png';
 import yugantProfile from '../../assets/yugant_profile_new.png';
 import HeroSlider from '../../components/common/HeroSlider';
