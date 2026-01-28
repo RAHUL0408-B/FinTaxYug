@@ -126,6 +126,7 @@
         text-align: center;
         padding: 30px 20px;
         width: 100%;
+        left: 0 !important;
     }
 
     .slide-content h1 {
