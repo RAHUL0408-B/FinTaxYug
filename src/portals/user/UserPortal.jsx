@@ -7,6 +7,8 @@ import qrCode from '../../assets/instagram_qr.png';
 import yugantProfile from '../../assets/yugant_profile_new.png';
 import HeroSlider from '../../components/common/HeroSlider';
 
+import logo from '../../assets/logo.png';
+
 function UserPortal() {
     const { addInquiry } = useApp();
     const [formData, setFormData] = useState({ name: '', mobile: '', type: 'Taxation', message: '' });
@@ -55,7 +57,7 @@ function UserPortal() {
             <nav className="navbar">
                 <div className="container nav-container">
                     <div className="logo" onClick={() => scrollToSection('home')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                        <span style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--primary)', letterSpacing: '-0.5px' }}>FinTaxYug</span>
+                        <img src={logo} alt="FinTaxYug Logo" style={{ height: '45px', width: 'auto' }} />
                     </div>
 
                     <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>

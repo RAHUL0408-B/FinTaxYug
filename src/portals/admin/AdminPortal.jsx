@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import './Admin.css';
 
+import logo from '../../assets/logo.png';
+
 function AdminPortal() {
     const { inquiries, updateInquiryStatus } = useApp();
     const navigate = useNavigate();
@@ -129,7 +131,9 @@ function AdminPortal() {
     return (
         <div className="admin-layout">
             <aside className="admin-sidebar">
-                <h1>FinTaxYug Admin</h1>
+                <div className="admin-logo-container" style={{ marginBottom: '30px', padding: '0 10px' }}>
+                    <img src={logo} alt="FinTaxYug" style={{ width: '100%', height: 'auto', filter: 'brightness(0) invert(1)' }} />
+                </div>
                 <ul className="admin-nav">
                     <li>
                         <a

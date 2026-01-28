@@ -20,6 +20,7 @@ import WealthTargetCalculator from '../../components/calculators/WealthTargetCal
 import NetworthCalculator from '../../components/calculators/NetworthCalculator';
 import CostOfDelayCalculator from '../../components/calculators/CostOfDelayCalculator';
 import PurchasingPowerCalculator from '../../components/calculators/PurchasingPowerCalculator';
+import logo from '../../assets/logo.png';
 
 const calculatorsList = [
     { id: 'sip', title: 'SIP CALCULATOR', desc: 'Find out the how much wealth can you generate by doing a particular amount of SIP.', icon: '📊' },
@@ -85,7 +86,7 @@ function Calculators() {
             <nav className="navbar">
                 <div className="container nav-container">
                     <div className="logo" onClick={() => navigate('/')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                        <span style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--primary)', letterSpacing: '-0.5px' }}>FinTaxYug</span>
+                        <img src={logo} alt="FinTaxYug Logo" style={{ height: '45px', width: 'auto' }} />
                     </div>
 
                     <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
