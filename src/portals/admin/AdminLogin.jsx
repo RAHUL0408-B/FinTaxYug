@@ -30,10 +30,13 @@ function AdminLogin() {
             if (isSignUp) {
                 await createUserWithEmailAndPassword(auth, email, password);
                 setMessage('Account created successfully!');
+                localStorage.setItem('fintxyug_auth', 'true');
+                navigate('/admin/dashboard');
             } else {
                 await signInWithEmailAndPassword(auth, email, password);
+                localStorage.setItem('fintxyug_auth', 'true');
+                navigate('/admin/dashboard');
             }
-            navigate('/admin');
         } catch (err) {
             setError(err.message.replace('Firebase: ', ''));
         } finally {
@@ -48,7 +51,8 @@ function AdminLogin() {
         try {
             const provider = new GoogleAuthProvider();
             await signInWithPopup(auth, provider);
-            navigate('/admin');
+            localStorage.setItem('fintxyug_auth', 'true');
+            navigate('/admin/dashboard');
         } catch (err) {
             setError(err.message.replace('Firebase: ', ''));
         } finally {
