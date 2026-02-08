@@ -2,139 +2,77 @@ import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import officePhoto from '../../assets/office_photo.jpg';
 import whatsappLogo from '../../assets/whatsapp_logo.png';
-// import whatsappLogo from '../../assets/whatsapp_logo.png';
 import qrCode from '../../assets/instagram_qr.png';
 import yugantProfile from '../../assets/yugant_profile_new.png';
 import HeroSlider from '../../components/common/HeroSlider';
-
-import logo from '../../assets/logo.png';
+import logo from '../../assets/fintaxverslogo.png';
+import Navbar from '../../components/common/Navbar';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function UserPortal() {
-    const { addInquiry } = useApp();
+    const { addInquiry, services } = useApp();
     const [formData, setFormData] = useState({ name: '', mobile: '', type: 'Taxation', message: '' });
-    const [submitted, setSubmitted] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [openDropdown, setOpenDropdown] = useState(null);
+    const [showSuccess, setShowSuccess] = useState(false);
+    const location = useLocation();
 
-    const toggleDropdown = (name) => {
-        if (window.innerWidth <= 992) {
-            setOpenDropdown(openDropdown === name ? null : name);
+    useEffect(() => {
+        if (location.state?.scrollTo) {
+            setTimeout(() => {
+                scrollToSection(location.state.scrollTo);
+            }, 100);
         }
-    };
+    }, [location]);
 
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
-            setMenuOpen(false);
         }
     };
-
-    const services = [
-        { title: "Accounting & Financial Reporting", desc: "Comprehensive bookkeeping and financial statement preparation.", icon: "📊" },
-        { title: "Project Financing & CMA", desc: "Detailed funding analysis and Credit Monitoring Arrangement data.", icon: "💰" },
-        { title: "All GST Related Services", desc: "Registration, returns filing, and expert GST advisory.", icon: "📉" },
-        { title: "MSME & Company Registration", desc: "Legal entity formation and MSME/Shop Act certificates.", icon: "🏢" },
-        { title: "ROC Filing", desc: "Corporate law compliance and annual ROC returns.", icon: "📝" },
-        { title: "Loan Financing", desc: "Personal and business loan assistance with expert guidance.", icon: "🏦" },
-        { title: "Internal Audit", desc: "In-depth process verification and internal control checks.", icon: "🔍" },
-        { title: "Income Tax & Statutory Audits", desc: "Statutory audits and tax compliance reporting.", icon: "⚖️" }
-    ];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const success = await addInquiry(formData);
         if (success) {
-            setSubmitted(true);
+            setShowSuccess(true);
             setFormData({ name: '', mobile: '', type: 'Taxation', message: '' });
-            setTimeout(() => setSubmitted(false), 5000);
+            setTimeout(() => setShowSuccess(false), 5000);
         }
     };
 
+
     return (
-        <div className="user-portal">
+        <div className="user-portal" style={{ background: '#f8fafc', color: '#1e293b' }}>
             {/* Navbar */}
-            <nav className="navbar">
-                <div className="container nav-container">
-                    <div className="logo" onClick={() => scrollToSection('home')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                        <img src={logo} alt="FinTaxYug Logo" style={{ height: '45px', width: 'auto' }} />
-                    </div>
+            <Navbar />
 
-                    <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                    </div>
-
-                    <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
-                        <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a></li>
-
-                        {/* Services Dropdown */}
-                        <li className={`dropdown ${openDropdown === 'services' ? 'open' : ''}`}>
-                            <a href="#services" onClick={(e) => { e.preventDefault(); toggleDropdown('services'); }}>Services {openDropdown === 'services' ? '▴' : '▾'}</a>
-                            <div className="dropdown-menu">
-                                {services.map((s, i) => (
-                                    <a key={i} href="#services" className="dropdown-item" onClick={() => scrollToSection('services')}>
-                                        {s.title}
-                                    </a>
-                                ))}
-                            </div>
-                        </li>
-
-                        {/* Calculators Dropdown */}
-                        <li className={`dropdown ${openDropdown === 'calculators' ? 'open' : ''}`}>
-                            <a href="#" onClick={(e) => { e.preventDefault(); toggleDropdown('calculators'); }}>Calculators {openDropdown === 'calculators' ? '▴' : '▾'}</a>
-                            <div className="dropdown-menu calculator-menu">
-                                <div className="calc-group">
-                                    <h4>Investments</h4>
-                                    <a href="/calculators" className="dropdown-item">SIP Calculator</a>
-                                    <a href="/calculators" className="dropdown-item">Step Up SIP</a>
-                                    <a href="/calculators" className="dropdown-item">Mutual Fund</a>
-                                    <a href="/calculators" className="dropdown-item">CAGR Calculator</a>
-                                    <a href="/calculators" className="dropdown-item">NPS Calculator</a>
-                                    <a href="/calculators" className="dropdown-item">SWP Calculator</a>
-                                </div>
-                                <div className="calc-group">
-                                    <h4>Loans & Tax</h4>
-                                    <a href="/calculators" className="dropdown-item">EMI Calculator</a>
-                                    <a href="/calculators" className="dropdown-item">Home Affordability</a>
-                                    <a href="/calculators" className="dropdown-item">Income Tax (New)</a>
-                                    <a href="/calculators" className="dropdown-item">HRA Calculator</a>
-                                </div>
-                                <div className="calc-group">
-                                    <h4>Planning</h4>
-                                    <a href="/calculators" className="dropdown-item">Emergency Fund</a>
-                                    <a href="/calculators" className="dropdown-item">Goal Planner</a>
-                                    <a href="/calculators" className="dropdown-item">Child Education</a>
-                                    <a href="/calculators" className="dropdown-item">Retirement</a>
-                                    <a href="/calculators" className="dropdown-item">Wealth Target</a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>About</a></li>
-                        <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a></li>
-                    </ul>
-                    <button className="nav-cta btn btn-primary" onClick={() => scrollToSection('contact')}>Book Consultation</button>
-                </div>
-            </nav>
 
             {/* Hero Slider */}
-            <HeroSlider />
+            <div id="home">
+                <HeroSlider />
+            </div>
 
             {/* Services Section */}
             <section id="services" className="section">
                 <div className="container">
-                    <div className="section-header">
-                        <h2>Our Services</h2>
-                        <p>Comprehensive financial and compliance solutions tailored for Indian businesses and MSMEs.</p>
+                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#1e293b' }}>Our Services</h2>
+                        <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Comprehensive financial and compliance solutions tailored for Indian businesses and MSMEs.</p>
                     </div>
                     <div className="services-grid">
-                        {services.map((service, index) => (
-                            <div key={index} className="service-card animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                        {(services.length > 0 ? services : [
+                            { title: "Financial Reporting", desc: "High-precision bookkeeping and institutional-grade financial statement preparation.", icon: "📊" },
+                            { title: "Project Financing", desc: "Strategic CMA data preparation and sophisticated credit monitoring for institutional requirements.", icon: "💵" },
+                            { title: "GST Compliance", desc: "Advanced indirect tax advisory and seamless filing for complex corporate structures.", icon: "📄" },
+                            { title: "Entity Formation", desc: "Premium incorporation services for MSMEs and corporations seeking a structured start.", icon: "🏢" },
+                            { title: "ROC Filing", desc: "Meticulous corporate law compliance and annual governance management.", icon: "📝" },
+                            { title: "Loan Advisory", desc: "Expert navigation of capital markets for personal and business liquidity needs.", icon: "🐷" }
+                        ]).map((service, index) => (
+                            <div key={service.id || index} className="service-card animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
                                 <div className="service-icon">{service.icon}</div>
-                                <h3>{service.title}</h3>
-                                <p>{service.desc}</p>
+                                <h3 style={{ color: 'var(--primary)', marginBottom: '15px' }}>{service.title}</h3>
+                                <p style={{ color: '#64748b' }}>{service.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -144,52 +82,83 @@ function UserPortal() {
             {/* Methodology Section */}
             <section className="section methodology">
                 <div className="container">
-                    <div className="section-header">
-                        <h2>Work Methodology</h2>
-                        <p>Our streamlined 3-step process ensures accuracy and timely compliance reporting.</p>
+                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#1e293b' }}>Work Methodology</h2>
+                        <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Our streamlined 3-step process ensures accuracy and timely compliance reporting.</p>
                     </div>
                     <div className="method-grid">
                         <div className="method-step animate-fade-up">
                             <div className="step-number">1</div>
-                            <h3>Data Collection</h3>
-                            <p>Systematic gathering of financial records and transaction details.</p>
+                            <h3 style={{ color: '#1e293b', marginBottom: '10px' }}>Data Collection</h3>
+                            <p style={{ color: '#64748b' }}>Systematic gathering of financial records and transaction details.</p>
                         </div>
                         <div className="method-step animate-fade-up">
                             <div className="step-number">2</div>
-                            <h3>Accurate Calculation</h3>
-                            <p>Assessment of tax liabilities and financial health based on current norms.</p>
+                            <h3 style={{ color: '#1e293b', marginBottom: '10px' }}>Accurate Calculation</h3>
+                            <p style={{ color: '#64748b' }}>Assessment of tax liabilities and financial health based on current norms.</p>
                         </div>
                         <div className="method-step animate-fade-up">
                             <div className="step-number">3</div>
-                            <h3>Compliance Reporting</h3>
-                            <p>Submission and performance of tax reporting with zero compliance risk.</p>
+                            <h3 style={{ color: '#1e293b', marginBottom: '10px' }}>Compliance Reporting</h3>
+                            <p style={{ color: '#64748b' }}>Submission and performance of tax reporting with zero compliance risk.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Consultant Profile */}
+            {/* About Section */}
             <section id="about" className="section">
                 <div className="container">
-                    <div className="glass-card" style={{ padding: '60px', textAlign: 'center', borderTop: '4px solid var(--primary)' }}>
-                        <div style={{ margin: '0 auto 20px', width: '150px', height: '150px', borderRadius: '50%', overflow: 'hidden', border: '5px solid var(--bg-gray)' }}>
-                            <img src={yugantProfile} alt="Yugant V. Rahele" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        </div>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>Yugant V. Rahele</h2>
-                        <p style={{ fontSize: '1rem', color: 'var(--primary)', fontWeight: '600', marginBottom: '20px' }}>B.Com, M.Com, MBA Finance</p>
-                        <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', maxWidth: '800px', margin: '0 auto 30px' }}>
-                            A dedicated financial professional providing expert tax reporting and compliance solutions.
-                            Our firm establishes trust through authority, clarity, and a commitment to professional excellence.
-                        </p>
-                        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-                            <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontWeight: '800', fontSize: '1.5rem', color: 'var(--primary)' }}>10+</div>
-                                <div style={{ fontSize: '0.8rem', color: 'var(--text-light)' }}>Years Experience</div>
+                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#1e293b' }}>About FinTaxVers</h2>
+                        <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Dedicated to providing professional financial excellence and building long-term consultant relationships.</p>
+                    </div>
+                    <div className="about-grid" style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+                        gap: '30px',
+                        alignItems: 'stretch'
+                    }}>
+                        <div className="about-card-wrapper animate-fade-up">
+                            <div className="glass-card" style={{ height: '100%', padding: '20px' }}>
+                                <div style={{ borderRadius: '12px', overflow: 'hidden', marginBottom: '20px', minHeight: '300px' }}>
+                                    <img src={officePhoto} alt="FinTaxVers Office" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                </div>
+                                <div style={{ textAlign: 'center' }}>
+                                    <h3 style={{ fontSize: '1.25rem', marginBottom: '8px', color: 'var(--primary)' }}>Our Premium Workspace</h3>
+                                    <p style={{ fontSize: '0.9rem', color: '#64748b' }}>Experience sophisticated financial planning in our Nagpur headquarters.</p>
+                                </div>
                             </div>
-                            <div style={{ width: '1px', background: '#ddd' }}></div>
-                            <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontWeight: '800', fontSize: '1.5rem', color: 'var(--primary)' }}>500+</div>
-                                <div style={{ fontSize: '0.8rem', color: 'var(--text-light)' }}>Happy Clients</div>
+                        </div>
+
+                        <div className="about-card-wrapper animate-fade-up" style={{ animationDelay: '0.2s' }}>
+                            <div className="glass-card" style={{ height: '100%', padding: '40px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '25px' }}>
+                                    <div style={{ width: '80px', height: '80px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--primary)', flexShrink: 0 }}>
+                                        <img src={yugantProfile} alt="Yugant V. Rahele" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    </div>
+                                    <div>
+                                        <h3 style={{ fontSize: '1.75rem', marginBottom: '4px', color: 'var(--primary)' }}>Yugant V. Rahele</h3>
+                                        <p style={{ color: '#1e293b', fontWeight: '600', fontSize: '0.9rem' }}>B.Com, M.Com, MBA Finance</p>
+                                    </div>
+                                </div>
+                                <p style={{ fontSize: '1rem', color: '#64748b', marginBottom: '30px', lineHeight: '1.7' }}>
+                                    With over a decade of experience in financial consultancy, Yugant Rahele provides strategic insights into taxation, GST compliance, and project financing.
+                                </p>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #e2e8f0', paddingTop: '25px', textAlign: 'center' }}>
+                                    <div>
+                                        <div style={{ fontWeight: '800', fontSize: '1.5rem', color: 'var(--primary)' }}>10+</div>
+                                        <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Years Exp.</div>
+                                    </div>
+                                    <div>
+                                        <div style={{ fontWeight: '800', fontSize: '1.5rem', color: 'var(--primary)' }}>500+</div>
+                                        <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Clients</div>
+                                    </div>
+                                    <div>
+                                        <div style={{ fontWeight: '800', fontSize: '1.5rem', color: 'var(--primary)' }}>Nagpur</div>
+                                        <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Local Base</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -199,76 +168,62 @@ function UserPortal() {
             {/* Contact Section */}
             <section id="contact" className="section">
                 <div className="container">
-                    <div className="section-header">
-                        <h2>Contact & Consult</h2>
-                        <p>Have a question or need financial advice? Get in touch with our experts today.</p>
+                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#1e293b' }}>Contact & Consult</h2>
+                        <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Have a question or need financial advice? Get in touch with our experts today.</p>
                     </div>
-                    <div className="contact-section">
-                        <div className="contact-info animate-fade-up">
-                            <h3>Get In Touch</h3>
-                            <div className="info-item">
-                                <span className="info-icon">📍</span>
+                    <div className="contact-section" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '50px' }}>
+                        <div className="contact-info glass-card" style={{ padding: '50px' }}>
+                            <h3 style={{ color: '#1e293b', marginBottom: '30px' }}>Get In Touch</h3>
+                            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+                                <span>📍</span>
                                 <div>
-                                    <h4>Office Address</h4>
-                                    <p>305, Rahul Complex 1, Wing 1, Near Ganeshpeth Bus Stand, Nagpur - 440018</p>
+                                    <h4 style={{ color: '#1e293b' }}>Office Address</h4>
+                                    <p style={{ color: '#64748b' }}>305, Rahul Complex 1, Wing 1, Near Ganeshpeth Bus Stand, Nagpur - 440018</p>
                                 </div>
                             </div>
-                            <div className="info-item">
-                                <span className="info-icon">📞</span>
+                            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+                                <span>📞</span>
                                 <div>
-                                    <h4>Phone Number</h4>
-                                    <p>+91-8928895195<br />+91-9011424236</p>
+                                    <h4 style={{ color: '#1e293b' }}>Phone Number</h4>
+                                    <p style={{ color: '#64748b' }}>+91-8928895195<br />+91-9011424236</p>
                                 </div>
                             </div>
-                            <div className="info-item">
-                                <span className="info-icon">📧</span>
+                            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+                                <span>📧</span>
                                 <div>
-                                    <h4>Email Address</h4>
-                                    <p>fintaxyug@gmail.com</p>
+                                    <h4 style={{ color: '#1e293b' }}>Email Address</h4>
+                                    <p style={{ color: '#64748b' }}>fintaxvers@gmail.com</p>
                                 </div>
                             </div>
-                            <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                                <img src={qrCode} alt="Instagram QR" style={{ width: '150px', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }} />
-                                <p style={{ marginTop: '10px', fontSize: '0.9rem', color: '#666' }}>Scan to follow on Instagram</p>
+                            <div style={{ marginTop: '30px', textAlign: 'center' }}>
+                                <img src={qrCode} alt="Instagram QR" style={{ width: '150px', borderRadius: '10px' }} />
+                                <p style={{ marginTop: '10px', fontSize: '0.8rem', color: '#94a3b8' }}>Scan to follow on Instagram</p>
                             </div>
                         </div>
 
-                        <div className="contact-form-container animate-fade-up">
-                            {submitted ? (
+                        <div className="contact-form-container glass-card" style={{ padding: '50px' }}>
+                            {showSuccess ? (
                                 <div style={{ textAlign: 'center', padding: '40px' }}>
                                     <div style={{ fontSize: '3rem', color: 'var(--primary)', marginBottom: '20px' }}>✅</div>
-                                    <h3>Request Submitted!</h3>
-                                    <p>Thank you. Yugant V. Rahele will contact you shortly.</p>
-                                    <button className="btn btn-outline" style={{ marginTop: '20px' }} onClick={() => setSubmitted(false)}>Send Another Request</button>
+                                    <h3 style={{ color: '#1e293b' }}>Request Submitted!</h3>
+                                    <p style={{ color: '#64748b' }}>Thank you. Yugant V. Rahele will contact you shortly.</p>
+                                    <button className="btn btn-outline" style={{ marginTop: '20px' }} onClick={() => setShowSuccess(false)}>Send Another Request</button>
                                 </div>
                             ) : (
+
                                 <form onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <label>Full Name</label>
-                                        <input
-                                            type="text"
-                                            required
-                                            placeholder="Enter your name"
-                                            value={formData.name}
-                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        />
+                                        <input type="text" required placeholder="Enter your name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
                                     </div>
                                     <div className="form-group">
                                         <label>Mobile Number</label>
-                                        <input
-                                            type="tel"
-                                            required
-                                            placeholder="+91"
-                                            value={formData.mobile}
-                                            onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                                        />
+                                        <input type="tel" required placeholder="+91" value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} />
                                     </div>
                                     <div className="form-group">
                                         <label>Inquiry Type</label>
-                                        <select
-                                            value={formData.type}
-                                            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                                        >
+                                        <select value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })}>
                                             <option>Taxation</option>
                                             <option>GST Services</option>
                                             <option>Company Registration</option>
@@ -278,13 +233,7 @@ function UserPortal() {
                                     </div>
                                     <div className="form-group">
                                         <label>Message</label>
-                                        <textarea
-                                            rows="4"
-                                            required
-                                            placeholder="Tell us about your requirement..."
-                                            value={formData.message}
-                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        ></textarea>
+                                        <textarea rows="4" required placeholder="Tell us about your requirement..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
                                     </div>
                                     <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Submit Request</button>
                                 </form>
@@ -295,48 +244,138 @@ function UserPortal() {
             </section>
 
             {/* Footer */}
-            <footer className="section" style={{ background: '#1a1a1a', color: 'white', padding: '60px 0 30px' }}>
+            <footer className="section" style={{ background: '#fff', borderTop: '1px solid #e2e8f0', padding: '60px 0 30px' }}>
                 <div className="container">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', marginBottom: '40px' }}>
                         <div>
-                            <h4 style={{ marginBottom: '20px', fontSize: '1.5rem', fontWeight: '800', color: 'var(--primary-light)' }}>FinTaxYug</h4>
-                            <p style={{ color: '#999' }}>Professional CA and financial consultancy services for MSMEs and startups.</p>
+                            <h4 style={{ marginBottom: '20px', fontSize: '1.5rem', fontWeight: '800', color: 'var(--primary)' }}>FinTaxVers</h4>
+                            <p style={{ color: '#64748b' }}>Bespoke financial consultancy for elite businesses and established enterprises.</p>
                         </div>
                         <div>
-                            <h4 style={{ marginBottom: '20px' }}>Quick Links</h4>
-                            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', color: '#999' }}>
+                            <h4 style={{ marginBottom: '20px', color: '#1e293b' }}>Links</h4>
+                            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', color: '#64748b' }}>
                                 <li><a href="#home">Home</a></li>
                                 <li><a href="#services">Services</a></li>
                                 <li><a href="#about">About</a></li>
                                 <li><a href="#contact">Contact</a></li>
-                                <li><a href="/admin" style={{ color: 'var(--primary-light)' }}>Admin Login</a></li>
                             </ul>
                         </div>
                         <div>
-                            <h4 style={{ marginBottom: '20px' }}>Services</h4>
-                            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', color: '#999' }}>
-                                <li>GST Filing</li>
-                                <li>Income Tax</li>
-                                <li>Audit</li>
-                                <li>Registration</li>
+                            <h4 style={{ marginBottom: '20px', color: '#1e293b' }}>Expertise</h4>
+                            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', color: '#64748b' }}>
+                                <li>Project Financing</li>
+                                <li>Bespoke Taxation</li>
+                                <li>Elite Auditing</li>
+                                <li>Capital Strategy</li>
                             </ul>
                         </div>
                     </div>
-                    <div style={{ borderTop: '1px solid #333', paddingTop: '30px', textAlign: 'center', color: '#666', fontSize: '0.9rem' }}>
-                        <p>&copy; 2026 FinTaxYug. All Rights Reserved.</p>
+                    <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '30px', textAlign: 'center', color: '#94a3b8', fontSize: '0.9rem' }}>
+                        <p>&copy; 2026 FinTaxVers. Excellence in Finance.</p>
                     </div>
                 </div>
             </footer>
 
             {/* Floating Buttons */}
-            <div className="floating-actions">
-                <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" className="float-btn whatsapp-btn" style={{ background: 'transparent', padding: 0 }}>
-                    <img src={whatsappLogo} alt="WhatsApp" style={{ width: '60px', height: '60px' }} />
+            <div className="floating-actions" style={{ position: 'fixed', bottom: '40px', right: '30px', display: 'flex', flexDirection: 'column', gap: '15px', zIndex: 1000 }}>
+                {/* WhatsApp Button */}
+                <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" className="float-btn" style={{
+                    width: '60px',
+                    height: '60px',
+                    background: '#25D366',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 10px 20px rgba(0,0,0,0.15)',
+                    transition: 'var(--transition)'
+                }}>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                        <path d="M12.03 2.02c-5.52 0-9.98 4.47-9.98 9.99 0 1.77.46 3.44 1.28 4.9L2 22l5.25-1.38c1.41.77 3.02 1.21 4.75 1.21 5.52 0 10.01-4.47 10.01-9.99S17.55 2.02 12.03 2.02zM12 20.37c-1.57 0-3.11-.42-4.45-1.22l-.32-.19-3.3.87.88-3.23-.21-.33a8.12 8.12 0 0 1-1.25-4.3c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13s-3.65 8.13-8.13 8.13zm4.44-6.11c-.24-.12-1.42-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.93-.14.15-.29.17-.53.05-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.1-.1.22-.24.33-.37.11-.12.15-.19.22-.32.07-.13.04-.24-.02-.37-.06-.12-.55-1.33-.76-1.84-.2-.5-.41-.43-.55-.44h-.48c-.16 0-.44.06-.66.3-.22.24-.86.84-.86 2.04s.87 2.37.99 2.53c.12.16 1.72 2.62 4.16 3.67.58.25 1.03.4 1.38.52.58.19 1.11.16 1.53.1.47-.07 1.42-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" />
+                    </svg>
                 </a>
-                <a href="tel:+918928895195" className="float-btn call-btn" style={{ width: '50px', height: '50px', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.3-.3.4-.69.24-1.01a10.75 10.75 0 0 1-.56-3.53c0-.55-.45-1-1-1H4.44c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.55c0-.55-.45-1-1-1z" /></svg>
+
+                {/* Call Button */}
+                <a href="tel:+918928895195" className="float-btn" style={{
+                    width: '60px',
+                    height: '60px',
+                    background: '#25D366',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 10px 20px rgba(0,0,0,0.15)',
+                    transition: 'var(--transition)'
+                }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.3-.3.4-.69.24-1.01a10.75 10.75 0 0 1-.56-3.53c0-.55-.45-1-1-1H4.44c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.55c0-.55-.45-1-1-1z" />
+                    </svg>
                 </a>
             </div>
+
+
+
+
+            <style>{`
+                .dropdown-menu {
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(10px);
+                    min-width: 250px;
+                    padding: 10px 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease;
+                    z-index: 1000;
+                    background: white;
+                }
+                .dropdown:hover .dropdown-menu {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateX(-50%) translateY(0);
+                }
+                .dropdown-item {
+                    display: block;
+                    padding: 12px 20px;
+                    color: #64748b;
+                }
+                .dropdown-item:hover {
+                    color: var(--primary);
+                    background: #f1f5f9;
+                }
+                .calculator-menu {
+                    min-width: 600px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    padding: 24px;
+                    gap: 20px;
+                }
+                @media (max-width: 992px) {
+                    .calculator-menu {
+                        min-width: 0;
+                        grid-template-columns: 1fr;
+                        position: static;
+                        transform: none;
+                        display: none;
+                        background: #f8fafc;
+                    }
+                    .dropdown.open .calculator-menu {
+                        display: block;
+                    }
+                    .dropdown-menu {
+                        position: static;
+                        display: none;
+                        transform: none;
+                        opacity: 1;
+                        visibility: visible;
+                        background: #f8fafc;
+                    }
+                    .dropdown.open .dropdown-menu {
+                        display: block;
+                    }
+                }
+            `}</style>
         </div>
     );
 }

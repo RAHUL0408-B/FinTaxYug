@@ -8,25 +8,28 @@ const slides = [
     {
         id: 1,
         image: heroGrowth,
-        title: "Expert Tax Reporting & Financial Solutions",
-        description: "Maximize your wealth with our professional assistance in GST, Income Tax, and financial compliance.",
-        btnText: "Get Started",
+        badge: "FinTaxVers - Excellence in Finance",
+        title: "Bespoke Financial Excellence",
+        description: "Preserving wealth and ensuring compliance through sophisticated multi-disciplinary expertise.",
+        btnText: "Book Now",
         link: "#contact"
     },
     {
         id: 2,
         image: heroTax,
-        title: "Seamless Audit & Compliance",
-        description: "Ensure 100% compliance with our accurate internal audits and statutory reporting services.",
-        btnText: "Our Services",
+        badge: "Institutional Grade",
+        title: "Sophisticated Audit & Strategy",
+        description: "Advanced indirect tax advisory and seamless filing for complex corporate structures.",
+        btnText: "Explore Services",
         link: "#services"
     },
     {
         id: 3,
         image: heroConsult,
-        title: "Strategic Financial Consultation",
-        description: "Grow your business with expert guidance on project financing, loans, and MSME registration.",
-        btnText: "Book Consultation",
+        badge: "Strategic Growth",
+        title: "Institutional Capital Solutions",
+        description: "Expert navigation of capital markets for personal and business liquidity needs.",
+        btnText: "Get Started",
         link: "#contact"
     }
 ];
@@ -58,13 +61,13 @@ const HeroSlider = () => {
                     style={{ backgroundImage: `url(${slide.image})` }}
                 >
                     <div className="slide-overlay">
-                        <div className="container">
+                        <div className="container" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
                             <div className="slide-content animate-fade-up">
+                                {slide.badge && <span className="hero-badge">{slide.badge}</span>}
                                 <h1>{slide.title}</h1>
                                 <p>{slide.description}</p>
-                                <div className="hero-btns">
+                                <div className="hero-btns" style={{ justifyContent: 'center' }}>
                                     <a href={slide.link} className="btn btn-primary">{slide.btnText}</a>
-                                    <a href="#services" className="btn btn-outline" style={{ marginLeft: '15px' }}>Explore Services</a>
                                 </div>
                             </div>
                         </div>

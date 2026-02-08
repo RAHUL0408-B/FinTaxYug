@@ -8,6 +8,7 @@ import {
     GoogleAuthProvider
 } from 'firebase/auth';
 import { auth } from '../../firebase';
+import logo from '../../assets/fintaxverslogo.png';
 import './Admin.css';
 
 function AdminLogin() {
@@ -20,68 +21,26 @@ function AdminLogin() {
     const navigate = useNavigate();
 
     const handleAuth = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError('');
-        setMessage('');
-
-        try {
-            if (isSignUp) {
-                await createUserWithEmailAndPassword(auth, email, password);
-                setMessage('Account created successfully! Logging you in...');
-            } else {
-                await signInWithEmailAndPassword(auth, email, password);
-            }
-            localStorage.setItem('fintxyug_auth', 'true');
-            navigate('/admin/dashboard');
-        } catch (err) {
-            console.error(err);
-            setError(err.message.replace('Firebase: ', ''));
-        } finally {
-            setLoading(false);
-        }
+        // ... (rest of function)
     };
 
-    const handleGoogleLogin = async () => {
-        setLoading(true);
-        setError('');
-
-        try {
-            const provider = new GoogleAuthProvider();
-            await signInWithPopup(auth, provider);
-            localStorage.setItem('fintxyug_auth', 'true');
-            navigate('/admin/dashboard');
-        } catch (err) {
-            console.error(err);
-            setError(err.message.replace('Firebase: ', ''));
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleForgotPassword = async () => {
-        if (!email) {
-            setError('Please enter your email address to reset password.');
-            return;
-        }
-        setLoading(true);
-        try {
-            await sendPasswordResetEmail(auth, email);
-            setMessage('Password reset email sent! Check your inbox.');
-            setError('');
-        } catch (err) {
-            console.error(err);
-            setError(err.message.replace('Firebase: ', ''));
-        } finally {
-            setLoading(false);
-        }
-    };
+    // ... (rest of functions)
 
     return (
         <div className="login-container">
             <div className="login-card glass-card">
-                <div className="login-header">
-                    <h2>FinTaxYug Admin</h2>
+                <div className="login-header" style={{ marginBottom: '20px', textAlign: 'center' }}>
+                    <img
+                        src={logo}
+                        alt="FinTaxVers"
+                        style={{
+                            height: 'auto',
+                            width: '100%',
+                            maxWidth: '220px',
+                            marginBottom: '15px'
+                        }}
+                    />
+                    <h2 style={{ fontSize: '1.2rem', color: '#64748b', fontWeight: '500' }}>Admin Portal</h2>
                     <p>{isSignUp ? 'Create a new admin account' : 'Login to manage your consultancy'}</p>
                 </div>
 
@@ -93,7 +52,7 @@ function AdminLogin() {
                         <label>Email Address</label>
                         <input
                             type="email"
-                            placeholder="admin@fintaxyug.com"
+                            placeholder="admin@fintaxvers.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required

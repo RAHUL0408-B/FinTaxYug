@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import CalculatorLayout from '../../components/calculators/CalculatorLayout';
 import SIPCalculator from '../../components/calculators/SIPCalculator';
 import StepUpSIPCalculator from '../../components/calculators/StepUpSIPCalculator';
@@ -20,7 +20,9 @@ import WealthTargetCalculator from '../../components/calculators/WealthTargetCal
 import NetworthCalculator from '../../components/calculators/NetworthCalculator';
 import CostOfDelayCalculator from '../../components/calculators/CostOfDelayCalculator';
 import PurchasingPowerCalculator from '../../components/calculators/PurchasingPowerCalculator';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/fintaxverslogo.png';
+import Navbar from '../../components/common/Navbar';
+
 
 const calculatorsList = [
     { id: 'sip', title: 'SIP CALCULATOR', desc: 'Find out the how much wealth can you generate by doing a particular amount of SIP.', icon: '📊' },
@@ -49,12 +51,24 @@ function Calculators() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.calcId) {
+            setSelectedCalc(location.state.calcId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Clear location state if we want "Back to list" to not reopen it on refresh
+            // window.history.replaceState({}, document.title); 
+        }
+    }, [location.state]);
 
     const toggleDropdown = (name) => {
         if (window.innerWidth <= 992) {
             setOpenDropdown(openDropdown === name ? null : name);
         }
     };
+
+
 
     const ActiveCalculator = () => {
         switch (selectedCalc) {
@@ -82,49 +96,31 @@ function Calculators() {
     };
 
     return (
-        <div className="calculators-page" style={{ paddingTop: '100px', minHeight: '100vh', background: '#fdfbff' }}>
-            <nav className="navbar">
-                <div className="container nav-container">
-                    <div className="logo" onClick={() => navigate('/')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                        <img src={logo} alt="FinTaxYug Logo" style={{ height: '45px', width: 'auto' }} />
-                    </div>
+        <div className="calculators-page" style={{
+            paddingTop: '100px',
+            minHeight: '100vh',
+            background: '#f8fafc',
+            color: '#1e293b'
+        }}>
+            <Navbar />
 
-                    <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                        <div className="bar"></div>
-                    </div>
 
-                    <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
-                        <li><a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a></li>
-
-                        {/* Services Dropdown */}
-                        <li className={`dropdown ${openDropdown === 'services' ? 'open' : ''}`}>
-                            <a href="#" onClick={(e) => { e.preventDefault(); toggleDropdown('services'); }}>Services {openDropdown === 'services' ? '▴' : '▾'}</a>
-                            <div className="dropdown-menu">
-                                <a href="/#services" className="dropdown-item" onClick={() => navigate('/#services')}>All Services</a>
-                            </div>
-                        </li>
-
-                        <li><a href="/#about" onClick={(e) => { e.preventDefault(); navigate('/'); setTimeout(() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }), 500); }}>About</a></li>
-                        <li><a href="/#contact" onClick={(e) => { e.preventDefault(); navigate('/'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 500); }}>Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-
-            <div className="container">
-                <div className="section-header">
-                    <h2>Calculators</h2>
-                    <p>Plan your financial future with our comprehensive suite of calculators.</p>
+            <div className="container" style={{ marginTop: '40px' }}>
+                <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                    <h2 style={{ fontSize: '2.5rem', color: '#1e293b' }}>Calculators</h2>
+                    <p style={{ color: '#64748b' }}>Plan your financial future with our comprehensive suite of calculators.</p>
                 </div>
 
                 {selectedCalc ? (
                     <div className="calculator-view animate-fade-up">
-                        <button className="btn btn-outline" style={{ marginBottom: '20px' }} onClick={() => setSelectedCalc(null)}>← Back to Calculators</button>
+                        <button className="btn btn-primary" style={{ marginBottom: '30px' }} onClick={() => setSelectedCalc(null)}>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="m15 18-6-6 6-6" /></svg>
+                            Back to List
+                        </button>
                         <ActiveCalculator />
                     </div>
                 ) : (
-                    <div className="services-grid">
+                    <div className="services-grid" style={{ marginTop: '20px' }}>
                         {calculatorsList.map((calc, index) => (
                             <div
                                 key={index}
@@ -133,13 +129,56 @@ function Calculators() {
                                 onClick={() => setSelectedCalc(calc.id)}
                             >
                                 <div className="service-icon">{calc.icon}</div>
-                                <h3>{calc.title}</h3>
-                                <p>{calc.desc}</p>
+                                <h3 style={{ color: 'var(--primary)', fontSize: '1.2rem', marginBottom: '10px' }}>{calc.title}</h3>
+                                <p style={{ color: '#64748b', fontSize: '0.9rem' }}>{calc.desc}</p>
                             </div>
                         ))}
                     </div>
                 )}
             </div>
+
+            <style>{`
+                .dropdown-menu {
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(10px);
+                    min-width: 250px;
+                    padding: 10px 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease;
+                    z-index: 1000;
+                    background: white;
+                }
+                .dropdown:hover .dropdown-menu {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateX(-50%) translateY(0);
+                }
+                .dropdown-item {
+                    display: block;
+                    padding: 12px 20px;
+                    color: #64748b;
+                }
+                .dropdown-item:hover {
+                    color: var(--primary);
+                    background: #f1f5f9;
+                }
+                @media (max-width: 992px) {
+                    .dropdown-menu {
+                        position: static;
+                        display: none;
+                        transform: none;
+                        opacity: 1;
+                        visibility: visible;
+                        background: #f1f5f9;
+                    }
+                    .dropdown.open .dropdown-menu {
+                        display: block;
+                    }
+                }
+            `}</style>
         </div>
     );
 }

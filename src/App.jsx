@@ -5,7 +5,6 @@ import UserPortal from './portals/user/UserPortal'
 import Calculators from './portals/user/Calculators'
 import AdminPortal from './portals/admin/AdminPortal'
 import AdminLogin from './portals/admin/AdminLogin'
-import './App.css'
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem('fintxyug_auth') === 'true';
