@@ -21,10 +21,58 @@ function AdminLogin() {
     const navigate = useNavigate();
 
     const handleAuth = async (e) => {
-        // ... (rest of function)
+        e.preventDefault();
+        setLoading(true);
+        setError('');
+        setMessage('');
+
+        try {
+            if (isSignUp) {
+                await createUserWithEmailAndPassword(auth, email, password);
+                setMessage('Account created successfully!');
+            } else {
+                await signInWithEmailAndPassword(auth, email, password);
+            }
+            navigate('/admin');
+        } catch (err) {
+            setError(err.message.replace('Firebase: ', ''));
+        } finally {
+            setLoading(false);
+        }
     };
 
-    // ... (rest of functions)
+    const handleGoogleLogin = async () => {
+        setLoading(true);
+        setError('');
+
+        try {
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
+            navigate('/admin');
+        } catch (err) {
+            setError(err.message.replace('Firebase: ', ''));
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleForgotPassword = async () => {
+        if (!email) {
+            setError('Please enter your email address first to reset password.');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            await sendPasswordResetEmail(auth, email);
+            setMessage('Password reset email sent! Check your inbox.');
+            setError('');
+        } catch (err) {
+            setError(err.message.replace('Firebase: ', ''));
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <div className="login-container">
