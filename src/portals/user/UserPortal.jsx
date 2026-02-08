@@ -57,7 +57,7 @@ function UserPortal() {
             <section id="services" className="section">
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#1e293b' }}>Our Services</h2>
+                        <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '16px', color: '#1e293b' }}>Our Services</h2>
                         <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Comprehensive financial and compliance solutions tailored for Indian businesses and MSMEs.</p>
                     </div>
                     <div className="services-grid">
@@ -83,7 +83,7 @@ function UserPortal() {
             <section className="section methodology">
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#1e293b' }}>Work Methodology</h2>
+                        <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '16px', color: '#1e293b' }}>Work Methodology</h2>
                         <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Our streamlined 3-step process ensures accuracy and timely compliance reporting.</p>
                     </div>
                     <div className="method-grid">
@@ -110,12 +110,12 @@ function UserPortal() {
             <section id="about" className="section">
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#1e293b' }}>About FinTaxVers</h2>
+                        <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '16px', color: '#1e293b' }}>About FinTaxVers</h2>
                         <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Dedicated to providing professional financial excellence and building long-term consultant relationships.</p>
                     </div>
                     <div className="about-grid" style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                         gap: '30px',
                         alignItems: 'stretch'
                     }}>
@@ -132,7 +132,7 @@ function UserPortal() {
                         </div>
 
                         <div className="about-card-wrapper animate-fade-up" style={{ animationDelay: '0.2s' }}>
-                            <div className="glass-card" style={{ height: '100%', padding: '40px' }}>
+                            <div className="glass-card" style={{ height: '100%', padding: 'clamp(20px, 4vw, 40px)' }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '25px' }}>
                                     <div style={{ width: '80px', height: '80px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--primary)', flexShrink: 0 }}>
                                         <img src={yugantProfile} alt="Yugant V. Rahele" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -169,11 +169,11 @@ function UserPortal() {
             <section id="contact" className="section">
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#1e293b' }}>Contact & Consult</h2>
+                        <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '16px', color: '#1e293b' }}>Contact & Consult</h2>
                         <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Have a question or need financial advice? Get in touch with our experts today.</p>
                     </div>
                     <div className="contact-section" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '50px' }}>
-                        <div className="contact-info glass-card" style={{ padding: '50px' }}>
+                        <div className="contact-info glass-card" style={{ padding: 'clamp(25px, 5vw, 50px)' }}>
                             <h3 style={{ color: '#1e293b', marginBottom: '30px' }}>Get In Touch</h3>
                             <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
                                 <span>📍</span>
@@ -202,7 +202,7 @@ function UserPortal() {
                             </div>
                         </div>
 
-                        <div className="contact-form-container glass-card" style={{ padding: '50px' }}>
+                        <div className="contact-form-container glass-card" style={{ padding: 'clamp(25px, 5vw, 50px)' }}>
                             {showSuccess ? (
                                 <div style={{ textAlign: 'center', padding: '40px' }}>
                                     <div style={{ fontSize: '3rem', color: 'var(--primary)', marginBottom: '20px' }}>✅</div>
