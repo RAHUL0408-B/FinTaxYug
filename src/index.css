@@ -247,6 +247,7 @@ button {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  width: 100%;
 }
 
 .nav-links {
@@ -413,6 +414,32 @@ button {
 
   .navbar {
     top: 34px;
+  }
+
+  /* Mobile navbar layout: hamburger left, logo center */
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 16px;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    left: 16px;
+    order: 1;
+  }
+
+  .logo {
+    order: 2;
+    position: relative;
+    left: 0;
+    transform: none;
+  }
+
+  .nav-cta {
+    display: none !important;
   }
 
   .nav-links {
@@ -897,11 +924,51 @@ button {
 
 @media (max-width: 992px) {
   .navbar-logo-img {
-    width: 160px;
+    width: 140px;
+    height: auto;
   }
 
   .nav-cta {
     display: none !important;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+
+  .menu-toggle .bar {
+    width: 28px;
+    height: 3px;
+    background: var(--primary) !important;
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
   }
 }
 
@@ -945,9 +1012,9 @@ button {
   }
 
   .navbar-logo-img {
-    height: 36px;
-    width: auto;
-    max-width: 150px;
+    height: 45px !important;
+    width: auto !important;
+    max-width: 180px !important;
   }
 
   .logo {
@@ -955,11 +1022,33 @@ button {
     background: transparent !important;
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 0 !important;
+    transform: none !important;
   }
 
   .nav-container {
     padding: 0 16px;
     height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+    padding: 12px !important;
+    background: rgba(99, 102, 241, 0.12) !important;
+    border: 2px solid rgba(99, 102, 241, 0.3) !important;
+    position: absolute !important;
+    left: 16px !important;
+  }
+
+  .menu-toggle .bar {
+    width: 30px !important;
+    height: 3.5px !important;
   }
 
   .service-card {
