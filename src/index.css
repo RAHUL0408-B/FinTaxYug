@@ -373,6 +373,17 @@ button {
   transform: translateX(-50%) translateY(0) !important;
 }
 
+/* Disable hover on mobile */
+@media (max-width: 992px) {
+
+  .dropdown:hover .dropdown-menu,
+  .dropdown:hover .services-mega-menu,
+  .dropdown:hover .calculator-menu {
+    display: none !important;
+    transform: none !important;
+  }
+}
+
 /* Consolidated Mobile Navbar */
 @media (max-width: 992px) {
   .top-header {
@@ -488,10 +499,12 @@ button {
     visibility: visible !important;
     transform: none !important;
     box-shadow: none !important;
-    background: var(--bg-elevated) !important;
+    background: rgba(248, 250, 252, 0.5) !important;
     display: none;
-    padding: 15px 0 15px 20px !important;
+    padding: 10px 15px !important;
     margin-top: 5px !important;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--primary);
   }
 
   .dropdown.open .dropdown-menu {
@@ -500,9 +513,16 @@ button {
 
   .services-mega-menu,
   .calculator-menu {
+    display: none !important;
     flex-direction: column !important;
-    gap: 15px !important;
-    padding: 15px 0 15px 20px !important;
+    gap: 20px !important;
+    padding: 10px 0 !important;
+    width: 100% !important;
+    position: static !important;
+    transform: none !important;
+    min-width: 100% !important;
+    left: auto !important;
+    box-shadow: none !important;
   }
 
   .dropdown.open .services-mega-menu,
@@ -511,16 +531,22 @@ button {
   }
 
   .calc-group {
+    width: 100% !important;
     min-width: 100% !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
+    padding: 0 !important;
   }
 
   .calc-group h4 {
     border: none !important;
-    margin-bottom: 8px !important;
-    padding-bottom: 0 !important;
-    font-size: 0.8rem !important;
-    color: var(--text-dim) !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 5px !important;
+    font-size: 0.85rem !important;
+    color: var(--primary) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.2) !important;
   }
 
   .menu-toggle {
@@ -534,9 +560,19 @@ button {
   }
 
   .dropdown-item {
-    padding: 10px 0 !important;
+    display: block !important;
+    padding: 12px 8px !important;
     white-space: normal !important;
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    color: var(--text) !important;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(99, 102, 241, 0.08) !important;
+    padding-left: 12px !important;
   }
 
   .nav-cta {
