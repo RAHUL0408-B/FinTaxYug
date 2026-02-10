@@ -8,28 +8,28 @@ const slides = [
     {
         id: 1,
         image: heroGrowth,
-        badge: "FinTaxVers - Excellence in Finance",
-        title: "Bespoke Financial Excellence",
-        description: "Preserving wealth and ensuring compliance through sophisticated multi-disciplinary expertise.",
-        btnText: "Book Now",
+        badge: "Led by Yugant V. Rahele | MBA (Finance), M.Com",
+        title: "Complete Financial Consultancy & Business Growth Partner in Nagpur",
+        description: "Expert guidance on Project Financing, Business Loans, and Corporate Compliance. We help your business grow with strategic financial planning.",
+        btnText: "Talk to Specialist",
         link: "#contact"
     },
     {
         id: 2,
         image: heroTax,
-        badge: "Institutional Grade",
-        title: "Sophisticated Audit & Strategy",
-        description: "Advanced indirect tax advisory and seamless filing for complex corporate structures.",
+        badge: "High-Precision Compliance",
+        title: "GST Solutions & Financial Health",
+        description: "From new registrations to complex audit corrections, we ensure your business stays compliant and tax-efficient.",
         btnText: "Explore Services",
         link: "#services"
     },
     {
         id: 3,
         image: heroConsult,
-        badge: "Strategic Growth",
-        title: "Institutional Capital Solutions",
-        description: "Expert navigation of capital markets for personal and business liquidity needs.",
-        btnText: "Get Started",
+        badge: "Strategic Funding",
+        title: "Secure Your Capital Needs",
+        description: "Expert preparation of CMA Data and Project Reports for Mudra, Secured, and Unsecured Business Loans.",
+        btnText: "Get Funding Advice",
         link: "#contact"
     }
 ];
@@ -61,14 +61,12 @@ const HeroSlider = () => {
                     style={{ backgroundImage: `url(${slide.image})` }}
                 >
                     <div className="slide-overlay">
-                        <div className="container" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
-                            <div className="slide-content animate-fade-up">
-                                {slide.badge && <span className="hero-badge">{slide.badge}</span>}
-                                <h1>{slide.title}</h1>
-                                <p>{slide.description}</p>
-                                <div className="hero-btns" style={{ justifyContent: 'center' }}>
-                                    <a href={slide.link} className="btn btn-primary">{slide.btnText}</a>
-                                </div>
+                        <div className="slide-content animate-fade-up">
+                            {slide.badge && <span className="hero-badge">{slide.badge}</span>}
+                            <h1>{slide.title}</h1>
+                            <p>{slide.description}</p>
+                            <div className="hero-btns">
+                                <a href={slide.link} className="btn btn-primary">{slide.btnText}</a>
                             </div>
                         </div>
                     </div>

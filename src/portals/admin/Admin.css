@@ -48,9 +48,15 @@
 }
 
 .admin-main {
-    padding: 40px;
+    padding: 30px;
     overflow-y: auto;
     background: #f8fafc;
+}
+
+@media (max-width: 768px) {
+    .admin-main {
+        padding: 20px 15px;
+    }
 }
 
 .admin-header {
@@ -222,7 +228,7 @@
     }
 
     .admin-main {
-        padding: 20px;
+        padding: 20px 15px;
         /* Reduce padding on mobile */
     }
 
@@ -231,9 +237,26 @@
         /* Smaller header */
     }
 
+    .stats-grid {
+        grid-template-columns: 1fr;
+        /* Force 1 column on mobile for clarity */
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 15px 20px;
+    }
+
+    .stat-card .value {
+        font-size: 1.5rem;
+    }
+
     /* Scrollable tables container */
     .inquiry-table-container {
         padding: 15px;
+        margin-left: -15px;
+        margin-right: -15px;
+        border-radius: 0;
         overflow-x: auto;
     }
 

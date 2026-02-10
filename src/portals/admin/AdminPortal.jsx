@@ -203,8 +203,7 @@ const InquiryTable = ({ data }) => (
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Client Name</th>
-                <th>Mobile</th>
+                <th>Client Details</th>
                 <th>Service Type</th>
                 <th>Status</th>
             </tr>
@@ -212,7 +211,7 @@ const InquiryTable = ({ data }) => (
         <tbody>
             {data.length === 0 ? (
                 <tr>
-                    <td colSpan="5" style={{ textAlign: 'center', padding: '40px' }}>No recent inquiries.</td>
+                    <td colSpan="4" style={{ textAlign: 'center', padding: '40px' }}>No recent inquiries.</td>
                 </tr>
             ) : (
                 data.map(inquiry => (
@@ -220,9 +219,10 @@ const InquiryTable = ({ data }) => (
                         <td>{inquiry.date}</td>
                         <td>
                             <div style={{ fontWeight: '600' }}>{inquiry.name}</div>
-                            <div style={{ fontSize: '0.8rem', color: '#888' }}>{inquiry.message}</div>
+                            <div style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '500' }}>{inquiry.email}</div>
+                            <div style={{ fontSize: '0.85rem', color: '#475569' }}>{inquiry.mobile}</div>
+                            <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>{inquiry.message}</div>
                         </td>
-                        <td>{inquiry.mobile}</td>
                         <td>{inquiry.type}</td>
                         <td>
                             <span className={`status-badge status-${inquiry.status.toLowerCase()}`}>
@@ -371,8 +371,7 @@ const InquiriesSection = () => {
                         <tr>
                             <th style={{ width: '60px' }}>Sr. No</th>
                             <th>Date</th>
-                            <th>Client Name</th>
-                            <th>Mobile</th>
+                            <th>Client Details</th>
                             <th>Service Type</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -381,7 +380,7 @@ const InquiriesSection = () => {
                     <tbody>
                         {filteredInquiries.length === 0 ? (
                             <tr>
-                                <td colSpan="7" style={{ textAlign: 'center', padding: '40px' }}>
+                                <td colSpan="6" style={{ textAlign: 'center', padding: '40px' }}>
                                     No inquiries found.
                                 </td>
                             </tr>
@@ -392,14 +391,15 @@ const InquiriesSection = () => {
                                     <td>{inquiry.date}</td>
                                     <td>
                                         <div style={{ fontWeight: '600' }}>{inquiry.name}</div>
+                                        <div style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '500' }}>{inquiry.email}</div>
+                                        <div style={{ fontSize: '0.85rem', color: '#475569' }}>{inquiry.mobile}</div>
                                         {inquiry.notes && (
-                                            <div style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: '500', marginTop: '4px', fontStyle: 'italic' }}>
+                                            <div style={{ fontSize: '0.8rem', color: 'var(--secondary)', fontWeight: '500', marginTop: '4px', fontStyle: 'italic' }}>
                                                 Note: {inquiry.notes}
                                             </div>
                                         )}
-                                        <div style={{ fontSize: '0.8rem', color: '#888' }}>{inquiry.message}</div>
+                                        <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>{inquiry.message}</div>
                                     </td>
-                                    <td>{inquiry.mobile}</td>
                                     <td>{inquiry.type}</td>
                                     <td>
                                         <span className={`status-badge status-${inquiry.status.toLowerCase()}`}>
