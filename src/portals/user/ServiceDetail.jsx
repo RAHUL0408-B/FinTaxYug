@@ -91,12 +91,7 @@ const ServiceDetail = () => {
                         >
                             Our Process
                         </button>
-                        <button
-                            className={`tab-btn ${activeTab === 'pricing' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('pricing')}
-                        >
-                            Pricing
-                        </button>
+
                         <button
                             className={`tab-btn ${activeTab === 'faq' ? 'active' : ''}`}
                             onClick={() => setActiveTab('faq')}
@@ -184,40 +179,7 @@ const ServiceDetail = () => {
                                 </div>
                             )}
 
-                            {/* Pricing Tab */}
-                            {activeTab === 'pricing' && (
-                                <div className="tab-content animate-fade-up">
-                                    <h2>Pricing</h2>
-                                    <div className="pricing-card glass-card">
-                                        <div className="pricing-header">
-                                            <h3>{service.title}</h3>
-                                            <div className="price-tag">
-                                                <span className="price-label">Starting from</span>
-                                                <span className="price-amount">{service.pricing.starting}</span>
-                                            </div>
-                                        </div>
-                                        <p className="pricing-note">{service.pricing.note}</p>
-                                        <div className="pricing-features">
-                                            <h4>What's Included:</h4>
-                                            <ul>
-                                                {service.keyFeatures.map((feature, index) => (
-                                                    <li key={index}>
-                                                        <span className="check-icon">✓</span>
-                                                        {feature.title}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                        <button className="btn btn-primary" onClick={handleContactClick}>
-                                            Get a Quote
-                                        </button>
-                                    </div>
 
-                                    <div className="pricing-disclaimer">
-                                        <p><strong>Note:</strong> Pricing may vary based on specific requirements, complexity, and scope of work. Contact us for a detailed quote tailored to your needs.</p>
-                                    </div>
-                                </div>
-                            )}
 
                             {/* FAQ Tab */}
                             {activeTab === 'faq' && (
@@ -291,10 +253,7 @@ const ServiceDetail = () => {
                                         <span className="info-label">Category</span>
                                         <span className="info-value">{service.category}</span>
                                     </div>
-                                    <div className="quick-info-item">
-                                        <span className="info-label">Starting Price</span>
-                                        <span className="info-value">{service.pricing.starting}</span>
-                                    </div>
+
                                     <div className="quick-info-item">
                                         <span className="info-label">Expert</span>
                                         <span className="info-value">Yugant V. Rahele</span>
