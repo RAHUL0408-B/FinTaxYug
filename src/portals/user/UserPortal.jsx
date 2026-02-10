@@ -231,7 +231,7 @@ function UserPortal() {
                                 <span>📧</span>
                                 <div>
                                     <h4 style={{ color: '#1e293b' }}>Email Address</h4>
-                                    <p style={{ color: '#64748b' }}>fintaxvers@gmail.com</p>
+                                    <p style={{ color: '#64748b' }}>contact@fintaxvers.com</p>
                                 </div>
                             </div>
                             <div style={{ marginTop: '30px', textAlign: 'center' }}>
@@ -358,66 +358,6 @@ function UserPortal() {
 
 
 
-            <style>{`
-                .dropdown-menu {
-                    position: absolute;
-                    top: 100%;
-                    left: 50%;
-                    transform: translateX(-50%) translateY(10px);
-                    min-width: 250px;
-                    padding: 10px 0;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: all 0.3s ease;
-                    z-index: 1000;
-                    background: white;
-                }
-                .dropdown:hover .dropdown-menu {
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateX(-50%) translateY(0);
-                }
-                .dropdown-item {
-                    display: block;
-                    padding: 12px 20px;
-                    color: #64748b;
-                }
-                .dropdown-item:hover {
-                    color: var(--primary);
-                    background: #f1f5f9;
-                }
-                .calculator-menu {
-                    min-width: 600px;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    padding: 24px;
-                    gap: 20px;
-                }
-                @media (max-width: 992px) {
-                    .calculator-menu {
-                        min-width: 0;
-                        grid-template-columns: 1fr;
-                        position: static;
-                        transform: none;
-                        display: none;
-                        background: #f8fafc;
-                    }
-                    .dropdown.open .calculator-menu {
-                        display: block;
-                    }
-                    .dropdown-menu {
-                        position: static;
-                        display: none;
-                        transform: none;
-                        opacity: 1;
-                        visibility: visible;
-                        background: #f8fafc;
-                    }
-                    .dropdown.open .dropdown-menu {
-                        display: block;
-                    }
-                }
-            `}</style>
         </div>
     );
 }

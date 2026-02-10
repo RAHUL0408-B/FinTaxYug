@@ -48,8 +48,6 @@ const calculatorsList = [
 
 function Calculators() {
     const [selectedCalc, setSelectedCalc] = useState(null);
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [openDropdown, setOpenDropdown] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -62,11 +60,6 @@ function Calculators() {
         }
     }, [location.state]);
 
-    const toggleDropdown = (name) => {
-        if (window.innerWidth <= 992) {
-            setOpenDropdown(openDropdown === name ? null : name);
-        }
-    };
 
 
 
@@ -97,7 +90,7 @@ function Calculators() {
 
     return (
         <div className="calculators-page" style={{
-            paddingTop: '100px',
+            paddingTop: '140px',
             minHeight: '100vh',
             background: '#f8fafc',
             color: '#1e293b'
@@ -137,48 +130,6 @@ function Calculators() {
                 )}
             </div>
 
-            <style>{`
-                .dropdown-menu {
-                    position: absolute;
-                    top: 100%;
-                    left: 50%;
-                    transform: translateX(-50%) translateY(10px);
-                    min-width: 250px;
-                    padding: 10px 0;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: all 0.3s ease;
-                    z-index: 1000;
-                    background: white;
-                }
-                .dropdown:hover .dropdown-menu {
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateX(-50%) translateY(0);
-                }
-                .dropdown-item {
-                    display: block;
-                    padding: 12px 20px;
-                    color: #64748b;
-                }
-                .dropdown-item:hover {
-                    color: var(--primary);
-                    background: #f1f5f9;
-                }
-                @media (max-width: 992px) {
-                    .dropdown-menu {
-                        position: static;
-                        display: none;
-                        transform: none;
-                        opacity: 1;
-                        visibility: visible;
-                        background: #f1f5f9;
-                    }
-                    .dropdown.open .dropdown-menu {
-                        display: block;
-                    }
-                }
-            `}</style>
         </div>
     );
 }

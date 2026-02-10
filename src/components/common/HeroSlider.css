@@ -40,8 +40,8 @@
 
 .slide-content {
     max-width: 1000px;
-    padding: 120px 20px 60px;
-    /* Increased top padding to clear navbar */
+    padding: 150px 20px 60px;
+    /* Increased top padding to clear top header + navbar */
     z-index: 5;
     position: relative;
 }
