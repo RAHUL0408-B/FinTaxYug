@@ -7,7 +7,7 @@ import yugantProfile from '../../assets/yugant_profile_new.png';
 import HeroSlider from '../../components/common/HeroSlider';
 import logo from '../../assets/fintaxverslogo.png';
 import Navbar from '../../components/common/Navbar';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function UserPortal() {
@@ -15,6 +15,7 @@ function UserPortal() {
     const [formData, setFormData] = useState({ name: '', email: '', mobile: '', type: 'Taxation', message: '' });
     const [showSuccess, setShowSuccess] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (location.state?.scrollTo) {
@@ -65,26 +66,26 @@ function UserPortal() {
                             {
                                 category: "A. Business Finance & Loans (High Value)",
                                 items: [
-                                    { title: "Project Financing & CMA Data", desc: "Expert preparation of Credit Monitoring Arrangement (CMA) reports for bank loan approvals.", icon: "📊" },
-                                    { title: "Loan Assistance", desc: "Guidance for Unsecured Business Loans, Secured Loans, and Mudra Loans.", icon: "💵" },
-                                    { title: "Subsidy Consultancy", desc: "Helping you identify and apply for government business subsidies.", icon: "🏛️" }
+                                    { title: "Project Financing & CMA Data", desc: "Expert preparation of Credit Monitoring Arrangement (CMA) reports for bank loan approvals.", icon: "📊", link: "/services/cma-data-project-financing" },
+                                    { title: "Loan Assistance", desc: "Guidance for Unsecured Business Loans, Secured Loans, and Mudra Loans.", icon: "💵", link: "/services/business-loan-assistance" },
+                                    { title: "Subsidy Consultancy", desc: "Helping you identify and apply for government business subsidies.", icon: "🏛️", link: "/services/govt-subsidy-consulting" }
                                 ]
                             },
                             {
                                 category: "B. Registration & Compliance (Startup Focused)",
                                 items: [
-                                    { title: "Business Setup", desc: "Company Registration (Pvt Ltd, LLP), Partnership Firm Registration.", icon: "🏢" },
-                                    { title: "Local Licenses", desc: "Shop Act (Gumasta), MSME (Udyam Aadhar) Registration.", icon: "📝" },
-                                    { title: "ROC Filing", desc: "Handling annual returns and Ministry of Corporate Affairs (MCA) compliance.", icon: "⚖️" }
+                                    { title: "Business Setup", desc: "Company Registration (Pvt Ltd, LLP), Partnership Firm Registration.", icon: "🏢", link: "/services/company-llp-formation" },
+                                    { title: "Local Licenses", desc: "Shop Act (Gumasta), MSME (Udyam Aadhar) Registration.", icon: "📝", link: "/services/shop-act-msme" },
+                                    { title: "ROC Filing", desc: "Handling annual returns and Ministry of Corporate Affairs (MCA) compliance.", icon: "⚖️", link: "/services/roc-annual-compliance" }
                                 ]
                             },
                             {
                                 category: "C. Tax & Accounting (Day-to-Day Operations)",
                                 items: [
-                                    { title: "GST Solutions", desc: "New GST Registration, Monthly/Quarterly Return Filing, and error correction.", icon: "📄" },
-                                    { title: "Financial Reporting", desc: "End-to-end accounting, bookkeeping, and financial statement preparation.", icon: "📈" },
-                                    { title: "Tax Management", desc: "Income Tax planning and return filing services.", icon: "💰" },
-                                    { title: "Internal Audit", desc: "Reviewing your internal financial controls to prevent leakage.", icon: "🔍" }
+                                    { title: "GST Solutions", desc: "New GST Registration, Monthly/Quarterly Return Filing, and error correction.", icon: "📄", link: "/services/gst-returns-solutions" },
+                                    { title: "Financial Reporting", desc: "End-to-end accounting, bookkeeping, and financial statement preparation.", icon: "📈", link: "/services/financial-reporting" },
+                                    { title: "Tax Management", desc: "Income Tax planning and return filing services.", icon: "💰", link: "/services/income-tax-planning" },
+                                    { title: "Internal Audit", desc: "Reviewing your internal financial controls to prevent leakage.", icon: "🔍", link: "/services/internal-audit" }
                                 ]
                             }
                         ].map((cat, idx) => (
@@ -101,10 +102,56 @@ function UserPortal() {
                                 </h3>
                                 <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
                                     {cat.items.map((service, sIdx) => (
-                                        <div key={sIdx} className="service-card animate-fade-up" style={{ animationDelay: `${sIdx * 0.1}s` }}>
+                                        <div
+                                            key={sIdx}
+                                            className="service-card animate-fade-up"
+                                            style={{
+                                                animationDelay: `${sIdx * 0.1}s`,
+                                                cursor: 'pointer',
+                                                transition: 'all 0.3s ease'
+                                            }}
+                                            onClick={() => navigate(service.link)}
+                                            onMouseEnter={(e) => {
+                                                e.currentTarget.style.transform = 'translateY(-8px)';
+                                                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.15)';
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.currentTarget.style.transform = 'translateY(0)';
+                                                e.currentTarget.style.boxShadow = '';
+                                            }}
+                                        >
                                             <div className="service-icon">{service.icon}</div>
                                             <h3 style={{ color: '#1e293b', marginBottom: '15px', fontSize: '1.1rem' }}>{service.title}</h3>
-                                            <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6' }}>{service.desc}</p>
+                                            <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '15px' }}>{service.desc}</p>
+                                            <button
+                                                className="btn btn-outline"
+                                                style={{
+                                                    marginTop: 'auto',
+                                                    padding: '8px 20px',
+                                                    borderRadius: '50px',
+                                                    border: '1px solid var(--primary)',
+                                                    color: 'var(--primary)',
+                                                    background: 'transparent',
+                                                    transition: 'all 0.3s ease',
+                                                    cursor: 'pointer',
+                                                    fontSize: '0.9rem',
+                                                    fontWeight: '600'
+                                                }}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigate(service.link);
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.background = 'var(--primary)';
+                                                    e.currentTarget.style.color = 'white';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.background = 'transparent';
+                                                    e.currentTarget.style.color = 'var(--primary)';
+                                                }}
+                                            >
+                                                View Details
+                                            </button>
                                         </div>
                                     ))}
                                 </div>
@@ -217,7 +264,7 @@ function UserPortal() {
                                 <span>📍</span>
                                 <div>
                                     <h4 style={{ color: '#1e293b' }}>Office Address</h4>
-                                    <p style={{ color: '#64748b' }}>305, Rahul Complex 1, Wing 1, Near Ganeshpeth Bus Stand, Nagpur - 440018</p>
+                                    <p style={{ color: '#64748b' }}>CA R S Puri & Associates, Near Ganeshpeth, Opposite Yatri Hotel, Ganeshpeth Colony, Nagpur, Maharashtra 440018</p>
                                 </div>
                             </div>
                             <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>

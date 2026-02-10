@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AppProvider } from './context/AppContext'
 import UserPortal from './portals/user/UserPortal'
 import Calculators from './portals/user/Calculators'
+import ServiceDetail from './portals/user/ServiceDetail'
 import AdminPortal from './portals/admin/AdminPortal'
 import AdminLogin from './portals/admin/AdminLogin'
 
@@ -19,6 +20,7 @@ function App() {
           {/* User Portal */}
           <Route path="/" element={<UserPortal />} />
           <Route path="/calculators" element={<Calculators />} />
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
 
           {/* Admin Portal Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

@@ -43,11 +43,11 @@ const Navbar = () => {
                 <div className="container">
                     <div className="top-header-content">
                         <div className="top-header-left">
-                            <a href="https://maps.google.com/?q=Rahul+Complex+Nagpur" target="_blank" rel="noopener noreferrer" className="top-header-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=CA+R+S+Puri+%26+Associates+Nagpur" target="_blank" rel="noopener noreferrer" className="top-header-item">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                 </svg>
-                                Rahul Complex, Nagpur
+                                CA R S Puri & Associates, Nagpur
                             </a>
                             <a href="mailto:contact@fintaxvers.com" className="top-header-item">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -116,22 +116,22 @@ const Navbar = () => {
                             <div className="dropdown-menu services-mega-menu glass-card">
                                 <div className="calc-group">
                                     <h4>Business Finance</h4>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>CMA Data & Project Financing</a>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>Business Loan Assistance</a>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>Govt. Subsidy Consulting</a>
+                                    <a href="/services/cma-data-project-financing" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/cma-data-project-financing'); }}>CMA Data & Project Financing</a>
+                                    <a href="/services/business-loan-assistance" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/business-loan-assistance'); }}>Business Loan Assistance</a>
+                                    <a href="/services/govt-subsidy-consulting" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/govt-subsidy-consulting'); }}>Govt. Subsidy Consulting</a>
                                 </div>
                                 <div className="calc-group">
                                     <h4>Registration</h4>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>Company / LLP Formation</a>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>Shop Act & MSME (Udyam)</a>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>ROC & Annual Compliance</a>
+                                    <a href="/services/company-llp-formation" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/company-llp-formation'); }}>Company / LLP Formation</a>
+                                    <a href="/services/shop-act-msme" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/shop-act-msme'); }}>Shop Act & MSME (Udyam)</a>
+                                    <a href="/services/roc-annual-compliance" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/roc-annual-compliance'); }}>ROC & Annual Compliance</a>
                                 </div>
                                 <div className="calc-group">
                                     <h4>Tax & Ops</h4>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>GST Returns & Solutions</a>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>Income Tax & Planning</a>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>Financial Reporting</a>
-                                    <a href="#" className="dropdown-item" onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}>Internal Audit</a>
+                                    <a href="/services/gst-returns-solutions" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/gst-returns-solutions'); }}>GST Returns & Solutions</a>
+                                    <a href="/services/income-tax-planning" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/income-tax-planning'); }}>Income Tax & Planning</a>
+                                    <a href="/services/financial-reporting" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/financial-reporting'); }}>Financial Reporting</a>
+                                    <a href="/services/internal-audit" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/internal-audit'); }}>Internal Audit</a>
                                 </div>
                             </div>
                         </li>
