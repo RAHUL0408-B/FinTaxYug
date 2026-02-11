@@ -58,7 +58,7 @@ const ServiceDetail = () => {
                         <p className="service-category">{service.category}</p>
                         <p className="service-short-desc">{service.shortDesc}</p>
                         <div className="hero-actions">
-                            <button className="btn btn-primary" onClick={handleContactClick}>
+                            <button className="btn btn-primary" onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. `)}&type=${encodeURIComponent(service.category)}`)}>
                                 Get Started
                             </button>
                             <a href="tel:8928895195" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
@@ -232,7 +232,7 @@ const ServiceDetail = () => {
                                             <div className="contact-value">contact@fintaxvers.com</div>
                                         </div>
                                     </a>
-                                    <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" className="contact-item">
+                                    <a href={`https://wa.me/918928895195?text=${encodeURIComponent(`Hi Yugant, I am interested in ${service.title} for my business. Please provide more details.`)}`} target="_blank" rel="noreferrer" className="contact-item">
                                         <span className="contact-icon">💬</span>
                                         <div>
                                             <div className="contact-label">WhatsApp</div>
@@ -240,7 +240,7 @@ const ServiceDetail = () => {
                                         </div>
                                     </a>
                                 </div>
-                                <button className="btn btn-primary" style={{ width: '100%', marginTop: '20px' }} onClick={handleContactClick}>
+                                <button className="btn btn-primary" style={{ width: '100%', marginTop: '20px' }} onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. My business type is: `)}&type=${encodeURIComponent(service.category)}`)}>
                                     Request Consultation
                                 </button>
                             </div>

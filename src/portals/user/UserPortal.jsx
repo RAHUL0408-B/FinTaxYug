@@ -4,6 +4,7 @@ import officePhoto from '../../assets/office_photo.jpg';
 import whatsappLogo from '../../assets/whatsapp_logo.png';
 import qrCode from '../../assets/instagram_qr.png';
 import yugantProfile from '../../assets/yugant_profile_new.png';
+import yugantSignature from '../../assets/yugant_signature.png';
 import HeroSlider from '../../components/common/HeroSlider';
 import logo from '../../assets/fintaxverslogo.png';
 import Navbar from '../../components/common/Navbar';
@@ -12,16 +13,31 @@ import { useEffect } from 'react';
 
 function UserPortal() {
     const { addInquiry, services } = useApp();
-    const [formData, setFormData] = useState({ name: '', email: '', mobile: '', type: 'Taxation', message: '' });
+    const [formData, setFormData] = useState({ name: '', email: '', mobile: '', type: '', message: '', businessType: '', turnover: '' });
     const [showSuccess, setShowSuccess] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Handle scrolling
         if (location.state?.scrollTo) {
             setTimeout(() => {
                 scrollToSection(location.state.scrollTo);
             }, 100);
+        }
+
+        // Handle URL parameters for pre-filling form
+        const params = new URLSearchParams(location.search);
+        const msg = params.get('message');
+        const type = params.get('type');
+        if (msg || type) {
+            setFormData(prev => ({
+                ...prev,
+                message: msg ? decodeURIComponent(msg) : prev.message,
+                type: type ? decodeURIComponent(type) : prev.type
+            }));
+            scrollToSection('contact');
         }
     }, [location]);
 
@@ -34,12 +50,20 @@ function UserPortal() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Prevent double submission
+        if (isSubmitting) return;
+
+        setIsSubmitting(true);
         const success = await addInquiry(formData);
+
         if (success) {
             setShowSuccess(true);
-            setFormData({ name: '', email: '', mobile: '', type: 'Taxation', message: '' });
+            setFormData({ name: '', email: '', mobile: '', type: '', message: '', businessType: '', turnover: '' });
             setTimeout(() => setShowSuccess(false), 5000);
         }
+
+        setIsSubmitting(false);
     };
 
 
@@ -106,7 +130,7 @@ function UserPortal() {
                                             key={sIdx}
                                             className="service-card animate-fade-up"
                                             style={{
-                                                animationDelay: `${sIdx * 0.1}s`,
+                                                animationDelay: `${sIdx * 0.1} s`,
                                                 cursor: 'pointer',
                                                 transition: 'all 0.3s ease'
                                             }}
@@ -244,6 +268,10 @@ function UserPortal() {
                                         <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Local Base</div>
                                     </div>
                                 </div>
+                                <div style={{ marginTop: '30px', textAlign: 'right' }}>
+                                    <img src={yugantSignature} alt="Yugant Signature" style={{ width: '120px', opacity: 0.9, filter: 'grayscale(1) contrast(1.2)' }} />
+                                    <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontStyle: 'italic', marginTop: '5px' }}>Lead Consultant</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -298,33 +326,61 @@ function UserPortal() {
                             ) : (
 
                                 <form onSubmit={handleSubmit}>
-                                    <div className="form-group">
-                                        <label>Full Name</label>
-                                        <input type="text" required placeholder="Enter your name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                        <div className="form-group">
+                                            <label>Full Name</label>
+                                            <input type="text" required placeholder="Enter your name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Mobile Number</label>
+                                            <input type="tel" required placeholder="+91" value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} />
+                                        </div>
                                     </div>
-                                    <div className="form-group">
-                                        <label>Mobile Number</label>
-                                        <input type="tel" required placeholder="+91" value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} />
+
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                        <div className="form-group">
+                                            <label>Email Address</label>
+                                            <input type="email" required placeholder="example@gmail.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Business Type</label>
+                                            <select value={formData.businessType || ''} onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}>
+                                                <option value="">Select Business Type</option>
+                                                <option value="Proprietorship">Proprietorship</option>
+                                                <option value="Partnership">Partnership / LLP</option>
+                                                <option value="Pvt Ltd">Private Limited</option>
+                                                <option value="Individual">Individual (Salaried/Other)</option>
+                                                <option value="Startup">New Startup</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div className="form-group">
-                                        <label>Email Address</label>
-                                        <input type="email" required placeholder="example@gmail.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                        <div className="form-group">
+                                            <label>Inquiry Type</label>
+                                            <select required value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })}>
+                                                <option value="">Select Inquiry Type</option>
+                                                <option>Taxation</option>
+                                                <option>GST Services</option>
+                                                <option>Company Registration</option>
+                                                <option>Audit & Assurance</option>
+                                                <option>Loan Financing</option>
+                                                <option>Project Report (CMA)</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Approx. Loan/Turnover</label>
+                                            <input type="text" placeholder="e.g. 50 Lacs" value={formData.turnover || ''} onChange={(e) => setFormData({ ...formData, turnover: e.target.value })} />
+                                        </div>
                                     </div>
+
                                     <div className="form-group">
-                                        <label>Inquiry Type</label>
-                                        <select value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })}>
-                                            <option>Taxation</option>
-                                            <option>GST Services</option>
-                                            <option>Company Registration</option>
-                                            <option>Audit & Assurance</option>
-                                            <option>Loan Financing</option>
-                                        </select>
+                                        <label>Message / Specific Requirements</label>
+                                        <textarea rows="3" placeholder="Tell us about your requirement..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
                                     </div>
-                                    <div className="form-group">
-                                        <label>Message</label>
-                                        <textarea rows="4" required placeholder="Tell us about your requirement..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
-                                    </div>
-                                    <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Submit Request</button>
+                                    <button type="submit" className="btn btn-primary" style={{ width: '100%' }} disabled={isSubmitting}>
+                                        {isSubmitting ? 'Sending...' : 'Submit Professional Inquiry'}
+                                    </button>
                                 </form>
                             )}
                         </div>
@@ -368,7 +424,7 @@ function UserPortal() {
             {/* Floating Buttons */}
             <div className="floating-actions" style={{ position: 'fixed', bottom: '40px', right: '30px', display: 'flex', flexDirection: 'column', gap: '15px', zIndex: 1000 }}>
                 {/* WhatsApp Button */}
-                <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" className="float-btn" style={{
+                <a href={`https://wa.me/918928895195?text=${encodeURIComponent("Hi Yugant, I'm visiting your website FinTaxVers and I am interested in a professional consultation. Please guide me.")}`} target="_blank" rel="noreferrer" className="float-btn" style={{
                     width: 'clamp(50px, 12vw, 60px)',
                     height: 'clamp(50px, 12vw, 60px)',
                     background: '#25D366',
@@ -382,10 +438,10 @@ function UserPortal() {
                     <svg width="clamp(24px, 6vw, 32px)" height="clamp(24px, 6vw, 32px)" viewBox="0 0 24 24" fill="white">
                         <path d="M12.03 2.02c-5.52 0-9.98 4.47-9.98 9.99 0 1.77.46 3.44 1.28 4.9L2 22l5.25-1.38c1.41.77 3.02 1.21 4.75 1.21 5.52 0 10.01-4.47 10.01-9.99S17.55 2.02 12.03 2.02zM12 20.37c-1.57 0-3.11-.42-4.45-1.22l-.32-.19-3.3.87.88-3.23-.21-.33a8.12 8.12 0 0 1-1.25-4.3c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13s-3.65 8.13-8.13 8.13zm4.44-6.11c-.24-.12-1.42-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.93-.14.15-.29.17-.53.05-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.1-.1.22-.24.33-.37.11-.12.15-.19.22-.32.07-.13.04-.24-.02-.37-.06-.12-.55-1.33-.76-1.84-.2-.5-.41-.43-.55-.44h-.48c-.16 0-.44.06-.66.3-.22.24-.86.84-.86 2.04s.87 2.37.99 2.53c.12.16 1.72 2.62 4.16 3.67.58.25 1.03.4 1.38.52.58.19 1.11.16 1.53.1.47-.07 1.42-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" />
                     </svg>
-                </a>
+                </a >
 
                 {/* Call Button */}
-                <a href="tel:+918928895195" className="float-btn" style={{
+                < a href="tel:+918928895195" className="float-btn" style={{
                     width: 'clamp(50px, 12vw, 60px)',
                     height: 'clamp(50px, 12vw, 60px)',
                     background: '#6366f1', // Changed to primary blue for variety
@@ -399,13 +455,13 @@ function UserPortal() {
                     <svg width="clamp(22px, 5.5vw, 28px)" height="clamp(22px, 5.5vw, 28px)" viewBox="0 0 24 24" fill="white">
                         <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.3-.3.4-.69.24-1.01a10.75 10.75 0 0 1-.56-3.53c0-.55-.45-1-1-1H4.44c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.55c0-.55-.45-1-1-1z" />
                     </svg>
-                </a>
-            </div>
+                </a >
+            </div >
 
 
 
 
-        </div>
+        </div >
     );
 }
 

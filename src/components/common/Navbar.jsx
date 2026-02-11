@@ -47,7 +47,7 @@ const Navbar = () => {
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                 </svg>
-                                CA R S Puri & Associates, Nagpur
+                                Nagpur
                             </a>
                             <a href="mailto:contact@fintaxvers.com" className="top-header-item">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -80,7 +80,9 @@ const Navbar = () => {
                     <div className="logo" onClick={() => navigate('/')} style={{
                         cursor: 'pointer',
                         display: 'flex',
+                        flexDirection: 'column',
                         alignItems: 'center',
+                        justifyContent: 'center',
                         padding: '2px 0'
                     }}>
                         <img
@@ -89,11 +91,23 @@ const Navbar = () => {
                             alt="FinTaxVers Logo"
                             style={{
                                 objectFit: 'contain',
-                                transition: 'transform 0.3s ease'
+                                transition: 'transform 0.3s ease',
+                                marginBottom: '2px'
                             }}
                             onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                             onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
                         />
+                        <span style={{
+                            fontSize: '10px',
+                            fontWeight: '600',
+                            color: '#1e293b',
+                            letterSpacing: '0.5px',
+                            lineHeight: '1',
+                            textTransform: 'uppercase',
+                            marginTop: '2px'
+                        }}>
+                            Finance • Accounting • Taxation
+                        </span>
                     </div>
 
 
@@ -173,7 +187,7 @@ const Navbar = () => {
                         <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}>About</a></li>
                         <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}>Contact</a></li>
                     </ul>
-                    <button className="nav-cta btn btn-primary" onClick={() => handleNavClick('contact')}>Book Consultation</button>
+                    <button className="nav-cta btn btn-primary" onClick={() => handleNavClick('contact')}>Professional Consultation</button>
                 </div>
 
             </nav>

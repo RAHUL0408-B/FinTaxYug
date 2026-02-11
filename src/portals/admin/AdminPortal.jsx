@@ -222,6 +222,10 @@ const InquiryTable = ({ data }) => (
                             <div style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '500' }}>{inquiry.email}</div>
                             <div style={{ fontSize: '0.85rem', color: '#475569' }}>{inquiry.mobile}</div>
                             <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>{inquiry.message}</div>
+                            <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
+                                {inquiry.businessType && <span style={{ fontSize: '0.7rem', background: '#e2e8f0', padding: '2px 6px', borderRadius: '4px' }}>🏢 {inquiry.businessType}</span>}
+                                {inquiry.turnover && <span style={{ fontSize: '0.7rem', background: '#fef3c7', color: '#92400e', padding: '2px 6px', borderRadius: '4px' }}>💰 {inquiry.turnover}</span>}
+                            </div>
                         </td>
                         <td>{inquiry.type}</td>
                         <td>
@@ -399,6 +403,10 @@ const InquiriesSection = () => {
                                             </div>
                                         )}
                                         <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>{inquiry.message}</div>
+                                        <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
+                                            {inquiry.businessType && <span style={{ fontSize: '0.7rem', background: '#e2e8f0', padding: '2px 6px', borderRadius: '4px' }}>🏢 {inquiry.businessType}</span>}
+                                            {inquiry.turnover && <span style={{ fontSize: '0.7rem', background: '#fef3c7', color: '#92400e', padding: '2px 6px', borderRadius: '4px' }}>💰 {inquiry.turnover}</span>}
+                                        </div>
                                     </td>
                                     <td>{inquiry.type}</td>
                                     <td>

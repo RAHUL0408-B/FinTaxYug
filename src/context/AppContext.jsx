@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc, updateDoc, doc, query, orderBy, onSnapshot, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
+import emailjs from '@emailjs/browser';
 
 const AppContext = createContext();
 
@@ -82,6 +83,37 @@ export const AppProvider = ({ children }) => {
         try {
             const docRef = await addDoc(collection(db, "inquiries"), newInquiry);
             setInquiries([{ id: docRef.id, ...newInquiry }, ...inquiries]);
+
+            // Try sending email via EmailJS
+            try {
+                const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+                const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+                const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+                if (serviceId && templateId && publicKey && serviceId !== 'YOUR_SERVICE_ID') {
+                    await emailjs.send(
+                        serviceId,
+                        templateId,
+                        {
+                            to_name: newInquiry.name,
+                            to_email: newInquiry.email,
+                            from_name: 'Yugant V. Rahele',
+                            reply_to: 'contact@fintaxvers.com',
+                            message: `Thank you for your inquiry regarding ${newInquiry.type}. We have received your request and will contact you shortly at ${newInquiry.mobile}.`
+                        },
+                        publicKey
+                    );
+                    console.log('Auto-reply email sent successfully!');
+                }
+            } catch (emailError) {
+                console.error('EmailJS error details:', {
+                    status: emailError.status,
+                    text: emailError.text,
+                    message: emailError.message
+                });
+                // We don't fail the submission if email fails
+            }
+
             return true;
         } catch (e) {
             console.error("Error adding document: ", e);

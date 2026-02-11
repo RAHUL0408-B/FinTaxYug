@@ -21,6 +21,35 @@ const CalculatorLayout = ({ title, children, result }) => {
             }}>
                 <div style={{ color: '#ffffff', opacity: 0.7, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', fontWeight: '800', marginBottom: '16px' }}>Estimated Result</div>
                 {result}
+                <button
+                    onClick={() => {
+                        const message = `I just used the ${title} and my result is: ${result.props?.children?.join?.('') || 'Check details'}. I would like a professional consultation regarding this.`;
+                        window.location.href = `/#contact?message=${encodeURIComponent(message)}&type=Loan%20Financing`;
+                    }}
+                    style={{
+                        marginTop: '25px',
+                        background: '#ffffff',
+                        color: '#4f46e5',
+                        border: 'none',
+                        padding: '12px 24px',
+                        borderRadius: '50px',
+                        fontWeight: '700',
+                        fontSize: '0.9rem',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                    }}
+                    onMouseOver={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.05)';
+                        e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)';
+                    }}
+                    onMouseOut={(e) => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                    }}
+                >
+                    Get Expert Advice on this Result
+                </button>
             </div>
         </div>
     );
