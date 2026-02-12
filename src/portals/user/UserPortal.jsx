@@ -310,8 +310,42 @@ function UserPortal() {
                                 </div>
                             </div>
                             <div style={{ marginTop: '30px', textAlign: 'center' }}>
-                                <img src={qrCode} alt="Instagram QR" style={{ width: '150px', borderRadius: '10px' }} />
-                                <p style={{ marginTop: '10px', fontSize: '0.8rem', color: '#94a3b8' }}>Scan to follow on Instagram</p>
+                                <div style={{
+                                    display: 'inline-block',
+                                    padding: '15px',
+                                    background: 'linear-gradient(135deg, #f9a825 0%, #f4511e 100%)',
+                                    borderRadius: '15px',
+                                    boxShadow: '0 8px 20px rgba(244, 81, 30, 0.3)'
+                                }}>
+                                    <img
+                                        src={`${qrCode}?v=${Date.now()}`}
+                                        alt="Follow @FINTAXVERS on Instagram"
+                                        style={{
+                                            width: '180px',
+                                            height: '180px',
+                                            borderRadius: '10px',
+                                            background: 'white',
+                                            padding: '10px',
+                                            display: 'block'
+                                        }}
+                                    />
+                                </div>
+                                <p style={{
+                                    marginTop: '15px',
+                                    fontSize: '0.9rem',
+                                    color: '#1e293b',
+                                    fontWeight: '600'
+                                }}>
+                                    📸 Follow us on Instagram
+                                </p>
+                                <p style={{
+                                    fontSize: '0.85rem',
+                                    color: 'var(--primary)',
+                                    fontWeight: '700',
+                                    marginTop: '5px'
+                                }}>
+                                    @FINTAXVERS
+                                </p>
                             </div>
                         </div>
 
