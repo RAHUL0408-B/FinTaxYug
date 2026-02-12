@@ -98,8 +98,8 @@ export const AppProvider = ({ children }) => {
                             to_name: newInquiry.name,
                             to_email: newInquiry.email,
                             from_name: 'Yugant V. Rahele',
-                            reply_to: 'contact@fintaxvers.com',
-                            message: `Thank you for your inquiry regarding ${newInquiry.type}. We have received your request and will contact you shortly at ${newInquiry.mobile}.`
+                            message: `Thank you for your inquiry regarding ${newInquiry.type}. We have received your request and will contact you shortly at ${newInquiry.mobile}.`,
+                            reply_to: 'contact@fintaxvers.com'
                         },
                         publicKey
                     );

@@ -389,34 +389,153 @@ function UserPortal() {
             </section>
 
             {/* Footer */}
-            <footer className="section" style={{ background: '#fff', borderTop: '1px solid #e2e8f0', padding: '60px 0 30px' }}>
+            <footer className="section" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)', borderTop: '2px solid #e2e8f0', padding: '70px 0 0' }}>
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', marginBottom: '40px' }}>
-                        <div>
-                            <h4 style={{ marginBottom: '20px', fontSize: '1.5rem', fontWeight: '800', color: 'var(--primary)' }}>FinTaxVers</h4>
-                            <p style={{ color: '#64748b' }}>Bespoke financial consultancy for elite businesses and established enterprises.</p>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                        gap: '50px',
+                        marginBottom: '50px'
+                    }}>
+                        {/* Company Info */}
+                        <div style={{ maxWidth: '350px' }}>
+                            <h4 style={{
+                                marginBottom: '15px',
+                                fontSize: 'clamp(1.2rem, 4vw, 1.75rem)',
+                                fontWeight: '800',
+                                color: 'var(--primary)',
+                                letterSpacing: '-0.5px'
+                            }}>FinTaxVers</h4>
+                            <p style={{
+                                color: '#64748b',
+                                lineHeight: '1.6',
+                                marginBottom: '15px',
+                                fontSize: 'clamp(0.8rem, 2.5vw, 0.95rem)'
+                            }}>
+                                Expert Project Finance Consultant, CMA Data Preparation, Business Loan Assistance, MSME Registration, GST Filing & Company Registration services in Nagpur.
+                            </p>
+                            <div style={{
+                                padding: 'clamp(10px, 3vw, 15px) clamp(12px, 4vw, 20px)',
+                                background: 'var(--primary)',
+                                color: 'white',
+                                borderRadius: '8px',
+                                fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
+                                fontWeight: '600',
+                                textAlign: 'center'
+                            }}>
+                                FinTaxVers Consultancy Services
+                            </div>
                         </div>
+
+                        {/* Quick Links */}
                         <div>
-                            <h4 style={{ marginBottom: '20px', color: '#1e293b' }}>Links</h4>
-                            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', color: '#64748b' }}>
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#services">Services</a></li>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#contact">Contact</a></li>
+                            <h4 style={{
+                                marginBottom: '15px',
+                                color: '#1e293b',
+                                fontSize: 'clamp(0.95rem, 3vw, 1.1rem)',
+                                fontWeight: '700',
+                                borderBottom: '3px solid var(--primary)',
+                                paddingBottom: '8px',
+                                display: 'inline-block'
+                            }}>Quick Links</h4>
+                            <ul style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '10px',
+                                color: '#64748b',
+                                fontSize: 'clamp(0.8rem, 2.5vw, 0.95rem)'
+                            }}>
+                                <li><a href="#home" style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.target.style.color = 'var(--primary)'} onMouseLeave={(e) => e.target.style.color = '#64748b'}>🏠 Home</a></li>
+                                <li><a href="#services" style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.target.style.color = 'var(--primary)'} onMouseLeave={(e) => e.target.style.color = '#64748b'}>💼 Services</a></li>
+                                <li><a href="#about" style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.target.style.color = 'var(--primary)'} onMouseLeave={(e) => e.target.style.color = '#64748b'}>👤 About</a></li>
+                                <li><a href="#contact" style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.target.style.color = 'var(--primary)'} onMouseLeave={(e) => e.target.style.color = '#64748b'}>📞 Contact</a></li>
                             </ul>
                         </div>
+
+                        {/* Core Services */}
                         <div>
-                            <h4 style={{ marginBottom: '20px', color: '#1e293b' }}>Expertise</h4>
-                            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', color: '#64748b' }}>
-                                <li>Project Financing</li>
-                                <li>Bespoke Taxation</li>
-                                <li>Elite Auditing</li>
-                                <li>Capital Strategy</li>
+                            <h4 style={{
+                                marginBottom: '15px',
+                                color: '#1e293b',
+                                fontSize: 'clamp(0.95rem, 3vw, 1.1rem)',
+                                fontWeight: '700',
+                                borderBottom: '3px solid var(--primary)',
+                                paddingBottom: '8px',
+                                display: 'inline-block'
+                            }}>Core Services</h4>
+                            <ul style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '10px',
+                                color: '#64748b',
+                                fontSize: 'clamp(0.75rem, 2.3vw, 0.9rem)',
+                                lineHeight: '1.5'
+                            }}>
+                                <li>✓ Project Finance & CMA Data</li>
+                                <li>✓ Business Loan Financing</li>
+                                <li>✓ MSME & Shop Act Registration</li>
+                                <li>✓ Company Registration & ROC</li>
+                                <li>✓ GST Returns & Income Tax</li>
+                                <li>✓ Internal Audit Services</li>
+                            </ul>
+                        </div>
+
+                        {/* Contact Info */}
+                        <div>
+                            <h4 style={{
+                                marginBottom: '15px',
+                                color: '#1e293b',
+                                fontSize: 'clamp(0.95rem, 3vw, 1.1rem)',
+                                fontWeight: '700',
+                                borderBottom: '3px solid var(--primary)',
+                                paddingBottom: '8px',
+                                display: 'inline-block'
+                            }}>Get In Touch</h4>
+                            <ul style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '12px',
+                                color: '#64748b',
+                                fontSize: 'clamp(0.75rem, 2.3vw, 0.9rem)'
+                            }}>
+                                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                    <span style={{ fontSize: '1.2rem' }}>📍</span>
+                                    <div>
+                                        <strong style={{ color: '#1e293b', display: 'block', marginBottom: '4px' }}>Location</strong>
+                                        Nagpur, Maharashtra
+                                    </div>
+                                </li>
+                                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                    <span style={{ fontSize: '1.2rem' }}>📞</span>
+                                    <div>
+                                        <strong style={{ color: '#1e293b', display: 'block', marginBottom: '4px' }}>Phone</strong>
+                                        <a href="tel:+918928895195" style={{ color: 'var(--primary)', fontWeight: '600' }}>+91-8928895195</a>
+                                    </div>
+                                </li>
+                                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                    <span style={{ fontSize: '1.2rem' }}>📧</span>
+                                    <div>
+                                        <strong style={{ color: '#1e293b', display: 'block', marginBottom: '4px' }}>Email</strong>
+                                        <a href="mailto:contact@fintaxvers.com" style={{ color: 'var(--primary)', fontWeight: '600' }}>contact@fintaxvers.com</a>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '30px', textAlign: 'center', color: '#94a3b8', fontSize: '0.9rem' }}>
-                        <p>&copy; 2026 FinTaxVers. Excellence in Finance.</p>
+
+                    {/* Footer Bottom */}
+                    <div style={{
+                        borderTop: '2px solid #e2e8f0',
+                        paddingTop: '25px',
+                        paddingBottom: '25px',
+                        textAlign: 'center',
+                        color: '#94a3b8',
+                        fontSize: '0.9rem',
+                        background: '#f8fafc'
+                    }}>
+                        <p style={{ margin: '0' }}>
+                            &copy; 2026 <strong style={{ color: 'var(--primary)' }}>FinTaxVers Consultancy Services</strong> | Excellence in Finance | Nagpur, Maharashtra
+                        </p>
                     </div>
                 </div>
             </footer>

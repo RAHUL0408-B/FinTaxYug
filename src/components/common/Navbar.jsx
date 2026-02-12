@@ -187,7 +187,7 @@ const Navbar = () => {
                         <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}>About</a></li>
                         <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}>Contact</a></li>
                     </ul>
-                    <button className="nav-cta btn btn-primary" onClick={() => handleNavClick('contact')}>Professional Consultation</button>
+                    <button className="nav-cta btn btn-primary" onClick={() => handleNavClick('contact')}>Book Consultation</button>
                 </div>
 
             </nav>
