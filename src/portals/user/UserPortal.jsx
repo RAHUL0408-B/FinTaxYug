@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import officePhoto from '../../assets/office_photo.jpg';
-import whatsappLogo from '../../assets/whatsapp_logo.png';
-import qrCode from '../../assets/instagram_qr.png';
 import yugantProfile from '../../assets/yugant_profile_new.png';
 import yugantSignature from '../../assets/yugant_signature.png';
 import HeroSlider from '../../components/common/HeroSlider';
@@ -278,78 +276,14 @@ function UserPortal() {
                 </div>
             </section>
 
-            {/* Contact Section */}
             <section id="contact" className="section">
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '16px', color: '#1e293b' }}>Contact & Consult</h2>
                         <p style={{ color: '#64748b', maxWidth: '800px', margin: '0 auto' }}>Have a question or need financial advice? Get in touch with our experts today.</p>
                     </div>
-                    <div className="contact-section" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '50px' }}>
-                        <div className="contact-info glass-card" style={{ padding: 'clamp(25px, 5vw, 50px)' }}>
-                            <h3 style={{ color: '#1e293b', marginBottom: '30px' }}>Get In Touch</h3>
-                            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
-                                <span>📍</span>
-                                <div>
-                                    <h4 style={{ color: '#1e293b' }}>Office Address</h4>
-                                    <p style={{ color: '#64748b' }}>CA R S Puri & Associates, Near Ganeshpeth, Opposite Yatri Hotel, Ganeshpeth Colony, Nagpur, Maharashtra 440018</p>
-                                </div>
-                            </div>
-                            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
-                                <span>📞</span>
-                                <div>
-                                    <h4 style={{ color: '#1e293b' }}>Phone Number</h4>
-                                    <p style={{ color: '#64748b' }}>+91-8928895195<br />+91-9011424236</p>
-                                </div>
-                            </div>
-                            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
-                                <span>📧</span>
-                                <div>
-                                    <h4 style={{ color: '#1e293b' }}>Email Address</h4>
-                                    <p style={{ color: '#64748b' }}>contact@fintaxvers.com</p>
-                                </div>
-                            </div>
-                            <div style={{ marginTop: '30px', textAlign: 'center' }}>
-                                <div style={{
-                                    display: 'inline-block',
-                                    padding: '15px',
-                                    background: 'linear-gradient(135deg, #f9a825 0%, #f4511e 100%)',
-                                    borderRadius: '15px',
-                                    boxShadow: '0 8px 20px rgba(244, 81, 30, 0.3)'
-                                }}>
-                                    <img
-                                        src={`${qrCode}?v=${Date.now()}`}
-                                        alt="Follow @FINTAXVERS on Instagram"
-                                        style={{
-                                            width: '180px',
-                                            height: '180px',
-                                            borderRadius: '10px',
-                                            background: 'white',
-                                            padding: '10px',
-                                            display: 'block'
-                                        }}
-                                    />
-                                </div>
-                                <p style={{
-                                    marginTop: '15px',
-                                    fontSize: '0.9rem',
-                                    color: '#1e293b',
-                                    fontWeight: '600'
-                                }}>
-                                    📸 Follow us on Instagram
-                                </p>
-                                <p style={{
-                                    fontSize: '0.85rem',
-                                    color: 'var(--primary)',
-                                    fontWeight: '700',
-                                    marginTop: '5px'
-                                }}>
-                                    @FINTAXVERS
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="contact-form-container glass-card" style={{ padding: 'clamp(25px, 5vw, 50px)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div className="contact-form-container glass-card" style={{ padding: 'clamp(25px, 5vw, 50px)', width: '100%', maxWidth: '800px' }}>
                             {showSuccess ? (
                                 <div style={{ textAlign: 'center', padding: '40px' }}>
                                     <div style={{ fontSize: '3rem', color: 'var(--primary)', marginBottom: '20px' }}>✅</div>
@@ -424,6 +358,7 @@ function UserPortal() {
 
             {/* Footer */}
             <footer className="section" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)', borderTop: '2px solid #e2e8f0', padding: '70px 0 0' }}>
+
                 <div className="container">
                     <div style={{
                         display: 'grid',
@@ -514,7 +449,7 @@ function UserPortal() {
                             </ul>
                         </div>
 
-                        {/* Contact Info */}
+                        {/* Social Media Links */}
                         <div>
                             <h4 style={{
                                 marginBottom: '15px',
@@ -524,36 +459,77 @@ function UserPortal() {
                                 borderBottom: '3px solid var(--primary)',
                                 paddingBottom: '8px',
                                 display: 'inline-block'
-                            }}>Get In Touch</h4>
-                            <ul style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '12px',
-                                color: '#64748b',
-                                fontSize: 'clamp(0.75rem, 2.3vw, 0.9rem)'
-                            }}>
-                                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                                    <span style={{ fontSize: '1.2rem' }}>📍</span>
-                                    <div>
-                                        <strong style={{ color: '#1e293b', display: 'block', marginBottom: '4px' }}>Location</strong>
-                                        Nagpur, Maharashtra
-                                    </div>
-                                </li>
-                                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                                    <span style={{ fontSize: '1.2rem' }}>📞</span>
-                                    <div>
-                                        <strong style={{ color: '#1e293b', display: 'block', marginBottom: '4px' }}>Phone</strong>
-                                        <a href="tel:+918928895195" style={{ color: 'var(--primary)', fontWeight: '600' }}>+91-8928895195</a>
-                                    </div>
-                                </li>
-                                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                                    <span style={{ fontSize: '1.2rem' }}>📧</span>
-                                    <div>
-                                        <strong style={{ color: '#1e293b', display: 'block', marginBottom: '4px' }}>Email</strong>
-                                        <a href="mailto:contact@fintaxvers.com" style={{ color: 'var(--primary)', fontWeight: '600' }}>contact@fintaxvers.com</a>
-                                    </div>
-                                </li>
-                            </ul>
+                            }}>Follow Us</h4>
+                            <div style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
+                                {/* LinkedIn */}
+                                <a
+                                    href="https://www.linkedin.com/in/yugant-rahele-333101148/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BvXus6oq4R96Tg%2FkBfsMpuA%3D%3D"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    style={{
+                                        width: '42px',
+                                        height: '42px',
+                                        background: '#0a66c2',
+                                        borderRadius: '10px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        transition: 'all 0.3s ease',
+                                        boxShadow: '0 4px 10px rgba(10, 102, 194, 0.2)',
+                                        textDecoration: 'none'
+                                    }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 6px 15px rgba(10, 102, 194, 0.3)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 10px rgba(10, 102, 194, 0.2)'; }}
+                                >
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                                </a>
+
+                                {/* Facebook */}
+                                <a
+                                    href="https://www.facebook.com/yugant.rahele"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    style={{
+                                        width: '42px',
+                                        height: '42px',
+                                        background: '#1877f2',
+                                        borderRadius: '10px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        transition: 'all 0.3s ease',
+                                        boxShadow: '0 4px 10px rgba(24, 119, 242, 0.2)',
+                                        textDecoration: 'none'
+                                    }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 6px 15px rgba(24, 119, 242, 0.3)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 10px rgba(24, 119, 242, 0.2)'; }}
+                                >
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                                </a>
+
+                                {/* Instagram */}
+                                <a
+                                    href="https://www.instagram.com/fintaxvers?igsh=bWJqMTN3bTNvZHBk"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    style={{
+                                        width: '42px',
+                                        height: '42px',
+                                        background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+                                        borderRadius: '10px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        transition: 'all 0.3s ease',
+                                        boxShadow: '0 4px 10px rgba(220, 39, 67, 0.2)',
+                                        textDecoration: 'none'
+                                    }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 6px 15px rgba(220, 39, 67, 0.3)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 10px rgba(220, 39, 67, 0.2)'; }}
+                                >
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -572,12 +548,12 @@ function UserPortal() {
                         </p>
                     </div>
                 </div>
-            </footer>
+            </footer >
 
             {/* Floating Buttons */}
-            <div className="floating-actions" style={{ position: 'fixed', bottom: '40px', right: '30px', display: 'flex', flexDirection: 'column', gap: '15px', zIndex: 1000 }}>
+            < div className="floating-actions" style={{ position: 'fixed', bottom: '40px', right: '30px', display: 'flex', flexDirection: 'column', gap: '15px', zIndex: 1000 }}>
                 {/* WhatsApp Button */}
-                <a href={`https://wa.me/918928895195?text=${encodeURIComponent("Hi Yugant, I'm visiting your website FinTaxVers and I am interested in a professional consultation. Please guide me.")}`} target="_blank" rel="noreferrer" className="float-btn" style={{
+                < a href={`https://wa.me/918928895195?text=${encodeURIComponent("Hi Yugant, I'm visiting your website FinTaxVers and I am interested in a professional consultation. Please guide me.")}`} target="_blank" rel="noreferrer" className="float-btn" style={{
                     width: 'clamp(50px, 12vw, 60px)',
                     height: 'clamp(50px, 12vw, 60px)',
                     background: '#25D366',
