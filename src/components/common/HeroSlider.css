@@ -1,0 +1,332 @@
+/* ============================================
+   PREMIUM HERO SLIDER - FinTaxVers
+   ============================================ */
+
+.hero-slider-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 680px;
+    overflow: hidden;
+}
+
+/* --- Slides --- */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.9s ease-in-out;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* --- Background images per slide --- */
+.hero-slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.06);
+    transition: transform 6s ease-out;
+}
+
+.hero-slide.active .hero-slide-bg {
+    transform: scale(1);
+}
+
+/* Gradient overlays */
+.hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        rgba(5, 16, 32, 0.90) 0%,
+        rgba(11, 31, 58, 0.75) 50%,
+        rgba(11, 31, 58, 0.40) 100%
+    );
+    z-index: 1;
+}
+
+/* Slide 1 – GST Registration */
+.hero-slide-1 .hero-slide-bg {
+    background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=80');
+}
+
+/* Slide 2 – Income Tax Filing */
+.hero-slide-2 .hero-slide-bg {
+    background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80');
+}
+
+/* Slide 3 – Business Loan Reports */
+.hero-slide-3 .hero-slide-bg {
+    background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80');
+}
+
+/* --- Content --- */
+.hero-slide-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px clamp(24px, 6vw, 80px) 40px clamp(24px, 6vw, 80px);
+}
+
+.hero-slide-inner {
+    max-width: 620px;
+}
+
+/* Badge */
+.hero-slide-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    background: rgba(22, 163, 74, 0.15);
+    border: 1px solid rgba(22, 163, 74, 0.4);
+    border-radius: 100px;
+    color: #4ade80;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+}
+
+.hero-slide-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+/* Headline */
+.hero-slide-headline {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.18;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+}
+
+.hero-slide-headline span {
+    background: linear-gradient(135deg, #4ade80, #16A34A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subheadline */
+.hero-slide-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+    color: rgba(255,255,255,0.82);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 520px;
+}
+
+/* Action buttons */
+.hero-slide-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.hero-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    background: #16A34A;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.hero-btn-primary:hover {
+    background: #15803D;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(22, 163, 74, 0.5);
+}
+
+.hero-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: transparent;
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.45);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.hero-btn-secondary:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+/* --- Trust bar --- */
+.hero-trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    flex-wrap: wrap;
+}
+
+.hero-trust-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hero-trust-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.hero-trust-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.60);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+}
+
+.hero-trust-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+}
+
+/* --- Slider controls --- */
+.hero-slider-controls {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.35s ease;
+    border: none;
+    padding: 0;
+}
+
+.hero-dot.active {
+    width: 28px;
+    background: #16A34A;
+}
+
+/* Prev / Next arrows */
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background 0.25s ease, transform 0.25s ease;
+    margin-top: 40px; /* nudge below navbar */
+}
+
+.hero-arrow:hover {
+    background: rgba(22, 163, 74, 0.5);
+    border-color: #16A34A;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.hero-arrow-left { left: clamp(16px, 3vw, 40px); }
+.hero-arrow-right { right: clamp(16px, 3vw, 40px); }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero-slider-section {
+        height: auto;
+        min-height: 100svh;
+    }
+
+    .hero-slide {
+        position: relative;
+        min-height: 100svh;
+        opacity: 1;
+        display: none;
+        pointer-events: all;
+    }
+
+    .hero-slide.active {
+        display: flex;
+    }
+
+    .hero-slide-headline {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+    }
+
+    .hero-trust-divider {
+        display: none;
+    }
+
+    .hero-trust-bar {
+        gap: 18px;
+    }
+
+    .hero-arrow {
+        display: none;
+    }
+}
