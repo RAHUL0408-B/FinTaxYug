@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getServiceById } from '../../data/servicesData';
+import { getServiceById, servicesData } from '../../data/servicesData';
 import Navbar from '../../components/common/Navbar';
+import SEOHead from '../../components/common/SEOHead';
 import './ServiceDetail.css';
 
 const ServiceDetail = () => {
@@ -34,8 +35,49 @@ const ServiceDetail = () => {
         );
     }
 
+    // Build SEO schemas
+    const serviceSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: service.title,
+        description: service.overview,
+        provider: {
+            '@type': 'FinancialService',
+            name: 'FinTaxVers Consultancy Services',
+            url: 'https://fintaxvers.com',
+            telephone: '+91-8928895195',
+            address: { '@type': 'PostalAddress', addressLocality: 'Nagpur', addressRegion: 'Maharashtra', addressCountry: 'IN' }
+        },
+        areaServed: { '@type': 'City', name: 'Nagpur' },
+        serviceType: service.category,
+    };
+    const faqSchema = service.faq && service.faq.length ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: service.faq.map(f => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: { '@type': 'Answer', text: f.answer }
+        }))
+    } : null;
+    const seoTitle = service.seoTitle || `${service.title} in Nagpur`;
+    const seoDesc = service.metaDescription || `Expert ${service.title} services in Nagpur, Maharashtra. ${service.shortDesc} Contact FinTaxVers Consultancy – Yugant Rahele at +91-8928895195.`;
+    const seoKeywords = `${service.title} Nagpur, ${service.category} Nagpur, financial consultant Nagpur, FinTaxVers, Yugant Rahele, ${service.title} Maharashtra`;
+    const canonicalSlug = service.canonicalSlug || service.id;
+    const relatedServices = Object.values(servicesData)
+        .filter(s => s.id !== service.id && s.category === service.category)
+        .slice(0, 3);
+
     return (
         <div className="service-detail-page">
+            <SEOHead
+                title={seoTitle}
+                description={seoDesc}
+                keywords={seoKeywords}
+                canonical={`https://fintaxvers.com/services/${canonicalSlug}`}
+                schema={serviceSchema}
+            />
+            {faqSchema && <SEOHead schema={faqSchema} />}
             <Navbar />
 
             {/* Hero Section */}
@@ -317,11 +359,37 @@ const ServiceDetail = () => {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="section" style={{ background: '#fff', borderTop: '1px solid #e2e8f0', padding: '40px 0 20px' }}>
+            {/* Location + Internal Links */}
+            <section style={{ background: '#F8FAFC', padding: '40px 0' }}>
                 <div className="container">
-                    <div style={{ textAlign: 'center', color: '#94a3b8', fontSize: '0.9rem' }}>
-                        <p>&copy; 2026 FinTaxVers. Excellence in Finance.</p>
+                    <div style={{ background: 'white', borderRadius: '16px', padding: '32px', border: '1px solid #e2e8f0' }}>
+                        <h3 style={{ color: '#0B1F3A', marginBottom: '8px' }}>Serving Clients Across Nagpur, Maharashtra & India</h3>
+                        <p style={{ color: '#64748b', marginBottom: '20px' }}>FinTaxVers Consultancy Services is a trusted {service.category.toLowerCase()} firm based in Nagpur, Maharashtra. We provide expert {service.title.toLowerCase()} services to businesses and individuals across Nagpur, Vidarbha, and Maharashtra. Contact our founder Yugant Rahele for personalized assistance.</p>
+                        {relatedServices.length > 0 && (
+                            <div>
+                                <h4 style={{ color: '#0B1F3A', marginBottom: '12px', fontSize: '1rem' }}>Related Services</h4>
+                                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                                    {relatedServices.map(s => (
+                                        <button key={s.id} onClick={() => navigate(`/services/${s.id}`)} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #e2e8f0', background: '#F8FAFC', cursor: 'pointer', color: '#0B1F3A', fontWeight: 500, fontSize: '0.85rem' }}>
+                                            {s.icon} {s.title}
+                                        </button>
+                                    ))}
+                                    <button onClick={() => navigate('/')} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #16A34A', background: '#F0FDF4', cursor: 'pointer', color: '#16A34A', fontWeight: 600, fontSize: '0.85rem' }}>🏠 Back to Home</button>
+                                    <button onClick={() => navigate('/calculators')} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #0B1F3A', background: '#EFF6FF', cursor: 'pointer', color: '#0B1F3A', fontWeight: 600, fontSize: '0.85rem' }}>🧮 Financial Calculators</button>
+                                    <button onClick={() => navigate('/blog')} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #7C3AED', background: '#F5F3FF', cursor: 'pointer', color: '#7C3AED', fontWeight: 600, fontSize: '0.85rem' }}>📖 Read Our Blog</button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="section" style={{ background: '#0B1F3A', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '30px 0' }}>
+                <div className="container">
+                    <div style={{ textAlign: 'center', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>
+                        <p>© 2026 FinTaxVers Consultancy Services, Nagpur, Maharashtra, India. All rights reserved.</p>
+                        <p style={{ marginTop: '8px' }}>Best financial consultant in Nagpur | GST consultant | Tax consultant | CMA report expert</p>
                     </div>
                 </div>
             </footer>

@@ -6,6 +6,9 @@ import Calculators from './portals/user/Calculators'
 import ServiceDetail from './portals/user/ServiceDetail'
 import AdminPortal from './portals/admin/AdminPortal'
 import AdminLogin from './portals/admin/AdminLogin'
+import Blog from './portals/user/Blog'
+import BlogPost from './portals/user/BlogPost'
+import Links from './pages/Links'
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem('fintxyug_auth') === 'true';
@@ -17,23 +20,14 @@ function App() {
     <AppProvider>
       <Router>
         <Routes>
-          {/* User Portal */}
           <Route path="/" element={<UserPortal />} />
           <Route path="/calculators" element={<Calculators />} />
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
-
-          {/* Admin Portal Routes */}
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/links" element={<Links />} />
           <Route path="/admin/login" element={<AdminLogin />} />
-          <Route
-            path="/admin/dashboard"
-            element={
-              <ProtectedRoute>
-                <AdminPortal />
-              </ProtectedRoute>
-            }
-          />
-
-          {/* Redirect generic /admin to dashboard or login */}
+          <Route path="/admin/dashboard" element={<ProtectedRoute><AdminPortal /></ProtectedRoute>} />
           <Route path="/admin" element={<Navigate to="/admin/dashboard" />} />
         </Routes>
       </Router>

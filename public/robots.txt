@@ -1,0 +1,26 @@
+# Robots.txt – fintaxvers.com
+# Financial Consultancy Services in Nagpur by Yugant Rahele
+
+User-agent: *
+Allow: /
+
+# Disallow admin portal from indexing
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /admin/dashboard
+
+# Allow all major search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://fintaxvers.com/sitemap.xml

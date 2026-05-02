@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../../components/common/Navbar';
 import HeroSlider from '../../components/common/HeroSlider';
+import SEOHead from '../../components/common/SEOHead';
 import yugantSignature from '../../assets/yugant_signature.png';
 import logo from '../../assets/fintaxverslogo.png';
 
@@ -111,6 +112,12 @@ function UserPortal() {
 
     return (
         <div className="user-portal" style={{ background: 'var(--bg-page)' }}>
+            <SEOHead
+                title="Trusted Financial Consultancy Services in Nagpur – Yugant Rahele"
+                description="FinTaxVers Consultancy Services – Best financial consultant in Nagpur. Expert GST registration, income tax filing, business loan project reports, CMA reports & MSME registration. Call +91-8928895195."
+                keywords="best financial consultant in Nagpur, financial advisor Nagpur, GST consultant Nagpur, tax consultant Nagpur, income tax filing Nagpur, CMA report Nagpur, business loan project report Nagpur, Yugant Rahele, FinTaxVers"
+                canonical="https://fintaxvers.com/"
+            />
             <Navbar />
             <HeroSlider />
 
@@ -150,10 +157,12 @@ function UserPortal() {
                 `}</style>
 
                 <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '16px' }}>
                         <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.9rem' }}>What We Do</span>
-                        <h2 style={{ marginTop: '10px' }}>Premium Financial Solutions</h2>
-                        <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '12px auto 0' }}>Comprehensive financial, tax, and compliance solutions tailored for ambitious Indian businesses.</p>
+                        <h2 style={{ marginTop: '10px' }}>Trusted Financial Consultancy Services in Nagpur</h2>
+                        <p style={{ color: 'var(--text-secondary)', maxWidth: '700px', margin: '12px auto 0', lineHeight: 1.7 }}>
+                            FinTaxVers Consultancy Services, founded by <strong>Yugant Rahele</strong>, is a leading <strong>financial consultant in Nagpur</strong>, Maharashtra. We offer expert GST registration, income tax filing, business loan project reports, CMA reports, MSME registration, and company registration — all tailored for businesses and individuals across Nagpur.
+                        </p>
                     </div>
 
                     <div className="services-container">
@@ -275,22 +284,28 @@ function UserPortal() {
 
 
 
-            {/* About */}
+            {/* About / Founder */}
             <section id="about" className="section" style={{ background: 'white' }}>
                 <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+                        <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Leadership</span>
+                        <h2 style={{ marginTop: '8px' }}>Yugant Rahele – Founder of FinTaxVers Consultancy Services</h2>
+                    </div>
                     <div style={{ background: 'var(--primary-dark)', borderRadius: '24px', overflow: 'hidden', color: 'white', display: 'flex', flexWrap: 'wrap' }}>
                         <div style={{ flex: '1 1 400px', padding: 'clamp(40px, 8vw, 80px)' }}>
-                            <span style={{ color: 'var(--accent)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Leadership</span>
-                            <h2 style={{ color: 'white', marginTop: '10px', marginBottom: '20px', fontSize: 'clamp(2rem, 3vw, 2.5rem)' }}>Meet Your Financial Strategist</h2>
-                            <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '30px' }}>
-                                With a robust background in commerce and finance, Yugant specializes in helping businesses secure funding and maintain absolute compliance. 
-                                As a leading <strong>Tax Consultant India</strong>, the focus is on maximizing your financial health—creating impeccable <strong>Business Loan Project Reports</strong> and ensuring seamless <strong>Company Registration Services</strong>.
+                            <span style={{ color: 'var(--accent)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.9rem' }}>About the Founder</span>
+                            <h3 style={{ color: 'white', marginTop: '10px', marginBottom: '20px', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}>Your Trusted Finance Advisor in Nagpur</h3>
+                            <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '16px' }}>
+                                <strong style={{ color: 'white' }}>Yugant Rahele</strong> is the founder of <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong>, a leading <strong style={{ color: '#4ade80' }}>financial consultancy in Nagpur, Maharashtra</strong>. With an MBA in Finance and 10+ years of hands-on experience, Yugant is a trusted name for GST registration, income tax filing, business loan project reports, and CMA data preparation in Nagpur.
+                            </p>
+                            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.98rem', lineHeight: 1.7, marginBottom: '24px' }}>
+                                As a <strong style={{ color: 'white' }}>tax consultant in Nagpur</strong> and <strong style={{ color: 'white' }}>GST consultant in Nagpur</strong>, Yugant has helped 500+ businesses and individuals navigate complex financial regulations — from MSME registration and company formation to CMA reports and working capital financing.
                             </p>
                             <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                                <img src={logo} alt="Logo" style={{ width: '80px', filter: 'brightness(0) invert(1)' }} />
+                                <img src={logo} alt="FinTaxVers Consultancy Services Logo – Financial Advisor Nagpur" style={{ width: '80px', filter: 'brightness(0) invert(1)' }} />
                                 <div>
-                                    <h4 style={{ margin: 0, color: 'white', fontSize: '1.1rem' }}>Yugant V. Rahele</h4>
-                                    <p style={{ margin: 0, color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>Founder, MBA Finance</p>
+                                    <h4 style={{ margin: 0, color: 'white', fontSize: '1.1rem' }}>Yugant Rahele</h4>
+                                    <p style={{ margin: 0, color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>Founder, MBA Finance | Financial Consultant Nagpur</p>
                                 </div>
                             </div>
                         </div>
@@ -316,17 +331,53 @@ function UserPortal() {
             {/* FAQs */}
             <section className="section" style={{ background: '#F8FAFC' }}>
                 <div className="container" style={{ maxWidth: '800px' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                        <h2 style={{ marginTop: '10px' }}>Frequently Asked Questions</h2>
+                    <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                        <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Quick Answers</span>
+                        <h2 style={{ marginTop: '10px' }}>Frequently Asked Questions – Financial Consultancy in Nagpur</h2>
                     </div>
                     <div>
-                        <FAQItem question="What is CMA Data and why do I need it?" answer="CMA (Credit Monitoring Arrangement) Data is a detailed financial report required by banks to evaluate your business's financial health before approving term loans or working capital limits." />
-                        <FAQItem question="How long does Company Registration take?" answer="Typically, a Private Limited Company or LLP can be registered within 7-10 working days, provided all documents (PAN, Aadhaar, address proof) are in order." />
-                        <FAQItem question="Can you help me get a Mudra Loan?" answer="Yes, we assist in preparing the necessary project reports, financial projections, and compliance documents required to apply for a Mudra Loan under government schemes." />
-                        <FAQItem question="Do you provide monthly GST filing services?" answer="Absolutely. We offer end-to-end GST solutions, including new registrations, monthly/quarterly return filings (GSTR-1, GSTR-3B), and annual audits." />
+                        <FAQItem question="What is CMA Data and why do I need it for a bank loan?" answer="CMA (Credit Monitoring Arrangement) Data is a detailed financial report required by banks to evaluate your business's financial health before approving term loans or working capital limits. FinTaxVers prepares bank-ready CMA reports in Nagpur." />
+                        <FAQItem question="How long does GST registration take in Nagpur?" answer="GST registration typically takes 3-7 working days after submitting all correct documents. FinTaxVers handles end-to-end GST registration in Nagpur, Maharashtra." />
+                        <FAQItem question="What is the income tax filing deadline in India for FY 2024-25?" answer="The ITR filing deadline is 31st July 2025 for individuals without audit, and 31st October 2025 for businesses requiring audit. FinTaxVers provides expert income tax filing services in Nagpur." />
+                        <FAQItem question="How long does Company Registration take in Nagpur?" answer="A Private Limited Company or LLP can be registered within 7-10 working days, provided all documents (PAN, Aadhaar, address proof) are in order. We handle all MCA filings for you." />
+                        <FAQItem question="Can you help me get a Mudra Loan or business loan in Nagpur?" answer="Yes, we assist in preparing project reports, CMA data, financial projections, and compliance documents required for Mudra Loans, MSME loans, and all business loans from banks in Nagpur." />
+                        <FAQItem question="Do you provide monthly GST return filing services?" answer="Absolutely. We offer end-to-end GST solutions including new registrations, monthly/quarterly GSTR-1 and GSTR-3B filings, ITC reconciliation, and annual GSTR-9 filing." />
+                        <FAQItem question="What is MSME / Udyam Registration and what are its benefits?" answer="Udyam Registration is free government certification for micro, small, and medium enterprises. Benefits include priority loans, government subsidies, protection from delayed payments, and tax benefits. FinTaxVers completes Udyam registration in 1-2 days." />
+                        <FAQItem question="How can I contact FinTaxVers Consultancy Services in Nagpur?" answer="Call us at +91-8928895195, email contact@fintaxvers.com, or WhatsApp us anytime. Our office is in Nagpur, Maharashtra. We serve clients across Nagpur, Vidarbha, and all of Maharashtra." />
                     </div>
                 </div>
             </section>
+
+            {/* Testimonials */}
+            <section className="section" style={{ background: 'white' }}>
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                        <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Client Reviews</span>
+                        <h2 style={{ marginTop: '10px' }}>What Our Clients Say About Us</h2>
+                        <p style={{ color: 'var(--text-secondary)', maxWidth: '500px', margin: '10px auto 0' }}>Trusted by 500+ businesses and individuals in Nagpur, Maharashtra</p>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                        {[
+                            { name: 'Rajesh Sharma', business: 'Manufacturing Business, Nagpur', rating: 5, review: 'FinTaxVers helped us get our business loan approved with a perfectly prepared CMA report. Yugant Rahele is an excellent financial consultant in Nagpur. Highly recommended!' },
+                            { name: 'Priya Deshmukh', business: 'Retail Shop Owner, Nagpur', rating: 5, review: 'Got our GST registration done in just 4 days. The team at FinTaxVers is very professional and responsive. Best GST consultant in Nagpur for small businesses.' },
+                            { name: 'Amit Tiwari', business: 'IT Startup, Nagpur', rating: 5, review: 'Income tax filing was a breeze with FinTaxVers. They saved us significant tax through smart planning. Yugant Rahele truly is the best tax consultant in Nagpur.' },
+                            { name: 'Sunita Wankhede', business: 'Proprietorship, Nagpur', rating: 5, review: 'MSME registration and Shop Act license were done quickly. FinTaxVers made the entire process hassle-free. Great financial advisory service in Nagpur.' },
+                        ].map((t, i) => (
+                            <div key={i} style={{ background: '#F8FAFC', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', position: 'relative' }}>
+                                <div style={{ display: 'flex', gap: '4px', marginBottom: '14px' }}>
+                                    {Array(t.rating).fill(0).map((_, j) => <span key={j} style={{ color: '#F59E0B', fontSize: '1.1rem' }}>★</span>)}
+                                </div>
+                                <p style={{ color: '#374151', lineHeight: 1.7, marginBottom: '18px', fontSize: '0.95rem', fontStyle: 'italic' }}>"{t.review}"</p>
+                                <div>
+                                    <div style={{ fontWeight: 700, color: '#0B1F3A' }}>{t.name}</div>
+                                    <div style={{ color: '#64748b', fontSize: '0.85rem' }}>{t.business}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
 
             {/* Contact */}
             <section id="contact" className="section" style={{ background: 'white' }}>
@@ -403,64 +454,52 @@ function UserPortal() {
             <footer style={{ background: 'var(--primary-dark)', color: 'rgba(255,255,255,0.7)', paddingTop: '80px', paddingBottom: '30px' }}>
                 <div className="container">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '50px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '50px', marginBottom: '30px' }}>
-                        
                         <div style={{ gridColumn: 'span 2' }}>
                             <a href="/" style={{ display: 'inline-block', marginBottom: '18px' }}>
-                                <img
-                                    src={logo}
-                                    alt="FinTaxVers Logo"
-                                    style={{ height: '54px', width: 'auto', objectFit: 'contain' }}
-                                />
+                                <img src={logo} alt="FinTaxVers Consultancy Services – Best Financial Consultant in Nagpur" style={{ height: '54px', width: 'auto', objectFit: 'contain' }} />
                             </a>
-                            <p style={{ lineHeight: 1.7, marginBottom: '20px', maxWidth: '400px' }}>
-                                Expert Project Finance Consultant, CMA Data Preparation, Business Loan Assistance, MSME Registration, and GST Filing services in Nagpur.
+                            <p style={{ lineHeight: 1.8, marginBottom: '16px', maxWidth: '420px' }}>
+                                <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong> is a trusted <strong style={{ color: '#4ade80' }}>financial consultancy in Nagpur, Maharashtra</strong>, founded by <strong style={{ color: 'white' }}>Yugant Rahele</strong>. We offer expert GST registration, income tax filing, business loan project reports, CMA reports, MSME registration, company registration, and comprehensive financial planning services across Nagpur and Maharashtra.
                             </p>
+                            <address style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', marginBottom: '16px', lineHeight: 1.7 }}>
+                                📍 Nagpur, Maharashtra, India<br />
+                                📞 <a href="tel:+918928895195" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+91-8928895195</a><br />
+                                ✉️ <a href="mailto:contact@fintaxvers.com" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>contact@fintaxvers.com</a><br />
+                                🕐 Mon–Sat: 10 AM – 7 PM
+                            </address>
                             <div style={{ display: 'flex', gap: '12px' }}>
-                                <a href="https://www.linkedin.com/in/yugant-rahele" target="_blank" rel="noreferrer"
-                                    style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }}
-                                    onMouseEnter={e => e.currentTarget.style.background = '#0077B5'}
-                                    onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
-                                    title="LinkedIn">in</a>
-                                <a href="https://www.facebook.com/fintaxvers" target="_blank" rel="noreferrer"
-                                    style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }}
-                                    onMouseEnter={e => e.currentTarget.style.background = '#1877F2'}
-                                    onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
-                                    title="Facebook">fb</a>
-                                <a href="https://www.instagram.com/fintaxvers" target="_blank" rel="noreferrer"
-                                    style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }}
-                                    onMouseEnter={e => e.currentTarget.style.background = '#E1306C'}
-                                    onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
-                                    title="Instagram">ig</a>
-                                <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer"
-                                    style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 700, transition: 'background 0.2s' }}
-                                    onMouseEnter={e => e.currentTarget.style.background = '#25D366'}
-                                    onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
-                                    title="WhatsApp">wa</a>
+                                <a href="https://www.linkedin.com/in/yugant-rahele" target="_blank" rel="noreferrer" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#0077B5'} onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} title="Yugant Rahele LinkedIn">in</a>
+                                <a href="https://www.facebook.com/fintaxvers" target="_blank" rel="noreferrer" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#1877F2'} onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} title="FinTaxVers Facebook">fb</a>
+                                <a href="https://www.instagram.com/fintaxvers" target="_blank" rel="noreferrer" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#E1306C'} onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} title="FinTaxVers Instagram">ig</a>
+                                <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 700, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#25D366'} onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} title="WhatsApp FinTaxVers">wa</a>
                             </div>
                         </div>
-
                         <div>
-                            <h4 style={{ color: 'white', marginBottom: '20px', fontSize: '1.1rem' }}>Services</h4>
+                            <h4 style={{ color: 'white', marginBottom: '20px', fontSize: '1.1rem' }}>Our Services</h4>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 <li><a href="/services/cma-data-project-financing" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Business Loan Project Report</a></li>
-                                <li><a href="/services/company-llp-formation" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Company Registration Services</a></li>
-                                <li><a href="/services/gst-returns-solutions" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>GST Registration Services</a></li>
-                                <li><a href="/services/income-tax-planning" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Income Tax Filing India</a></li>
+                                <li><a href="/services/gst-returns-solutions" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>GST Registration &amp; Filing</a></li>
+                                <li><a href="/services/income-tax-planning" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Income Tax Filing</a></li>
+                                <li><a href="/services/company-llp-formation" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Company Registration</a></li>
+                                <li><a href="/services/shop-act-msme" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>MSME / Udyam Registration</a></li>
+                                <li><a href="/services/business-loan-assistance" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Business Loan Assistance</a></li>
                             </ul>
                         </div>
-
                         <div>
-                            <h4 style={{ color: 'white', marginBottom: '20px', fontSize: '1.1rem' }}>Contact</h4>
+                            <h4 style={{ color: 'white', marginBottom: '20px', fontSize: '1.1rem' }}>Quick Links</h4>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <li>+91 89288 95195</li>
-                                <li>contact@fintaxvers.com</li>
-                                <li>Nagpur, Maharashtra</li>
+                                <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>GST &amp; EMI Calculators</a></li>
+                                <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>SIP Calculator</a></li>
+                                <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Income Tax Calculator</a></li>
+                                <li><a href="/links" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Useful Links</a></li>
+                                <li><a href="/blog" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Financial Insights Blog</a></li>
+                                <li><a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>WhatsApp Support</a></li>
                             </ul>
                         </div>
-
                     </div>
-                    <div style={{ textAlign: 'center', fontSize: '0.9rem' }}>
-                        &copy; 2026 FinTaxVers Consultancy Services. All rights reserved.
+                    <div style={{ textAlign: 'center', fontSize: '0.85rem' }}>
+                        <p>© 2026 <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong> – Nagpur, Maharashtra, India. All rights reserved.</p>
+                        <p style={{ marginTop: '6px', color: 'rgba(255,255,255,0.4)' }}>Best Financial Consultant in Nagpur | GST Consultant Nagpur | Tax Consultant Nagpur | CMA Report Expert | Yugant Rahele</p>
                     </div>
                 </div>
             </footer>
