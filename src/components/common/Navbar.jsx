@@ -69,6 +69,10 @@ const Navbar = () => {
                                 </svg>
                                 8928895195
                             </a>
+                            <span style={{ color: 'rgba(255,255,255,0.4)', margin: '0 4px' }}>|</span>
+                            <a href="tel:9011424236" className="top-header-item top-header-phone" style={{ marginLeft: 0 }}>
+                                9011424236
+                            </a>
                         </div>
                     </div>
                 </div>

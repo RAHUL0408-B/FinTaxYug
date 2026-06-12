@@ -100,7 +100,8 @@ function Blog() {
                         <h2 style={{ color: '#0B1F3A', marginBottom: '12px' }}>Need Expert Financial Advice in Nagpur?</h2>
                         <p style={{ color: '#64748b', marginBottom: '24px' }}>Consult with Yugant Rahele – Trusted Financial Consultant in Nagpur</p>
                         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <a href="tel:+918928895195" className="btn btn-primary" style={{ background: '#16A34A', color: 'white', padding: '12px 28px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none' }}>📞 Call Now</a>
+                            <a href="tel:+918928895195" className="btn btn-primary" style={{ background: '#16A34A', color: 'white', padding: '12px 28px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none' }}>📞 Call: 8928895195</a>
+                            <a href="tel:+919011424236" className="btn btn-primary" style={{ background: '#16A34A', color: 'white', padding: '12px 28px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none' }}>📞 Call: 9011424236</a>
                             <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" className="btn" style={{ background: '#25D366', color: 'white', padding: '12px 28px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none' }}>WhatsApp Us</a>
                         </div>
                     </div>

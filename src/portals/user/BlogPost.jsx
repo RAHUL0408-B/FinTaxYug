@@ -125,6 +125,7 @@ function BlogPost() {
                                 <h3 style={{ color: 'white', marginBottom: '8px', fontSize: '1.1rem' }}>Need Expert Help?</h3>
                                 <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '20px' }}>Talk to Yugant Rahele – Trusted Financial Consultant in Nagpur</p>
                                 <a href="tel:+918928895195" style={{ display: 'block', background: '#16A34A', color: 'white', textAlign: 'center', padding: '10px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, marginBottom: '10px' }}>📞 +91-8928895195</a>
+                                <a href="tel:+919011424236" style={{ display: 'block', background: '#16A34A', color: 'white', textAlign: 'center', padding: '10px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, marginBottom: '10px' }}>📞 +91-9011424236</a>
                                 <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" style={{ display: 'block', background: '#25D366', color: 'white', textAlign: 'center', padding: '10px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>WhatsApp Us</a>
                             </div>
                             <div style={{ background: 'white', borderRadius: '16px', padding: '24px', border: '1px solid #e2e8f0' }}>

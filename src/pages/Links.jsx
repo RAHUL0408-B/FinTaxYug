@@ -21,6 +21,8 @@ const sections = [
       { label: "Udyam Registration", url: "https://udyamregistration.gov.in/", desc: "MSME registration for small & medium enterprises" },
       { label: "MSME Ministry", url: "https://msme.gov.in/", desc: "Schemes, policies & support for MSMEs" },
       { label: "Mahagst (Maharashtra GST)", url: "https://mahagst.gov.in/", desc: "Maharashtra state GST portal for local compliance" },
+      { label: "IBEF – India Brand Equity Foundation", url: "https://www.ibef.org", desc: "Insights, reports and data on Indian industry and investment" },
+      { label: "DGFT IEC Profile Management", url: "https://www.dgft.gov.in/CP/?opt=iec-profile-management", desc: "Manage IEC profile and related services" },
     ],
   },
   {
@@ -234,7 +236,7 @@ export default function Links() {
         background: 'linear-gradient(to bottom right, #0f172a, #172554, #0f172a)',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '100px' // Offset for Navbar
+        paddingTop: '70px' // Offset for Navbar
       }}>
         {/* Subtle grid pattern */}
         <div style={{
@@ -245,9 +247,9 @@ export default function Links() {
             backgroundSize: "40px 40px",
         }} />
         
-        <div className="container" style={{ position: 'relative', padding: '64px 20px', textAlign: 'center' }}>
+        <div className="container" style={{ position: 'relative', padding: '12px 20px 16px', textAlign: 'center' }}>
           
-          <div className="breadcrumb" style={{ marginBottom: '30px', fontSize: '0.9rem', color: '#94a3b8', display: 'flex', justifyContent: 'center', gap: '8px' }}>
+          <div className="breadcrumb" style={{ marginBottom: '12px', fontSize: '0.9rem', color: '#94a3b8', display: 'flex', justifyContent: 'center', gap: '8px' }}>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }} style={{ color: '#94a3b8', textDecoration: 'none' }}>Home</a>
               <span>/</span>
               <span style={{ color: '#38bdf8', fontWeight: 500 }}>Useful Links</span>
@@ -260,8 +262,8 @@ export default function Links() {
             backgroundColor: 'rgba(59, 130, 246, 0.1)',
             border: '1px solid rgba(96, 165, 250, 0.2)',
             borderRadius: '9999px',
-            padding: '6px 16px',
-            marginBottom: '24px'
+            padding: '4px 14px',
+            marginBottom: '10px'
           }}>
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#60a5fa' }}></span>
             <span style={{ color: '#93c5fd', fontSize: '12px', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
@@ -269,18 +271,18 @@ export default function Links() {
             </span>
           </div>
           
-          <h1 style={{ fontSize: 'clamp(24px, 4vw, 48px)', fontWeight: 700, color: 'white', lineHeight: 1.2, margin: '0 0 16px 0' }}>
+          <h1 style={{ fontSize: 'clamp(20px, 3vw, 36px)', fontWeight: 700, color: 'white', lineHeight: 1.2, margin: '0 0 8px 0' }}>
             Useful Financial &amp;{" "}
             <span style={{ color: '#38bdf8' }}>Government Links</span>
           </h1>
           
-          <p style={{ color: '#94a3b8', fontSize: 'clamp(16px, 2vw, 18px)', maxWidth: '672px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ color: '#94a3b8', fontSize: 'clamp(13px, 1.5vw, 15px)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.5 }}>
             Quick access to trusted government, finance, taxation, compliance, banking,
             stock market, and CA resources — all in one place.
           </p>
 
           {/* Stats bar */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', marginTop: '40px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginTop: '14px', flexWrap: 'wrap' }}>
             {[
               { num: sections.length, label: "Categories" },
               { num: sections.reduce((a, s) => a + s.links.length, 0), label: "Resources" },
@@ -298,7 +300,7 @@ export default function Links() {
       </div>
 
       {/* Main Content */}
-      <div className="container" style={{ padding: '48px 20px' }}>
+      <div className="container" style={{ padding: '12px 20px 48px' }}>
         {/* Quick Jump Nav */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '40px', justifyContent: 'center' }}>
           {sections.map((s) => (
@@ -370,9 +372,9 @@ export default function Links() {
                       <p style={{ lineHeight: 1.8, marginBottom: '16px', maxWidth: '420px' }}>
                           <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong> is a trusted <strong style={{ color: '#4ade80' }}>financial consultancy in Nagpur, Maharashtra</strong>, founded by <strong style={{ color: 'white' }}>Yugant Rahele</strong>.
                       </p>
-                      <address style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', marginBottom: '16px', lineHeight: 1.7 }}>
+                       <address style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', marginBottom: '16px', lineHeight: 1.7 }}>
                           📍 Nagpur, Maharashtra, India<br />
-                          📞 <a href="tel:+918928895195" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+91-8928895195</a><br />
+                          📞 <a href="tel:+918928895195" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+91-8928895195</a> / <a href="tel:+919011424236" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+91-9011424236</a><br />
                           ✉️ <a href="mailto:contact@fintaxvers.com" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>contact@fintaxvers.com</a>
                       </address>
                   </div>

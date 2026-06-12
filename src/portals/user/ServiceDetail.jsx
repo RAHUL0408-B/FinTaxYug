@@ -45,7 +45,7 @@ const ServiceDetail = () => {
             '@type': 'FinancialService',
             name: 'FinTaxVers Consultancy Services',
             url: 'https://fintaxvers.com',
-            telephone: '+91-8928895195',
+            telephone: '+91-8928895195, +91-9011424236',
             address: { '@type': 'PostalAddress', addressLocality: 'Nagpur', addressRegion: 'Maharashtra', addressCountry: 'IN' }
         },
         areaServed: { '@type': 'City', name: 'Nagpur' },
@@ -61,7 +61,7 @@ const ServiceDetail = () => {
         }))
     } : null;
     const seoTitle = service.seoTitle || `${service.title} in Nagpur`;
-    const seoDesc = service.metaDescription || `Expert ${service.title} services in Nagpur, Maharashtra. ${service.shortDesc} Contact FinTaxVers Consultancy – Yugant Rahele at +91-8928895195.`;
+    const seoDesc = service.metaDescription || `Expert ${service.title} services in Nagpur, Maharashtra. ${service.shortDesc} Contact FinTaxVers Consultancy – Yugant Rahele at +91-8928895195 / +91-9011424236.`;
     const seoKeywords = `${service.title} Nagpur, ${service.category} Nagpur, financial consultant Nagpur, FinTaxVers, Yugant Rahele, ${service.title} Maharashtra`;
     const canonicalSlug = service.canonicalSlug || service.id;
     const relatedServices = Object.values(servicesData)
@@ -104,7 +104,10 @@ const ServiceDetail = () => {
                                 Get Started
                             </button>
                             <a href="tel:8928895195" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
-                                📞 Call Now
+                                📞 Call: 8928895195
+                            </a>
+                            <a href="tel:9011424236" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
+                                📞 Call: 9011424236
                             </a>
                         </div>
                     </div>
@@ -260,13 +263,16 @@ const ServiceDetail = () => {
                                 <h3>Need Help?</h3>
                                 <p>Get in touch with our expert team</p>
                                 <div className="contact-info">
-                                    <a href="tel:8928895195" className="contact-item">
+                                    <div className="contact-item" style={{ display: 'flex', gap: '10px', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
                                         <span className="contact-icon">📞</span>
                                         <div>
                                             <div className="contact-label">Call Us</div>
-                                            <div className="contact-value">8928895195</div>
+                                            <div className="contact-value" style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.95rem' }}>
+                                                <a href="tel:8928895195" style={{ textDecoration: 'none', color: 'inherit' }}>8928895195</a>
+                                                <a href="tel:9011424236" style={{ textDecoration: 'none', color: 'inherit' }}>9011424236</a>
+                                            </div>
                                         </div>
-                                    </a>
+                                    </div>
                                     <a href="mailto:contact@fintaxvers.com" className="contact-item">
                                         <span className="contact-icon">📧</span>
                                         <div>
@@ -354,6 +360,9 @@ const ServiceDetail = () => {
                         </button>
                         <a href="tel:8928895195" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
                             Call: 8928895195
+                        </a>
+                        <a href="tel:9011424236" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
+                            Call: 9011424236
                         </a>
                     </div>
                 </div>

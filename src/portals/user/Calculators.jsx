@@ -59,7 +59,7 @@ const calcFAQs = [
     { q: 'Which income tax regime is better for me?', a: 'Use our Income Tax Calculator to compare old vs new tax regime based on your income and deductions. Our experts in Nagpur can also advise you personally.' },
     { q: 'What is HRA exemption?', a: 'HRA (House Rent Allowance) exemption allows you to reduce your taxable income if you live in rented accommodation and receive HRA from your employer.' },
     { q: 'Are these calculators free to use?', a: 'Yes, all financial calculators at FinTaxVers are 100% free. No registration required.' },
-    { q: 'Can I get expert financial advice in Nagpur?', a: 'Yes! FinTaxVers Consultancy Services in Nagpur provides expert financial planning, income tax filing, GST services, and business loan assistance. Call +91-8928895195.' },
+    { q: 'Can I get expert financial advice in Nagpur?', a: 'Yes! FinTaxVers Consultancy Services in Nagpur provides expert financial planning, income tax filing, GST services, and business loan assistance. Call +91-8928895195 / +91-9011424236.' },
 ];
 
 function Calculators() {
@@ -142,7 +142,7 @@ function Calculators() {
                         </button>
                         <ActiveCalculator />
                         <div style={{ marginTop: '30px', background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: '12px', padding: '20px' }}>
-                            <p style={{ color: '#0B1F3A', fontSize: '0.9rem', margin: 0 }}>💡 <strong>Need expert advice?</strong> Call <a href="tel:+918928895195" style={{ color: '#16A34A', fontWeight: 600 }}>+91-8928895195</a> to speak with Yugant Rahele – trusted financial consultant in Nagpur.</p>
+                            <p style={{ color: '#0B1F3A', fontSize: '0.9rem', margin: 0 }}>💡 <strong>Need expert advice?</strong> Call <a href="tel:+918928895195" style={{ color: '#16A34A', fontWeight: 600 }}>+91-8928895195</a> / <a href="tel:+919011424236" style={{ color: '#16A34A', fontWeight: 600 }}>+91-9011424236</a> to speak with Yugant Rahele – trusted financial consultant in Nagpur.</p>
                         </div>
                     </div>
                 ) : (
@@ -181,7 +181,8 @@ function Calculators() {
                             <h3 style={{ color: '#0B1F3A', marginBottom: '8px' }}>Need Expert Financial Advice in Nagpur?</h3>
                             <p style={{ color: '#64748b', marginBottom: '16px' }}>Beyond calculators – get personalized guidance from Yugant Rahele</p>
                             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                                <a href="tel:+918928895195" style={{ background: '#0B1F3A', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>📞 Book Consultation</a>
+                                <a href="tel:+918928895195" style={{ background: '#0B1F3A', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>📞 Call: 8928895195</a>
+                                <a href="tel:+919011424236" style={{ background: '#0B1F3A', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>📞 Call: 9011424236</a>
                                 <a href="/services/gst-returns-solutions" style={{ background: '#16A34A', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>GST Services</a>
                                 <a href="/services/income-tax-planning" style={{ background: '#0284C7', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>Income Tax Filing</a>
                                 <a href="/blog" style={{ background: '#7C3AED', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>Read Our Blog</a>
