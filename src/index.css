@@ -1331,3 +1331,405 @@ textarea:focus-visible {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* ==========================================================================
+   LIVE FINANCIAL NEWS TERMINAL STYLES (LIGHT THEME UNIFIED)
+   ========================================================================== */
+.news-terminal-container {
+  --green: #16a34a;
+  --green-light: #dcfce7;
+  --green-dark: #14532d;
+  --red: #dc2626;
+  --red-light: #fee2e2;
+  --gold: #ca8a04;
+  --gold-light: #fef9c3;
+  --bg-term: #ffffff;
+  --text-term: #0B1F3A;
+  --text-term2: #475569;
+  --text-term3: #94a3b8;
+  --border-term: #e2e8f0;
+  --accent-term: #16a34a;
+  --accent-term2: #0B1F3A;
+
+  background: transparent;
+  color: var(--text-term);
+  padding: 0;
+  border-radius: 0;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border: none;
+  box-shadow: none;
+}
+
+.news-terminal-container .live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 6px;
+  animation: pulse-live 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Ticker styles - dark blue banner matching hero and header */
+.terminal-ticker-wrap {
+  background: var(--accent-term2);
+  border-bottom: 1px solid var(--border-term);
+  overflow: hidden;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.terminal-ticker-label {
+  background: var(--green);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.terminal-ticker-track {
+  display: flex;
+  animation: ticker-scroll 45s linear infinite;
+  flex-shrink: 0;
+}
+
+.terminal-ticker-item {
+  white-space: nowrap;
+  font-size: 0.82rem;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.terminal-ticker-item .sym { font-weight: 700; opacity: 0.9; }
+.terminal-ticker-item .up { color: #4ade80; font-weight: 600; }
+.terminal-ticker-item .dn { color: #f87171; font-weight: 600; }
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Market strip grid - white cards with borders */
+.terminal-market-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.terminal-market-card {
+  background: #ffffff;
+  border: 1px solid var(--border-term);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(11, 31, 58, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.terminal-market-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11, 31, 58, 0.08);
+  border-color: #cbd5e1;
+}
+
+.terminal-market-card .market-name {
+  font-size: 0.72rem;
+  color: var(--text-term2);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.terminal-market-card .market-val {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-term);
+}
+
+.terminal-market-card .market-chg {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.terminal-market-card .market-chg.up { color: var(--green); }
+.terminal-market-card .market-chg.dn { color: var(--red); }
+
+/* News section and grid - same layout, light colors */
+.terminal-news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+.terminal-news-card {
+  background: #ffffff;
+  border: 1px solid var(--border-term);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(11, 31, 58, 0.04);
+}
+
+.terminal-news-card:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(11, 31, 58, 0.1);
+}
+
+.terminal-news-card.featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 20px rgba(11, 31, 58, 0.06);
+}
+
+.terminal-news-card .featured-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.terminal-news-card .featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-term2);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.terminal-news-card .card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.terminal-news-card .tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+/* Modern pastel tags for light mode */
+.terminal-news-card .tag.markets { background: #e0f2fe; color: #0369a1; }
+.terminal-news-card .tag.earnings { background: #fef9c3; color: #a16207; }
+.terminal-news-card .tag.crypto { background: #f3e8ff; color: #6b21a8; }
+.terminal-news-card .tag.economy { background: #dcfce7; color: #15803d; }
+.terminal-news-card .tag.fed { background: #fee2e2; color: #b91c1c; }
+
+.terminal-news-card .card-time {
+  font-size: 0.72rem;
+  color: var(--text-term2);
+}
+
+.terminal-news-card .card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--text-term);
+  transition: color 0.2s;
+}
+
+.terminal-news-card:hover .card-title {
+  color: #16a34a;
+}
+
+.terminal-news-card.featured .card-title {
+  font-size: 1.45rem;
+}
+
+.terminal-news-card .card-summary {
+  font-size: 0.88rem;
+  color: var(--text-term2);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.terminal-news-card .card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.terminal-news-card .card-source {
+  font-size: 0.75rem;
+  color: var(--text-term2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terminal-news-card .source-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-term);
+}
+
+.terminal-news-card .card-link {
+  font-size: 0.75rem;
+  color: var(--accent-term);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Spinner and Loaders - Light Mode */
+.terminal-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 4rem;
+  color: var(--text-term2);
+  font-size: 0.95rem;
+}
+
+.terminal-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-term);
+  border-top-color: var(--accent-term);
+  border-radius: 50%;
+  animation: spin-loader 0.7s linear infinite;
+}
+
+@keyframes spin-loader {
+  to { transform: rotate(360deg); }
+}
+
+/* Refresh button - Light Mode matching guide style */
+.terminal-refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: var(--text-term);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.terminal-refresh-btn:hover {
+  background: var(--accent-term);
+  color: #fff;
+  border-color: var(--accent-term);
+}
+
+.terminal-refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Custom terminal filter button class matching the guides buttons style */
+.terminal-filter-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: var(--text-term);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: capitalize;
+}
+
+.terminal-filter-btn:hover, .terminal-filter-btn.active {
+  background: var(--text-term);
+  border-color: var(--text-term);
+  color: #ffffff;
+}
+
+/* Tabs style */
+.blog-tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.blog-tab-btn {
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+}
+
+.blog-tab-btn:hover {
+  border-color: #4ade80;
+  color: white;
+}
+
+.blog-tab-btn.active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: white;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.4);
+}
+
+/* Scroll target offsets to prevent elements hiding behind the fixed navbar/ticker */
+#services,
+#about,
+#contact,
+#home {
+  scroll-margin-top: 130px;
+}

@@ -316,7 +316,7 @@ const ServiceDetail = () => {
                                 <ul className="why-choose-list">
                                     <li>
                                         <span className="check-icon">✓</span>
-                                        10+ Years Experience
+                                        8+ Years Experience
                                     </li>
                                     <li>
                                         <span className="check-icon">✓</span>

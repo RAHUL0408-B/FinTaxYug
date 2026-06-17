@@ -9,7 +9,6 @@ import {
 import Navbar from '../../components/common/Navbar';
 import HeroSlider from '../../components/common/HeroSlider';
 import SEOHead from '../../components/common/SEOHead';
-import yugantSignature from '../../assets/yugant_signature.png';
 import logo from '../../assets/fintaxverslogo.png';
 
 const FAQItem = ({ question, answer }) => {
@@ -111,7 +110,7 @@ function UserPortal() {
     ];
 
     return (
-        <div className="user-portal" style={{ background: 'var(--bg-page)' }}>
+        <div id="home" className="user-portal" style={{ background: 'var(--bg-page)' }}>
             <SEOHead
                 title="Trusted Financial Consultancy Services in Nagpur – Yugant Rahele"
                 description="FinTaxVers Consultancy Services – Best financial consultant in Nagpur. Expert GST registration, income tax filing, business loan project reports, CMA reports & MSME registration. Call +91-8928895195 / +91-9011424236."
@@ -206,29 +205,7 @@ function UserPortal() {
                 </div>
             </section>
 
-            {/* Calculator Highlight Section */}
-            <section className="section" style={{ background: 'var(--primary-dark)', color: 'white' }}>
-                <div className="container">
-                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '24px', justifyContent: 'space-between' }}>
-                        <div style={{ flex: '1 1 380px' }}>
-                            <h2 style={{ color: 'white', marginBottom: '10px', fontSize: '1.6rem' }}>Plan Your Financial Future</h2>
-                            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '18px', maxWidth: '440px', lineHeight: 1.6 }}>
-                                Free calculators for SIPs, EMIs, Mutual Funds, Income Tax, HRA and retirement planning.
-                            </p>
-                            <button onClick={() => navigate('/calculators')} className="btn" style={{ background: 'var(--secondary)', color: 'white', padding: '10px 22px', borderRadius: '8px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem' }}>
-                                <Calculator size={16} /> Access Calculators
-                            </button>
-                        </div>
-                        <div style={{ flex: '1 1 320px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                            {['GST Calculator', 'EMI Calculator', 'SIP Calculator', 'Income Tax Calculator', 'HRA Calculator'].map((calc, i) => (
-                                <div key={i} style={{ background: 'rgba(255,255,255,0.05)', padding: '14px 16px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                                    <h4 style={{ color: 'white', margin: 0, fontSize: '0.85rem' }}>{calc}</h4>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Methodology – compact horizontal workflow */}
             <section style={{ background: '#F8FAFC', padding: '32px 0' }}>
@@ -297,7 +274,7 @@ function UserPortal() {
                             <span style={{ color: 'var(--accent)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.75rem' }}>About the Founder</span>
                             <h3 style={{ color: 'white', marginTop: '6px', marginBottom: '10px', fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', lineHeight: 1.3 }}>Your Trusted Finance Advisor in Nagpur</h3>
                             <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '14px' }}>
-                                <strong style={{ color: 'white' }}>Yugant Rahele</strong> is the founder of <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong>, a leading <strong style={{ color: '#4ade80' }}>financial consultancy in Nagpur, Maharashtra</strong>. With an MBA in Finance and 10+ years of experience, he is a trusted name for GST registration, income tax filing, business loan project reports, CMA data, MSME registration and company formation — serving 500+ clients across Nagpur.
+                                <strong style={{ color: 'white' }}>Yugant Rahele</strong> is the founder of <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong>, a leading <strong style={{ color: '#4ade80' }}>financial consultancy in Nagpur, Maharashtra</strong>. With an MBA in Finance and 8+ years of experience, he is a trusted name for GST registration, income tax filing, business loan project reports, CMA data, MSME registration and company formation — serving 500+ clients across Nagpur.
                             </p>
                             <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
                                 <img src={logo} alt="FinTaxVers Logo" style={{ width: '56px', filter: 'brightness(0) invert(1)' }} />
@@ -310,15 +287,12 @@ function UserPortal() {
                         {/* Right: Stats */}
                         <div style={{ flex: '0 1 240px', background: 'var(--primary)', padding: 'clamp(20px, 4vw, 36px)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', alignContent: 'center' }}>
                             <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', fontWeight: 700, color: 'white', lineHeight: 1 }}>10+</div>
+                                <div style={{ fontSize: '2rem', fontWeight: 700, color: 'white', lineHeight: 1 }}>8+</div>
                                 <div style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.75rem', marginTop: '4px' }}>Years Experience</div>
                             </div>
                             <div style={{ textAlign: 'center' }}>
                                 <div style={{ fontSize: '2rem', fontWeight: 700, color: 'white', lineHeight: 1 }}>500+</div>
                                 <div style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.75rem', marginTop: '4px' }}>Happy Clients</div>
-                            </div>
-                            <div style={{ gridColumn: '1 / -1', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '14px' }}>
-                                <img src={yugantSignature} alt="Signature" style={{ width: '110px', filter: 'brightness(0) invert(1)', opacity: 0.75 }} />
                             </div>
                         </div>
                     </div>
