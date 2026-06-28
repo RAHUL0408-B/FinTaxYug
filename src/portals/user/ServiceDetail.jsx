@@ -272,29 +272,26 @@ const ServiceDetail = () => {
                                 </section>
                             )}
 
-                            {/* Section 6: Pricing and Action */}
-                            {service.pricing && (
-                                <section className="details-section pricing-cta-section">
-                                    <div className="pricing-cta-card">
-                                        <div className="pricing-info-box">
-                                            <span className="pricing-label">Starting Price</span>
-                                            <h3 className="pricing-amount">{service.pricing.starting}</h3>
-                                            {service.pricing.note && <p className="pricing-note">{service.pricing.note}</p>}
-                                        </div>
-                                        <div className="pricing-cta-actions">
-                                            <button 
-                                                className="btn btn-primary"
-                                                onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. `)}&type=${encodeURIComponent(service.category)}`)}
-                                            >
-                                                Get Started
-                                            </button>
-                                            <a href="tel:8928895195" className="btn btn-outline">
-                                                📞 Call Nagpur Office
-                                            </a>
-                                        </div>
+                            {/* Section 6: Consultation Action */}
+                            <section className="details-section pricing-cta-section">
+                                <div className="pricing-cta-card">
+                                    <div className="pricing-info-box">
+                                        <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 800, color: 'white', textTransform: 'none', letterSpacing: 'normal' }}>Ready to Get Started?</h3>
+                                        <p style={{ margin: '4px 0 0', fontSize: '0.82rem', color: 'rgba(255,255,255,0.75)' }}>Let our experts handle your {service.title.toLowerCase()} needs. Contact us today for a free consultation.</p>
                                     </div>
-                                </section>
-                            )}
+                                    <div className="pricing-cta-actions">
+                                        <button 
+                                            className="btn btn-primary"
+                                            onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. `)}&type=${encodeURIComponent(service.category)}`)}
+                                        >
+                                            Get Started
+                                        </button>
+                                        <a href="tel:8928895195" className="btn btn-outline">
+                                            📞 Call Nagpur Office
+                                        </a>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </main>
                 </div>
