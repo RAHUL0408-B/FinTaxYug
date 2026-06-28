@@ -69,7 +69,7 @@ const ServiceDetail = () => {
         .slice(0, 3);
 
     return (
-        <div className="service-detail-page">
+        <div className="service-detail-page service-page">
             <SEOHead
                 title={seoTitle}
                 description={seoDesc}
@@ -80,7 +80,7 @@ const ServiceDetail = () => {
             {faqSchema && <SEOHead schema={faqSchema} />}
             <Navbar />
 
-            <div className="service-detail-container container">
+            <div className="service-detail-container service-page-content container">
                 {/* Breadcrumbs */}
                 <div className="breadcrumb">
                     <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
@@ -182,7 +182,7 @@ const ServiceDetail = () => {
                             </header>
 
                             {/* Section 1: Overview */}
-                            <section className="details-section service-overview-section">
+                            <section id="overview" className="details-section service-overview-section">
                                 <h2>Overview</h2>
                                 <p className="overview-paragraph">{service.overview}</p>
                                 <div 
@@ -192,7 +192,7 @@ const ServiceDetail = () => {
                             </section>
 
                             {/* Section 2: Benefits & Ideal For */}
-                            <section className="details-section benefits-ideal-section">
+                            <section id="benefits" className="details-section benefits-ideal-section">
                                 <div className="split-grid">
                                     <div className="benefits-box">
                                         <h3>Benefits</h3>
@@ -217,7 +217,7 @@ const ServiceDetail = () => {
                             </section>
 
                             {/* Section 3: Key Features */}
-                            <section className="details-section features-section">
+                            <section id="features" className="details-section features-section">
                                 <h2>Key Features</h2>
                                 <div className="compact-features-grid">
                                     {service.keyFeatures.map((feature, idx) => (
@@ -233,7 +233,7 @@ const ServiceDetail = () => {
                             </section>
 
                             {/* Section 4: Our Process */}
-                            <section className="details-section process-section">
+                            <section id="process" className="details-section process-section">
                                 <h2>Our Process</h2>
                                 <div className="compact-timeline">
                                     {service.process.map((step, idx) => (
@@ -253,7 +253,7 @@ const ServiceDetail = () => {
 
                             {/* Section 5: FAQs */}
                             {service.faq && service.faq.length > 0 && (
-                                <section className="details-section faq-section">
+                                <section id="faq" className="details-section faq-section">
                                     <h2>Frequently Asked Questions</h2>
                                     <div className="compact-faq-list">
                                         {service.faq.map((item, idx) => (
