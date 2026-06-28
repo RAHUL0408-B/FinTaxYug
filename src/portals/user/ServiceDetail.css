@@ -6,7 +6,8 @@
     color: #64748b;
 }
 
-.service-detail-container {
+.service-detail-container,
+.service-page-content {
     padding-top: 150px; /* Offset the fixed navbar and services ticker */
 }
 
@@ -264,11 +265,12 @@
     margin-bottom: 8px;
 }
 
-.service-main-title {
-    font-size: 1.8rem;
-    font-weight: 850;
-    color: #0B1F3A;
-    margin-bottom: 8px;
+.service-main-title,
+.service-page h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
     line-height: 1.25;
 }
 
@@ -281,6 +283,7 @@
 
 /* Detail Content Sections */
 .details-section {
+    scroll-margin-top: 120px;
     margin-bottom: 30px;
     border-bottom: 1px solid #f1f5f9;
     padding-bottom: 25px;
@@ -297,19 +300,14 @@
     font-weight: 800;
     color: #0B1F3A;
     margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
     text-align: left;
+    border-left: 4px solid #2e7d32;
+    padding-left: 12px;
 }
 
-.details-section h2::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 15px;
-    background: #16A34A;
-    border-radius: 2px;
+.details-section h3 {
+    border-left: 4px solid #2e7d32;
+    padding-left: 12px;
 }
 
 .overview-paragraph {
@@ -676,6 +674,7 @@
 @media (max-width: 992px) {
     .service-detail-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .service-left-sidebar {
@@ -683,31 +682,53 @@
         top: 0;
     }
     
+    /* Hide non-essential sidebar elements on tablet and mobile for speed and clean UX */
+    .sidebar-image-container,
+    .contact-card,
+    .why-choose-card {
+        display: none;
+    }
+    
+    .services-directory-card {
+        margin-top: 0;
+        border-radius: 12px;
+        padding: 10px 12px;
+    }
+    
+    .services-directory-card h3 {
+        display: none; /* Hide header text to make horizontal nav intuitive */
+    }
+    
     .services-directory-nav {
         flex-direction: row;
         overflow-x: auto;
-        padding-bottom: 6px;
+        padding-bottom: 4px;
         -webkit-overflow-scrolling: touch;
+        gap: 8px;
     }
     
     .dir-nav-btn {
         width: auto;
         white-space: nowrap;
         flex-shrink: 0;
+        padding: 6px 12px;
     }
 }
 
 @media (max-width: 600px) {
-    .service-detail-container {
-        padding-top: 100px;
+    .service-detail-container,
+    .service-page-content {
+        padding-top: 155px; /* Offset the header + services ticker on mobile viewports */
     }
     
     .service-details-box {
         padding: 20px;
     }
     
-    .service-main-title {
-        font-size: 1.4rem;
+    .service-main-title,
+    .service-page h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
     }
     
     .split-grid, .compact-features-grid {
