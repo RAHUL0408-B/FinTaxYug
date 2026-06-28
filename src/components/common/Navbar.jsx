@@ -175,7 +175,6 @@ const Navbar = () => {
 
                         <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}>About</a></li>
                         <li><a href="/links" onClick={(e) => { e.preventDefault(); setMenuOpen(false); navigate('/links'); }}>Links</a></li>
-                        <li><a href="/blog" onClick={(e) => { e.preventDefault(); setMenuOpen(false); navigate('/blog'); }}>Blog</a></li>
                         <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}>Contact</a></li>
                     </ul>
                     <button className="nav-cta btn btn-primary" onClick={() => handleNavClick('contact')}>Book Consultation</button>
