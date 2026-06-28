@@ -22,6 +22,7 @@ import CostOfDelayCalculator from '../../components/calculators/CostOfDelayCalcu
 import PurchasingPowerCalculator from '../../components/calculators/PurchasingPowerCalculator';
 import Navbar from '../../components/common/Navbar';
 import SEOHead from '../../components/common/SEOHead';
+import Footer from '../../components/common/Footer';
 
 
 const calculatorsList = [
@@ -191,6 +192,7 @@ function Calculators() {
                     </div>
                 )}
             </div>
+            <Footer />
         </div>
     );
 }

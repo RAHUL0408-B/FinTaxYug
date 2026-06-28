@@ -1,0 +1,182 @@
+/* src/components/common/Footer.css */
+:root {
+  --navy: #0F1B3D;
+  --navy-deep: #0A1330;
+  --white: #FFFFFF;
+  --green: #22C55E;
+  --pink: #EC4899;
+  --text-soft: #AEB7CF;
+  --text-faint: #7C87A8;
+  --border-footer: rgba(255,255,255,.08);
+}
+
+.f-footer {
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+  padding: 36px 0 18px;
+  font-family: 'Inter', sans-serif;
+}
+.f-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.f-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- top grid: brand+about | links | links ---- */
+.f-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 22px;
+}
+
+.f-brand img {
+  height: 26px;
+  display: block;
+  margin-bottom: 12px;
+}
+.f-brand-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.f-brand-name .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.f-about {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-soft);
+  max-width: 420px;
+  margin: 0 0 14px;
+}
+.f-about strong {
+  color: var(--white);
+}
+.f-about .accent {
+  color: #7FE3AC;
+  font-weight: 600;
+}
+
+.f-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+.f-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-soft);
+}
+.f-contact-row .ic {
+  font-size: 13px;
+  flex: 0 0 16px;
+}
+.f-contact-row a:hover {
+  color: var(--white);
+}
+
+.f-social {
+  display: flex;
+  gap: 8px;
+}
+.f-social a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border-footer);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-soft);
+  transition: background .15s, color .15s;
+}
+.f-social a:hover {
+  background: var(--green);
+  color: var(--navy);
+  border-color: var(--green);
+}
+
+.f-col h5 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin: 0 0 12px;
+}
+.f-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.f-col ul li a {
+  font-size: 13px;
+  color: var(--text-soft);
+  transition: color .15s;
+}
+.f-col ul li a:hover {
+  color: var(--green);
+}
+
+/* ---- bottom strip ---- */
+.f-bottom {
+  border-top: 1px solid var(--border-footer);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.f-copy {
+  font-size: 12.5px;
+  color: var(--text-faint);
+}
+.f-copy strong {
+  color: var(--text-soft);
+}
+.f-seo-links {
+  font-size: 11.5px;
+  color: var(--text-faint);
+  line-height: 1.8;
+}
+.f-seo-links a {
+  color: var(--text-faint);
+}
+.f-seo-links a:hover {
+  color: var(--green);
+}
+.f-seo-links .sep {
+  margin: 0 7px;
+  opacity: .5;
+}
+
+@media (max-width: 880px) {
+  .f-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}

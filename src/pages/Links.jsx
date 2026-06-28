@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import SEOHead from '../components/common/SEOHead';
+import Footer from '../components/common/Footer';
 import logo from '../assets/fintaxverslogo.png';
 
 const sections = [
@@ -361,46 +362,7 @@ export default function Links() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer style={{ background: 'var(--primary-dark, #0f172a)', color: 'rgba(255,255,255,0.7)', paddingTop: '80px', paddingBottom: '30px' }}>
-          <div className="container">
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '50px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '50px', marginBottom: '30px' }}>
-                  <div style={{ gridColumn: 'span 2' }}>
-                      <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }} style={{ display: 'inline-block', marginBottom: '18px' }}>
-                          <img src={logo} alt="FinTaxVers Consultancy Services" style={{ height: '54px', width: 'auto', objectFit: 'contain' }} />
-                      </a>
-                      <p style={{ lineHeight: 1.8, marginBottom: '16px', maxWidth: '420px' }}>
-                          <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong> is a trusted <strong style={{ color: '#4ade80' }}>financial consultancy in Nagpur, Maharashtra</strong>, founded by <strong style={{ color: 'white' }}>Yugant Rahele</strong>.
-                      </p>
-                       <address style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', marginBottom: '16px', lineHeight: 1.7 }}>
-                          📍 Nagpur, Maharashtra, India<br />
-                          📞 <a href="tel:+918928895195" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+91-8928895195</a> / <a href="tel:+919011424236" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+91-9011424236</a><br />
-                          ✉️ <a href="mailto:contact@fintaxvers.com" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>contact@fintaxvers.com</a>
-                      </address>
-                  </div>
-                  <div>
-                      <h4 style={{ color: 'white', marginBottom: '20px', fontSize: '1.1rem' }}>Our Services</h4>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                          <li><a href="/services/cma-data-project-financing" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Business Loan Project Report</a></li>
-                          <li><a href="/services/gst-returns-solutions" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>GST Registration &amp; Filing</a></li>
-                          <li><a href="/services/income-tax-planning" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Income Tax Filing</a></li>
-                          <li><a href="/services/company-llp-formation" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Company Registration</a></li>
-                      </ul>
-                  </div>
-                  <div>
-                      <h4 style={{ color: 'white', marginBottom: '20px', fontSize: '1.1rem' }}>Quick Links</h4>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                          <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>GST &amp; EMI Calculators</a></li>
-                          <li><a href="/links" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Useful Links</a></li>
-                          <li><a href="/blog" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Financial Insights Blog</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <div style={{ textAlign: 'center', fontSize: '0.85rem' }}>
-                  <p>© 2026 <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong> – Nagpur, Maharashtra, India. All rights reserved.</p>
-              </div>
-          </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

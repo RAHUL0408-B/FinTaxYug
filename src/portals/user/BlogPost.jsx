@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/common/Navbar';
 import SEOHead from '../../components/common/SEOHead';
+import Footer from '../../components/common/Footer';
 import { getBlogPost, blogPosts } from '../../data/blogData';
 
 function BlogPost() {

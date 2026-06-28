@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/common/Navbar';
 import SEOHead from '../../components/common/SEOHead';
+import Footer from '../../components/common/Footer';
 import { blogPosts, blogCategories } from '../../data/blogData';
 
 const categoryColors = {
@@ -190,9 +191,9 @@ function Blog() {
             <Navbar />
 
             {/* Hero */}
-            <section style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #16325C 100%)', padding: '125px 0 60px', color: 'white', textAlign: 'center' }}>
+            <section style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #16325C 100%)', padding: '160px 0 60px', color: 'white', textAlign: 'center' }}>
                 <div className="container">
-                    <span style={{ background: 'rgba(22,163,74,0.2)', color: '#4ade80', padding: '6px 16px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
+                    <span style={{ display: 'inline-block', marginBottom: '8px', background: 'rgba(22,163,74,0.2)', color: '#4ade80', padding: '6px 16px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
                         Financial Board
                     </span>
                     <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', margin: '16px 0 12px', color: 'white' }}>
@@ -228,37 +229,6 @@ function Blog() {
                 <div className="container" style={{ marginTop: '2.5rem' }}>
                     <div className="news-terminal-container">
                         
-                        {/* TICKER */}
-                        <div className="terminal-ticker-wrap">
-                            <div className="terminal-ticker-label">MARKETS LIVE</div>
-                            <div style={{ overflow: 'hidden', flex: 1 }}>
-                                <div className="terminal-ticker-track">
-                                    {MARKET_DATA.concat(MARKET_DATA).map((m, idx) => (
-                                        <span key={idx} className="terminal-ticker-item">
-                                            <span className="sym">{m.name}</span>
-                                            <span className={m.up ? 'up' : 'dn'}>
-                                                {m.value} {m.change}
-                                            </span>
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                            <div style={{ fontSize: '0.72rem', color: '#ffffff', opacity: 0.9, paddingRight: '15px', display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap' }}>
-                                <span className="live-dot"></span>
-                                {liveTime}
-                            </div>
-                        </div>
-
-                        {/* MARKET STRIP */}
-                        <div className="terminal-market-strip">
-                            {MARKET_DATA.map((m, idx) => (
-                                <div key={idx} className="terminal-market-card">
-                                    <div className="market-name">{m.name}</div>
-                                    <div className="market-val">{m.value}</div>
-                                    <div className={`market-chg ${m.up ? 'up' : 'dn'}`}>{m.change}</div>
-                                </div>
-                            ))}
-                        </div>
 
                         {/* SECTION HEADER FOR TERMINAL */}
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px', marginBottom: '25px' }}>
@@ -342,55 +312,12 @@ function Blog() {
             {/* EXPERT GUIDES & TIPS TAB */}
             {activeTab === 'guides' && (
                 <section className="section">
-                    <div className="container">
-                        {/* Filters */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '15px' }}>
-                            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                                <button
-                                    onClick={() => setActiveCategory('')}
-                                    style={{ padding: '8px 20px', borderRadius: '20px', border: '1px solid #cbd5e1', background: !activeCategory ? '#0B1F3A' : 'white', color: !activeCategory ? 'white' : '#0B1F3A', cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem' }}
-                                >All</button>
-                                {blogCategories.map(cat => (
-                                    <button
-                                        key={cat}
-                                        onClick={() => setActiveCategory(cat)}
-                                        style={{ padding: '8px 20px', borderRadius: '20px', border: '1px solid #cbd5e1', background: activeCategory === cat ? '#0B1F3A' : 'white', color: activeCategory === cat ? 'white' : '#0B1F3A', cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem' }}
-                                    >{cat}</button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Blog Grid */}
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(320px,1fr))', gap: '28px' }}>
-                            {filtered.map(post => (
-                                <article
-                                    key={post.slug}
-                                    onClick={() => navigate(`/blog/${post.slug}`)}
-                                    style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 2px 12px rgba(11,31,58,0.06)', cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(11,31,58,0.12)'; }}
-                                    onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(11,31,58,0.06)'; }}
-                                >
-                                    <div style={{ padding: '28px' }}>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                                            <span style={{ background: `${categoryColors[post.category]}15`, color: categoryColors[post.category], padding: '4px 12px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 700 }}>{post.category}</span>
-                                            <span style={{ color: '#94a3b8', fontSize: '0.8rem' }}>{post.readTime}</span>
-                                        </div>
-                                        <h2 style={{ fontSize: '1.1rem', color: '#0B1F3A', marginBottom: '12px', lineHeight: 1.4, fontWeight: 700 }}>{post.title}</h2>
-                                        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '20px' }}>{post.excerpt}</p>
-                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#0B1F3A', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '0.8rem', fontWeight: 700 }}>YR</div>
-                                                <div>
-                                                    <div style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0B1F3A' }}>{post.author}</div>
-                                                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</div>
-                                                </div>
-                                            </div>
-                                            <span style={{ color: '#16A34A', fontWeight: 600, fontSize: '0.85rem' }}>Read More →</span>
-                                        </div>
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
+                    <div className="container" style={{ textAlign: 'center', padding: '100px 20px', background: 'white', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
+                        <div style={{ fontSize: '4rem', marginBottom: '20px' }}>🚧</div>
+                        <h2 style={{ fontSize: '2rem', color: '#0B1F3A', marginBottom: '16px' }}>Coming Soon</h2>
+                        <p style={{ color: '#64748b', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto' }}>
+                            We are working hard on bringing you expert financial guides, tax saving tips, and insightful articles. Stay tuned!
+                        </p>
                     </div>
                 </section>
             )}
@@ -408,11 +335,7 @@ function Blog() {
                 </div>
             </div>
 
-            <footer style={{ background: '#0B1F3A', color: 'rgba(255,255,255,0.6)', padding: '30px 0', textAlign: 'center', fontSize: '0.9rem' }}>
-                <div className="container">
-                    <p>© 2026 FinTaxVers Consultancy Services, Nagpur, Maharashtra, India. All rights reserved.</p>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

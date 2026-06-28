@@ -9,7 +9,144 @@ import {
 import Navbar from '../../components/common/Navbar';
 import HeroSlider from '../../components/common/HeroSlider';
 import SEOHead from '../../components/common/SEOHead';
+import Footer from '../../components/common/Footer';
 import logo from '../../assets/fintaxverslogo.png';
+import './UserPortal.css';
+
+const newServicesData = [
+    {
+      id: 1,
+      cat: 'tax',
+      img: '/services/income_tax_1782653614112.png',
+      categoryClass: 'cat-tax',
+      categoryName: 'Tax & ITR',
+      title: 'Income Tax Filing — Fast & Accurate',
+      desc: 'Expert ITR filing for salaried individuals, freelancers, businesses, and NRIs. We ensure maximum deductions, zero errors, and timely submission before deadlines.',
+      features: ['ITR-1 to ITR-6 all forms covered', 'Capital gains, business income, salary', 'Tax planning & refund tracking'],
+      link: '/services/income-tax-planning'
+    },
+    {
+      id: 2,
+      cat: 'gst',
+      img: '/services/gst_registration_1782653626758.png',
+      categoryClass: 'cat-gst',
+      categoryName: 'GST',
+      title: 'GST Registration & Returns',
+      desc: 'Complete GST lifecycle management — from registration and GSTIN to monthly/quarterly GSTR filing and reconciliation. Stay 100% compliant with GSTN rules.',
+      features: ['GSTR-1, 3B, 9 & 9C filing', 'ITC reconciliation & claim', 'GST notices & assessment support'],
+      link: '/services/gst-returns-solutions'
+    },
+    {
+      id: 3,
+      cat: 'business',
+      img: '/services/company_incorporation_1782653638993.png',
+      categoryClass: 'cat-business',
+      categoryName: 'Business Setup',
+      title: 'Company Incorporation & Compliance',
+      desc: 'Set up your business the right way. We handle Private Limited, LLP, OPC, and Partnership firm registrations — including MCA filings, PAN/TAN, and post-incorporation compliance so you can focus on growing your business.',
+      features: ['Pvt. Ltd., LLP, OPC, Partnership registration', 'MCA, PAN, TAN, Bank account setup', 'MOA, AOA drafting & director KYC', 'Post-incorporation annual compliance'],
+      link: '/services/company-llp-formation'
+    },
+    {
+      id: 4,
+      cat: 'tax',
+      img: '/services/tds_filing_1782653649499.png',
+      categoryClass: 'cat-tax',
+      categoryName: 'Tax & ITR',
+      title: 'TDS Filing & Refunds',
+      desc: 'Accurate TDS deduction calculation, challan payment, and quarterly TDS return filing (24Q, 26Q, 27Q). We also help track and claim TDS refunds efficiently.',
+      features: ['Form 24Q, 26Q, 27Q filing', 'TDS certificate (Form 16/16A) generation', 'Refund tracking & correction'],
+      link: '/services/income-tax-planning'
+    },
+    {
+      id: 5,
+      cat: 'compliance',
+      img: '/services/audit_accounting_1782653660793.png',
+      categoryClass: 'cat-compliance',
+      categoryName: 'Compliance',
+      title: 'Audit & Accounting Services',
+      desc: 'Professional bookkeeping, Tally-based accounts maintenance, statutory audits, and internal audit reports that meet regulatory standards and support business decisions.',
+      features: ['Tally & digital bookkeeping', 'Statutory & tax audit reports', 'P&L, Balance Sheet preparation'],
+      link: '/services/financial-reporting'
+    },
+    {
+      id: 6,
+      cat: 'compliance',
+      img: '/services/roc_compliance_1782653671630.png',
+      categoryClass: 'cat-compliance',
+      categoryName: 'Compliance',
+      title: 'ROC Filings & MCA Compliance',
+      desc: 'Never miss a compliance deadline. We file all ROC-mandated annual returns, board resolutions, director KYC (DIR-3), and event-based MCA forms on your behalf.',
+      features: ['AOC-4, MGT-7 annual filing', 'DIR-3 KYC & DIN compliance', 'Event-based forms (INC, CHG)'],
+      link: '/services/roc-annual-compliance'
+    },
+    {
+      id: 7,
+      cat: 'finance',
+      img: '/services/cma_data_1782653694852.png',
+      categoryClass: 'cat-finance',
+      categoryName: 'Finance & Loans',
+      title: 'CMA Data & Project Financing',
+      desc: 'Bankable CMA (Credit Monitoring Arrangement) reports and detailed project reports for term loans, working capital, and MSME credit facilities from PSU and private banks.',
+      features: ['CMA data for bank loan sanction', 'Project report & DPR preparation', 'MSME loan & MUDRA documentation'],
+      link: '/services/cma-data-project-financing'
+    },
+    {
+      id: 8,
+      cat: 'finance',
+      img: '/services/business_loan.svg',
+      categoryClass: 'cat-finance',
+      categoryName: 'Finance & Loans',
+      title: 'Business Loan Assistance',
+      desc: 'End-to-end business loan support — eligibility assessment, documentation, bank liaison, and follow-up for MSME loans, CC limits, OD accounts, and term loans.',
+      features: ['SBI, Bank of Baroda, Canara & more', 'MSME, MUDRA, CGTMSE schemes', 'Complete file preparation & bank follow-up'],
+      link: '/services/business-loan-assistance'
+    },
+    {
+      id: 9,
+      cat: 'finance',
+      img: '/services/gov_subsidy.svg',
+      categoryClass: 'cat-finance',
+      categoryName: 'Finance & Loans',
+      title: 'Government Subsidy Consulting',
+      desc: 'We identify the right central and state government schemes for your business and handle the entire application process — from eligibility to subsidy disbursement follow-up.',
+      features: ['PMEGP, CMEGP schemes', 'State industrial subsidy programs', 'Agriculture & solar scheme support'],
+      link: '/services/govt-subsidy-consulting'
+    },
+    {
+      id: 10,
+      cat: 'registration',
+      img: '/services/shop_act.svg',
+      categoryClass: 'cat-registration',
+      categoryName: 'Registration',
+      title: 'Shop Act & MSME Registration',
+      desc: 'Obtain mandatory Shop Act (Gumasta) license and Udyam Aadhar (MSME) registration to legally operate your business and unlock government benefits, subsidies and priority lending.',
+      features: ['Shop Act (Gumasta) license — all districts', 'Udyam Aadhar (MSME) registration', 'Trade License & Professional Tax'],
+      link: '/services/shop-act-msme'
+    },
+    {
+      id: 11,
+      cat: 'compliance',
+      img: '/services/annual_compliance.svg',
+      categoryClass: 'cat-compliance',
+      categoryName: 'Compliance',
+      title: 'ROC & Annual Compliance Package',
+      desc: 'A complete annual compliance retainer covering all ROC filings, board meetings, statutory registers, secretarial records, and year-end disclosures for Pvt. Ltd. companies.',
+      features: ['AGM & board meeting minutes', 'Statutory register maintenance', 'Annual return + financial statement filing'],
+      link: '/services/roc-annual-compliance'
+    },
+    {
+      id: 12,
+      cat: 'tax',
+      img: '/services/professional_tax.svg',
+      categoryClass: 'cat-tax',
+      categoryName: 'Tax & ITR',
+      title: 'Professional Tax Registration & Filing',
+      desc: 'Professional Tax (PT) is mandatory in Maharashtra for all businesses, employers and professionals. We handle PT registration, monthly deduction, and annual return filing.',
+      features: ['PT registration (employer & employee)', 'Monthly challan & annual return', 'PT compliance for all staff'],
+      link: '/services/income-tax-planning'
+    }
+];
 
 const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -45,6 +182,7 @@ function UserPortal() {
     const [formData, setFormData] = useState({ name: '', email: '', mobile: '', type: '', message: '', businessType: '', turnover: '' });
     const [showSuccess, setShowSuccess] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [activeFilter, setActiveFilter] = useState('all');
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -90,24 +228,7 @@ function UserPortal() {
         setIsSubmitting(false);
     };
 
-    const servicesList = [
-        {
-            category: "Core Services",
-            items: [
-                { title: "GST Registration Services", desc: "End-to-end GST Return Filing and registration for seamless compliance.", icon: <FileCheck size={32} />, link: "/services/gst-returns-solutions" },
-                { title: "Income Tax Filing India", desc: "Expert tax planning and ITR Filing for individuals and businesses.", icon: <FileText size={32} />, link: "/services/income-tax-planning" },
-                { title: "Company Registration Services", desc: "Pvt Ltd, LLP, and Firm registration with complete Business Compliance.", icon: <Building2 size={32} />, link: "/services/company-llp-formation" }
-            ]
-        },
-        {
-            category: "Financial Advisory",
-            items: [
-                { title: "Business Loan Project Report", desc: "Expert preparation of detailed project reports for quick bank approvals.", icon: <Briefcase size={32} />, link: "/services/cma-data-project-financing" },
-                { title: "CMA Report Services", desc: "Credit Monitoring Arrangement data preparation for working capital.", icon: <Landmark size={32} />, link: "/services/cma-data-project-financing" },
-                { title: "Financial Planning", desc: "Comprehensive Financial Consultancy Services for business growth.", icon: <Shield size={32} />, link: "/services/business-loan-assistance" }
-            ]
-        }
-    ];
+
 
     return (
         <div id="home" className="user-portal" style={{ background: 'var(--bg-page)' }}>
@@ -120,144 +241,69 @@ function UserPortal() {
             <Navbar />
             <HeroSlider />
 
-            {/* Services Section */}
-            <section id="services" className="section" style={{ background: '#F8FAFC' }}>
-                <style>{`
-                    .flip-card { perspective: 1000px; height: 220px; cursor: pointer; }
-                    .flip-card-inner {
-                        position: relative; width: 100%; height: 100%;
-                        transition: transform 0.65s cubic-bezier(0.4,0.2,0.2,1);
-                        transform-style: preserve-3d;
-                    }
-                    .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-                    .flip-card-front, .flip-card-back {
-                        position: absolute; inset: 0; border-radius: 16px;
-                        backface-visibility: hidden; -webkit-backface-visibility: hidden;
-                        display: flex; flex-direction: column; align-items: center;
-                        justify-content: center; padding: 28px 24px; text-align: center;
-                    }
-                    .flip-card-front {
-                        background: white;
-                        border: 1px solid #e2e8f0;
-                        box-shadow: 0 2px 12px rgba(11,31,58,0.06);
-                    }
-                    .flip-card-back {
-                        background: linear-gradient(135deg, #0B1F3A 0%, #16325C 100%);
-                        transform: rotateY(180deg);
-                        box-shadow: 0 12px 32px rgba(11,31,58,0.25);
-                    }
-                    .flip-card-back .flip-btn {
-                        margin-top: 18px; padding: 9px 22px;
-                        background: #16A34A; color: white; border: none;
-                        border-radius: 8px; font-size: 0.88rem; font-weight: 700;
-                        cursor: pointer; transition: background 0.2s;
-                    }
-                    .flip-card-back .flip-btn:hover { background: #15803D; }
-                `}</style>
+            {/* FILTER BAR */}
+            <div className="filter-bar">
+                <button className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveFilter('all')}>All Services</button>
+                <button className={`filter-btn ${activeFilter === 'tax' ? 'active' : ''}`} onClick={() => setActiveFilter('tax')}>Tax & ITR</button>
+                <button className={`filter-btn ${activeFilter === 'gst' ? 'active' : ''}`} onClick={() => setActiveFilter('gst')}>GST</button>
+                <button className={`filter-btn ${activeFilter === 'business' ? 'active' : ''}`} onClick={() => setActiveFilter('business')}>Business Setup</button>
+                <button className={`filter-btn ${activeFilter === 'compliance' ? 'active' : ''}`} onClick={() => setActiveFilter('compliance')}>Compliance</button>
+                <button className={`filter-btn ${activeFilter === 'finance' ? 'active' : ''}`} onClick={() => setActiveFilter('finance')}>Finance & Loans</button>
+                <button className={`filter-btn ${activeFilter === 'registration' ? 'active' : ''}`} onClick={() => setActiveFilter('registration')}>Registration</button>
+            </div>
 
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                        <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.75rem' }}>What We Do</span>
-                        <h2 style={{ marginTop: '6px', fontSize: '1.6rem' }}>Trusted Financial Consultancy Services in Nagpur</h2>
-                        <p style={{ color: 'var(--text-secondary)', maxWidth: '660px', margin: '8px auto 0', lineHeight: 1.6, fontSize: '0.88rem' }}>
-                            Expert GST, income tax, business loan project reports, CMA, MSME registration and company registration — tailored for Nagpur businesses.
-                        </p>
-                    </div>
+            {/* SERVICES GRID */}
+            <section id="services" className="services-section-new">
+                <div className="section-label">What We Offer</div>
+                <h2 className="section-title-new">Our Services</h2>
+                <p className="section-sub">Comprehensive financial consultancy tailored for businesses, MSMEs and individuals across Nagpur.</p>
 
-                    <div className="services-container">
-                        {servicesList.map((cat, idx) => (
-                            <div key={idx} style={{ marginBottom: '20px' }}>
-                                <h3 style={{ fontSize: '1.3rem', marginBottom: '24px', borderLeft: '4px solid #16A34A', paddingLeft: '14px', color: '#0B1F3A' }}>{cat.category}</h3>
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
-                                    {cat.items.map((service, sIdx) => (
-                                        <div key={sIdx} className="flip-card">
-                                            <div className="flip-card-inner">
-                                                {/* FRONT */}
-                                                <div className="flip-card-front">
-                                                    <div style={{
-                                                        width: '60px', height: '60px', borderRadius: '14px',
-                                                        background: '#EFF6FF', color: '#0B1F3A',
-                                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                        marginBottom: '16px'
-                                                    }}>
-                                                        {service.icon}
-                                                    </div>
-                                                    <h3 style={{ fontSize: '1.05rem', color: '#0B1F3A', margin: '0 0 10px', lineHeight: 1.3 }}>{service.title}</h3>
-                                                    <p style={{ color: '#64748b', fontSize: '0.82rem', margin: 0 }}>Hover to learn more →</p>
-                                                </div>
-
-                                                {/* BACK */}
-                                                <div className="flip-card-back">
-                                                    <div style={{ color: '#4ade80', marginBottom: '10px' }}>{service.icon}</div>
-                                                    <h3 style={{ fontSize: '1rem', color: 'white', margin: '0 0 12px', lineHeight: 1.3 }}>{service.title}</h3>
-                                                    <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>{service.desc}</p>
-                                                    <button className="flip-btn" onClick={() => navigate(service.link)}>
-                                                        View Details →
-                                                    </button>
-                                                </div>
-                                            </div>
+                <div className="services-grid-new">
+                    {newServicesData
+                        .filter(service => activeFilter === 'all' || service.cat === activeFilter)
+                        .map(service => (
+                            <div 
+                                key={service.id} 
+                                className="service-card-new" 
+                                onClick={() => service.link !== '#' && navigate(service.link)}
+                            >
+                                <img src={service.img} alt={service.title} className="card-img" />
+                                <div className="card-body">
+                                    <span className={`card-category ${service.categoryClass}`}>{service.categoryName}</span>
+                                    <h3 className="card-title-new">{service.title}</h3>
+                                    <p className="card-desc">{service.desc}</p>
+                                    <ul className="card-features">
+                                        {service.features.map((feature, i) => (
+                                            <li key={i}>{feature}</li>
+                                        ))}
+                                    </ul>
+                                    <div className="card-footer">
+                                        <div className="card-link" style={{ width: '100%', justifyContent: 'center' }} onClick={(e) => {
+                                            e.stopPropagation();
+                                            if (service.link !== '#') navigate(service.link);
+                                        }}>
+                                            Know More →
                                         </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-
-
-            {/* Methodology – compact horizontal workflow */}
-            <section style={{ background: '#F8FAFC', padding: '32px 0' }}>
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '18px' }}>
-                        <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.75rem' }}>How We Work</span>
-                        <h2 style={{ marginTop: '4px', fontSize: '1.4rem' }}>Our 4-Step Process</h2>
-                    </div>
-
-                    {/* Workflow row */}
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0', flexWrap: 'wrap', rowGap: '16px' }}>
-                        {[
-                            { step: '01', title: 'Consultation', desc: 'Understand your goals', icon: '🤝' },
-                            { step: '02', title: 'Document Submission', desc: 'Share docs digitally', icon: '📁' },
-                            { step: '03', title: 'Expert Review', desc: 'CA team prepares reports', icon: '🔍' },
-                            { step: '04', title: 'Execution', desc: 'Timely filing & delivery', icon: '✅' },
-                        ].map((item, i, arr) => (
-                            <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
-                                {/* Step card */}
-                                <div style={{
-                                    display: 'flex', flexDirection: 'column', alignItems: 'center',
-                                    background: 'white', borderRadius: '14px',
-                                    border: '1px solid #e2e8f0',
-                                    padding: '20px 22px', width: '160px', textAlign: 'center',
-                                    boxShadow: '0 2px 10px rgba(11,31,58,0.06)',
-                                    position: 'relative'
-                                }}>
-                                    {/* Step number badge */}
-                                    <div style={{
-                                        position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)',
-                                        width: '28px', height: '28px', borderRadius: '50%',
-                                        background: 'var(--primary)', color: 'white',
-                                        fontSize: '0.72rem', fontWeight: 700,
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center'
-                                    }}>{item.step}</div>
-                                    <div style={{ fontSize: '1.6rem', marginBottom: '8px', marginTop: '8px' }}>{item.icon}</div>
-                                    <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#0B1F3A', marginBottom: '4px', lineHeight: 1.3 }}>{item.title}</div>
-                                    <div style={{ fontSize: '0.75rem', color: '#64748b', lineHeight: 1.4 }}>{item.desc}</div>
-                                </div>
-
-                                {/* Arrow connector (not after last item) */}
-                                {i < arr.length - 1 && (
-                                    <div style={{ display: 'flex', alignItems: 'center', padding: '0 6px', flexShrink: 0 }}>
-                                        <div style={{ width: '32px', height: '2px', background: 'linear-gradient(90deg, #0B1F3A, #16325C)' }} />
-                                        <div style={{ width: 0, height: 0, borderTop: '6px solid transparent', borderBottom: '6px solid transparent', borderLeft: '8px solid #16325C' }} />
                                     </div>
-                                )}
+                                </div>
                             </div>
                         ))}
-                    </div>
                 </div>
             </section>
+
+            {/* CTA SECTION */}
+            <div className="cta-section-new">
+                <div className="cta-text">
+                    <h2>Not sure which service you need?</h2>
+                    <p>Book a free 30-minute consultation with Yugant Rahele. We'll assess your situation and recommend the right plan — no obligation, no jargon.</p>
+                </div>
+                <div className="cta-actions">
+                    <a href="tel:+918928895195" className="btn-primary-new">📞 Call Now: 89288 95195</a>
+                    <a href="mailto:contact@fintaxvers.com" className="btn-outline-new">✉ Send Email</a>
+                </div>
+            </div>
+
+
 
 
 
@@ -320,70 +366,80 @@ function UserPortal() {
             </section>
 
             {/* Contact */}
-            <section id="contact" className="section" style={{ background: 'white' }}>
-                <div className="container" style={{ maxWidth: '800px' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                        <h2 style={{ fontSize: '1.4rem' }}>Book a Free Consultation</h2>
-                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', marginTop: '6px' }}>Fill out the form below and our experts will get back to you within 24 hours.</p>
+            <section id="contact" className="section" style={{ background: '#EEF1F6' }}>
+                <div className="form-wrap">
+                    <div className="form-head">
+                        <h2>Book a Free Consultation</h2>
+                        <p>Fill out the form below and our experts will get back to you within 24 hours.</p>
                     </div>
-                    
-                    <div style={{ background: 'var(--bg-input)', padding: '28px', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
+
+                    <div className="form-card">
                         {showSuccess ? (
                             <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                                <CheckCircle size={64} color="var(--secondary)" style={{ margin: '0 auto 20px' }} />
+                                <CheckCircle size={64} color="var(--green)" style={{ margin: '0 auto 20px' }} />
                                 <h3>Request Submitted!</h3>
-                                <p style={{ color: 'var(--text-secondary)' }}>Thank you. Yugant V. Rahele will contact you shortly.</p>
-                                <button className="btn btn-outline" style={{ marginTop: '20px' }} onClick={() => setShowSuccess(false)}>Send Another Request</button>
+                                <p style={{ color: 'var(--text-body)', marginTop: '10px' }}>Thank you. Yugant V. Rahele will contact you shortly.</p>
+                                <button className="submit-btn" style={{ marginTop: '20px', width: 'auto', display: 'inline-block' }} onClick={() => setShowSuccess(false)}>Send Another Request</button>
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit}>
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '20px' }}>
-                                    <div className="form-group">
-                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Full Name</label>
-                                        <input type="text" required placeholder="John Doe" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-medium)', outline: 'none', transition: '0.3s' }} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Mobile Number</label>
-                                        <input type="tel" required placeholder="+91" value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-medium)', outline: 'none' }} />
-                                    </div>
-                                </div>
+                                <div className="field-grid">
 
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '20px' }}>
-                                    <div className="form-group">
-                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Email Address</label>
-                                        <input type="email" required placeholder="john@example.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-medium)', outline: 'none' }} />
+                                    <div className="field">
+                                        <div className="field-label"><span className="ic ic-green">👤</span> Full Name</div>
+                                        <input type="text" placeholder="John Doe" required value={formData.name || ''} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
                                     </div>
-                                    <div className="form-group">
-                                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Business Type</label>
-                                        <select value={formData.businessType || ''} onChange={(e) => setFormData({ ...formData, businessType: e.target.value })} style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-medium)', outline: 'none', background: 'white' }}>
+
+                                    <div className="field">
+                                        <div className="field-label"><span className="ic ic-pink">📞</span> Mobile Number</div>
+                                        <div className="phone-input">
+                                            <div className="prefix">+91</div>
+                                            <input type="tel" placeholder="98765 43210" required value={formData.mobile || ''} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} />
+                                        </div>
+                                    </div>
+
+                                    <div className="field">
+                                        <div className="field-label"><span className="ic ic-blue">✉️</span> Email Address</div>
+                                        <input type="email" placeholder="john@example.com" required value={formData.email || ''} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                    </div>
+
+                                    <div className="field">
+                                        <div className="field-label"><span className="ic ic-amber">🏢</span> Business Type</div>
+                                        <select value={formData.businessType || ''} onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}>
                                             <option value="">Select Business Type</option>
+                                            <option value="Salaried Individual">Salaried Individual</option>
+                                            <option value="Freelancer">Freelancer</option>
                                             <option value="Proprietorship">Proprietorship</option>
-                                            <option value="Partnership">Partnership / LLP</option>
-                                            <option value="Pvt Ltd">Private Limited</option>
-                                            <option value="Startup">New Startup</option>
+                                            <option value="Partnership / LLP">Partnership / LLP</option>
+                                            <option value="Private Limited Company">Private Limited Company</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
+
+                                    <div className="field full">
+                                        <div className="field-label"><span className="ic ic-green">❓</span> Inquiry Type</div>
+                                        <select required value={formData.type || ''} onChange={(e) => setFormData({ ...formData, type: e.target.value })}>
+                                            <option value="">Select Inquiry Type</option>
+                                            <option value="GST Registration & Filing">GST Registration &amp; Filing</option>
+                                            <option value="Income Tax Filing">Income Tax Filing</option>
+                                            <option value="CMA Data & Project Financing">CMA Data &amp; Project Financing</option>
+                                            <option value="Company Registration">Company Registration</option>
+                                            <option value="MSME / Udyam Registration">MSME / Udyam Registration</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="field full">
+                                        <div className="field-label"><span className="ic ic-pink">💬</span> Message</div>
+                                        <textarea placeholder="Tell us about your requirements..." value={formData.message || ''} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
+                                    </div>
+
                                 </div>
 
-                                <div className="form-group" style={{ marginBottom: '20px' }}>
-                                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Inquiry Type</label>
-                                    <select required value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })} style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-medium)', outline: 'none', background: 'white' }}>
-                                        <option value="">Select Inquiry Type</option>
-                                        <option>Project Report (CMA) / Loan</option>
-                                        <option>Company Registration</option>
-                                        <option>GST Services</option>
-                                        <option>Taxation</option>
-                                        <option>Audit & Assurance</option>
-                                    </select>
-                                </div>
-
-                                <div className="form-group" style={{ marginBottom: '30px' }}>
-                                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Message</label>
-                                    <textarea rows="4" placeholder="Tell us about your requirements..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-medium)', outline: 'none', resize: 'vertical' }}></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '14px', borderRadius: '8px', fontSize: '1.05rem', fontWeight: 600 }} disabled={isSubmitting}>
-                                    {isSubmitting ? 'Sending Request...' : 'Submit Inquiry'}
+                                <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Sending Request...' : 'Submit Inquiry →'}
                                 </button>
+                                <div className="form-note">We typically respond within a few hours during business hours.</div>
                             </form>
                         )}
                     </div>
@@ -391,58 +447,7 @@ function UserPortal() {
             </section>
 
             {/* Footer */}
-            <footer style={{ background: 'var(--primary-dark)', color: 'rgba(255,255,255,0.7)', paddingTop: '40px', paddingBottom: '24px' }}>
-                <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '32px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '32px', marginBottom: '20px' }}>
-                        <div style={{ gridColumn: 'span 2' }}>
-                            <a href="/" style={{ display: 'inline-block', marginBottom: '18px' }}>
-                                <img src={logo} alt="FinTaxVers Consultancy Services – Best Financial Consultant in Nagpur" style={{ height: '54px', width: 'auto', objectFit: 'contain' }} />
-                            </a>
-                            <p style={{ lineHeight: 1.8, marginBottom: '16px', maxWidth: '420px' }}>
-                                <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong> is a trusted <strong style={{ color: '#4ade80' }}>financial consultancy in Nagpur, Maharashtra</strong>, founded by <strong style={{ color: 'white' }}>Yugant Rahele</strong>. We offer expert GST registration, income tax filing, business loan project reports, CMA reports, MSME registration, company registration, and comprehensive financial planning services across Nagpur and Maharashtra.
-                            </p>
-                            <address style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', marginBottom: '16px', lineHeight: 1.7 }}>
-                                📍 Nagpur, Maharashtra, India<br />
-                                📞 <a href="tel:+918928895195" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+91-8928895195</a> / <a href="tel:+919011424236" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+91-9011424236</a><br />
-                                ✉️ <a href="mailto:contact@fintaxvers.com" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>contact@fintaxvers.com</a><br />
-                                🕐 Mon–Sat: 10 AM – 7 PM
-                            </address>
-                            <div style={{ display: 'flex', gap: '12px' }}>
-                                <a href="https://www.linkedin.com/in/yugant-rahele" target="_blank" rel="noreferrer" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#0077B5'} onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} title="Yugant Rahele LinkedIn">in</a>
-                                <a href="https://www.facebook.com/fintaxvers" target="_blank" rel="noreferrer" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#1877F2'} onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} title="FinTaxVers Facebook">fb</a>
-                                <a href="https://www.instagram.com/fintaxvers" target="_blank" rel="noreferrer" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#E1306C'} onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} title="FinTaxVers Instagram">ig</a>
-                                <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 700, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#25D366'} onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} title="WhatsApp FinTaxVers">wa</a>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 style={{ color: 'white', marginBottom: '20px', fontSize: '1.1rem' }}>Our Services</h4>
-                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <li><a href="/services/cma-data-project-financing" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Business Loan Project Report</a></li>
-                                <li><a href="/services/gst-returns-solutions" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>GST Registration &amp; Filing</a></li>
-                                <li><a href="/services/income-tax-planning" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Income Tax Filing</a></li>
-                                <li><a href="/services/company-llp-formation" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Company Registration</a></li>
-                                <li><a href="/services/shop-act-msme" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>MSME / Udyam Registration</a></li>
-                                <li><a href="/services/business-loan-assistance" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Business Loan Assistance</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style={{ color: 'white', marginBottom: '20px', fontSize: '1.1rem' }}>Quick Links</h4>
-                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>GST &amp; EMI Calculators</a></li>
-                                <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>SIP Calculator</a></li>
-                                <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Income Tax Calculator</a></li>
-                                <li><a href="/links" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Useful Links</a></li>
-                                <li><a href="/blog" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Financial Insights Blog</a></li>
-                                <li><a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>WhatsApp Support</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style={{ textAlign: 'center', fontSize: '0.85rem' }}>
-                        <p>© 2026 <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong> – Nagpur, Maharashtra, India. All rights reserved.</p>
-                        <p style={{ marginTop: '6px', color: 'rgba(255,255,255,0.4)' }}>Best Financial Consultant in Nagpur | GST Consultant Nagpur | Tax Consultant Nagpur | CMA Report Expert | Yugant Rahele</p>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
 
             {/* Floating CTA */}
             <div style={{ position: 'fixed', bottom: '30px', right: '30px', zIndex: 1000, display: 'flex', flexDirection: 'column', gap: '15px' }}>
