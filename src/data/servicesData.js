@@ -7,7 +7,7 @@ export const servicesData = {
         category: "Business Finance",
         icon: "📊",
         shortDesc: "Expert preparation of Credit Monitoring Arrangement (CMA) reports for bank loan approvals.",
-        image: "/service-images/cma-financing.png", // Placeholder - you can replace with actual images
+        image: "/services/cma_data_1782653694852.png",
 
         overview: "Our CMA Data & Project Financing service provides comprehensive financial analysis and documentation required for securing project loans from banks and financial institutions. We prepare detailed Credit Monitoring Arrangement reports that showcase your project's viability and financial health.",
 
@@ -117,7 +117,7 @@ export const servicesData = {
         category: "Business Finance",
         icon: "💵",
         shortDesc: "Guidance for Unsecured Business Loans, Secured Loans, and Mudra Loans.",
-        image: "/service-images/business-loan.png",
+        image: "/services/business_loan_1782793595395.png",
 
         overview: "Navigate the complex world of business financing with our expert loan assistance services. We help you identify the right loan products, prepare applications, and secure funding for your business needs.",
 
@@ -224,7 +224,7 @@ export const servicesData = {
         category: "Business Finance",
         icon: "🏛️",
         shortDesc: "Helping you identify and apply for government business subsidies.",
-        image: "/service-images/subsidy-consulting.png",
+        image: "/services/gov_subsidy_1782793607920.png",
 
         overview: "Unlock government benefits for your business with our subsidy consulting services. We help you navigate complex government schemes and secure subsidies that can significantly reduce your business costs.",
 
@@ -333,7 +333,7 @@ export const servicesData = {
         category: "Registration",
         icon: "🏢",
         shortDesc: "Company Registration (Pvt Ltd, LLP), Partnership Firm Registration.",
-        image: "/service-images/company-registration.png",
+        image: "/services/company_incorporation_1782653638993.png",
 
         overview: "Start your business on the right legal foundation with our company formation services. We handle all aspects of company registration, from name approval to incorporation certificate.",
 
@@ -439,7 +439,7 @@ export const servicesData = {
         category: "Registration",
         icon: "📝",
         shortDesc: "Shop Act (Gumasta), MSME (Udyam Aadhar) Registration.",
-        image: "/service-images/shop-act-msme.png",
+        image: "/services/shop_act_1782793618309.png",
 
         overview: "Obtain essential local licenses and MSME benefits with our registration services. We handle Shop Act licenses and Udyam Registration to ensure your business operates legally and enjoys government benefits.",
 
@@ -545,7 +545,7 @@ export const servicesData = {
         category: "Registration",
         icon: "⚖️",
         shortDesc: "Handling annual returns and Ministry of Corporate Affairs (MCA) compliance.",
-        image: "/service-images/roc-compliance.png",
+        image: "/services/roc_compliance_1782653671630.png",
 
         overview: "Stay compliant with ROC requirements through our comprehensive annual compliance services. We ensure timely filing of all statutory returns to avoid penalties and maintain good standing.",
 
@@ -652,7 +652,7 @@ export const servicesData = {
         category: "Tax & Operations",
         icon: "📄",
         shortDesc: "New GST Registration, Monthly/Quarterly Return Filing, and error correction.",
-        image: "/service-images/gst-returns.png",
+        image: "/services/gst_registration_1782653626758.png",
 
         overview: "Simplify your GST compliance with our comprehensive GST services. From registration to return filing and reconciliation, we handle all aspects of GST to keep your business compliant.",
 
@@ -759,7 +759,7 @@ export const servicesData = {
         category: "Tax & Operations",
         icon: "💰",
         shortDesc: "Income Tax planning and return filing services.",
-        image: "/service-images/income-tax.png",
+        image: "/services/income_tax_1782653614112.png",
 
         overview: "Optimize your tax liability with our expert income tax planning and filing services. We help individuals and businesses minimize tax burden while ensuring full compliance.",
 
@@ -866,7 +866,7 @@ export const servicesData = {
         category: "Tax & Operations",
         icon: "📈",
         shortDesc: "End-to-end accounting, bookkeeping, and financial statement preparation.",
-        image: "/service-images/financial-reporting.png",
+        image: "/services/audit_accounting_1782653660793.png",
 
         overview: "Maintain accurate financial records with our comprehensive bookkeeping and reporting services. We provide timely, accurate financial information to support your business decisions.",
 
@@ -973,7 +973,7 @@ export const servicesData = {
         category: "Tax & Operations",
         icon: "🔍",
         shortDesc: "Reviewing your internal financial controls to prevent leakage.",
-        image: "/service-images/internal-audit.png",
+        image: "/services/audit_accounting_1782653660793.png",
 
         overview: "Strengthen your business controls with our internal audit services. We identify weaknesses in your systems and recommend improvements to prevent fraud, errors, and financial leakage.",
 

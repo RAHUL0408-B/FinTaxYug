@@ -94,7 +94,7 @@ const newServicesData = [
     {
       id: 8,
       cat: 'finance',
-      img: '/services/business_loan.svg',
+      img: '/services/business_loan_1782793595395.png',
       categoryClass: 'cat-finance',
       categoryName: 'Finance & Loans',
       title: 'Business Loan Assistance',
@@ -105,7 +105,7 @@ const newServicesData = [
     {
       id: 9,
       cat: 'finance',
-      img: '/services/gov_subsidy.svg',
+      img: '/services/gov_subsidy_1782793607920.png',
       categoryClass: 'cat-finance',
       categoryName: 'Finance & Loans',
       title: 'Government Subsidy Consulting',
@@ -116,7 +116,7 @@ const newServicesData = [
     {
       id: 10,
       cat: 'registration',
-      img: '/services/shop_act.svg',
+      img: '/services/shop_act_1782793618309.png',
       categoryClass: 'cat-registration',
       categoryName: 'Registration',
       title: 'Shop Act & MSME Registration',
@@ -127,7 +127,7 @@ const newServicesData = [
     {
       id: 11,
       cat: 'compliance',
-      img: '/services/annual_compliance.svg',
+      img: '/services/annual_compliance_1782793628116.png',
       categoryClass: 'cat-compliance',
       categoryName: 'Compliance',
       title: 'ROC & Annual Compliance Package',
@@ -138,7 +138,7 @@ const newServicesData = [
     {
       id: 12,
       cat: 'tax',
-      img: '/services/professional_tax.svg',
+      img: '/services/professional_tax_1782793638097.png',
       categoryClass: 'cat-tax',
       categoryName: 'Tax & ITR',
       title: 'Professional Tax Registration & Filing',

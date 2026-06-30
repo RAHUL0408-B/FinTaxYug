@@ -19,49 +19,49 @@ const SAMPLE_ARTICLES = [
   {
     title: "Federal Reserve Signals Two Rate Cuts Possible in 2025 as Inflation Cools",
     description: "Fed Chair Jerome Powell hinted at a possible shift in monetary policy following encouraging CPI data showing inflation dropped to 2.4%, its lowest level in three years. Markets rallied sharply on the news.",
-    url: "#", source: "Reuters", publishedAt: new Date(Date.now()-1*60*60*1000).toISOString(),
+    url: "https://www.reuters.com/markets/", source: "Reuters", publishedAt: new Date(Date.now()-1*60*60*1000).toISOString(),
     category: "economy", featured: true
   },
   {
     title: "S&P 500 Hits Record High Amid Tech Surge",
     description: "The benchmark index crossed 5,800 points for the first time as mega-cap technology stocks led a broad market rally. Nvidia surged 4.2% after announcing new AI chip orders.",
-    url: "#", source: "Bloomberg", publishedAt: new Date(Date.now()-2*60*60*1000).toISOString(),
+    url: "https://www.bloomberg.com/markets", source: "Bloomberg", publishedAt: new Date(Date.now()-2*60*60*1000).toISOString(),
     category: "markets"
   },
   {
     title: "Apple Reports Blowout Q3 Earnings, Revenue Beats Estimates by 8%",
     description: "Apple posted quarterly revenue of $94.9 billion, exceeding analyst expectations. Services division grew 14% year-over-year, driven by App Store and iCloud subscriptions.",
-    url: "#", source: "CNBC", publishedAt: new Date(Date.now()-3*60*60*1000).toISOString(),
+    url: "https://www.cnbc.com/technology/", source: "CNBC", publishedAt: new Date(Date.now()-3*60*60*1000).toISOString(),
     category: "earnings"
   },
   {
     title: "Bitcoin Surpasses $75,000 as ETF Inflows Reach Monthly Record",
     description: "BTC crossed a key psychological level as institutional investors poured $2.4 billion into spot Bitcoin ETFs this week alone. Analysts now eye $80K as the next resistance zone.",
-    url: "#", source: "CoinDesk", publishedAt: new Date(Date.now()-4*60*60*1000).toISOString(),
+    url: "https://www.coindesk.com/", source: "CoinDesk", publishedAt: new Date(Date.now()-4*60*60*1000).toISOString(),
     category: "crypto"
   },
   {
     title: "India's GDP Growth Forecast Raised to 7.2% by IMF",
     description: "The International Monetary Fund upgraded India's growth outlook, citing strong domestic consumption and robust services exports. The revision makes India the fastest-growing major economy globally.",
-    url: "#", source: "Economic Times", publishedAt: new Date(Date.now()-5*60*60*1000).toISOString(),
+    url: "https://economictimes.indiatimes.com/news/economy", source: "Economic Times", publishedAt: new Date(Date.now()-5*60*60*1000).toISOString(),
     category: "economy"
   },
   {
     title: "Microsoft Azure Revenue Grows 29%, Shares Jump 5% After Hours",
     description: "Microsoft's cloud division delivered another strong quarter, with AI services now contributing meaningfully to Azure growth. CEO Satya Nadella highlighted Copilot adoption across enterprise clients.",
-    url: "#", source: "Wall Street Journal", publishedAt: new Date(Date.now()-6*60*60*1000).toISOString(),
+    url: "https://www.wsj.com/business", source: "Wall Street Journal", publishedAt: new Date(Date.now()-6*60*60*1000).toISOString(),
     category: "earnings"
   },
   {
     title: "Gold Prices Climb to $2,600 as Dollar Weakens on Jobs Data",
     description: "Spot gold advanced 1.3% as a weaker-than-expected non-farm payrolls report weighed on the US dollar. Safe-haven demand also rose amid ongoing geopolitical tensions.",
-    url: "#", source: "Kitco", publishedAt: new Date(Date.now()-7*60*60*1000).toISOString(),
+    url: "https://www.kitco.com/", source: "Kitco", publishedAt: new Date(Date.now()-7*60*60*1000).toISOString(),
     category: "markets"
   },
   {
     title: "Ethereum ETF Sees $500M Inflows in First Week of Trading",
     description: "The newly approved Ethereum spot ETF attracted massive interest on debut, exceeding expectations. Ethereum price rose 8% in the same period to trade above $3,500.",
-    url: "#", source: "The Block", publishedAt: new Date(Date.now()-8*60*60*1000).toISOString(),
+    url: "https://www.theblock.co/", source: "The Block", publishedAt: new Date(Date.now()-8*60*60*1000).toISOString(),
     category: "crypto"
   },
 ];
